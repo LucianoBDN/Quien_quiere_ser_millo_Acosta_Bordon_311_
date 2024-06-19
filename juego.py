@@ -9,15 +9,15 @@ pygame.init()
 
 ventana = pygame.display.set_mode((DIMENSION_VENTANA))
 pygame.display.set_caption("¿Quién quiere ser millonario?")
-icono = pygame.image.load(r"pygame\segundo_parcial\logos\utnavellaneda.jpg")
+icono = pygame.image.load(r"logos\utnavellaneda.jpg")
 pygame.display.set_icon(icono)
 clock = pygame.time.Clock()
 fuente = pygame.font.SysFont("Arial",30)
 
-fondo_superficie = pygame.image.load(r"C:\Users\pioac\Desktop\recursos pygame\graficos\stage.png")
+fondo_superficie = pygame.image.load(r"graficos\stage.png")
 fondo_superficie_escalado = pygame.transform.scale(fondo_superficie,(DIMENSION_VENTANA))
 
-guido_pregunta_superficie_sin_escalar = pygame.image.load(r"C:\Users\pioac\Desktop\recursos pygame\graficos\guido_pregunta.png").convert_alpha()
+guido_pregunta_superficie_sin_escalar = pygame.image.load(r"graficos\guido_pregunta.png").convert_alpha()
 guido_pregunta_superficie = pygame.transform.scale(guido_pregunta_superficie_sin_escalar,(400,200))
 guido_pregunta_rectangulo = guido_pregunta_superficie.get_rect(center = (1000,400))
 
