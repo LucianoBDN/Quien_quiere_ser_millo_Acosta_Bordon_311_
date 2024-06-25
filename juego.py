@@ -36,6 +36,7 @@ guido_static_rectangulo = guido_static_superficie.get_rect(center = (1000,400))
 
 boton_jugar = pygame.Rect(560,300,150,50)
 boton_salir = pygame.Rect(560,400,150,50)
+boton_a = pygame.Rect(560,400,150,50)
 
 
 preguntas = cargar_archivo_json(r"datos\preguntas_y_respuestas.json")
@@ -63,7 +64,7 @@ while flag == True:
                 ventana = cambiar_escena_jugar(ventana,DIMENSION_VENTANA, r"graficos\preguntas_escena.jpg")
                 ventana = cambiar_status_presentador(ventana, (400,200), r"graficos\guido_pregunta.png", (1000, 400))
                 menu_principal = False
-
+                
             elif boton_salir.collidepoint(pygame.mouse.get_pos()):
                 flag = False
     
