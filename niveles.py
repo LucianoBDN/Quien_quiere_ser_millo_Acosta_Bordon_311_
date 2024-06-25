@@ -17,5 +17,3 @@ def seleccionar_pregunta(lista_preguntas: list):
     for pregunta in lista_preguntas:
         if pregunta['id'] == buscar_pregunta_por_id:
             return pregunta
-
-

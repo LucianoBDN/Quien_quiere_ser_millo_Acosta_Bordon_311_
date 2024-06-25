@@ -2,6 +2,7 @@ import pygame
 from escenas import *
 from boton import *
 from datos import *
+from texto import *
 
 
 ANCHO_VENTANA = 1280
@@ -24,13 +25,14 @@ icono = pygame.image.load(r"logos\utnavellaneda.jpg")
 pygame.display.set_icon(icono)
 clock = pygame.time.Clock()
 fuente = pygame.font.SysFont("Arial",30)
+fuente_titulo = pygame.font.Font(r"fuentes\Audiowide.ttf", 40)
 
 fondo_superficie = pygame.image.load(r"graficos\stage.png")
 fondo_superficie_escalado = pygame.transform.scale(fondo_superficie,(DIMENSION_VENTANA))
 
 guido_static_superficie = pygame.image.load(r"graficos\guido_static.png").convert_alpha()
 guido_static_superficie = pygame.transform.flip(guido_static_superficie, True, False)
-guido_static_rectangulo = guido_static_superficie.get_rect(center = (1000,400))
+guido_static_rectangulo = guido_static_superficie.get_rect(center = (1050,400))
 
 
 
@@ -51,7 +53,8 @@ while flag == True:
         ventana.blit(guido_static_superficie, guido_static_rectangulo)
         pintar_boton(ventana, boton_jugar, AZUL_CLARO, AZUL_OSCURO, "Jugar", BLANCO, fuente)
         pintar_boton(ventana, boton_salir, AZUL_CLARO, AZUL_OSCURO, "Salir", BLANCO, fuente)
-
+        escribir_texto(ventana, "Quien quiere ser millonario?", fuente_titulo, BLANCO, 310, 100)
+    
     for evento in lista_eventos:
 
         if evento.type == pygame.QUIT:
@@ -73,6 +76,6 @@ while flag == True:
     posicion_mouse = pygame.mouse.get_pos()
     
     pygame.display.update()
-    clock.tick(30)
+    clock.tick(60)
 
 pygame.quit()
