@@ -12,8 +12,11 @@ def nivel_pregunta(monto_jugador: int, lista_preguntas):
 
 def seleccionar_pregunta(lista_preguntas: list):
 
-    buscar_pregunta_por_id = random.randint(1, 375)
+    buscar_pregunta_por_id = random.randint(1, 25)
 
     for pregunta in lista_preguntas:
         if pregunta['id'] == buscar_pregunta_por_id:
-            return pregunta
+            return pregunta['pregunta']
+        
+
+

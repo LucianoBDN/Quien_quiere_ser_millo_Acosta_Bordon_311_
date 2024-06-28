@@ -3,7 +3,7 @@ from escenas import *
 from boton import *
 from datos import *
 from texto import *
-
+from niveles import *
 
 ANCHO_VENTANA = 1280
 ALTO_VENTANA = 720
@@ -66,6 +66,7 @@ while flag == True:
                 print("Click")
                 ventana = cambiar_escena_jugar(ventana,DIMENSION_VENTANA, r"graficos\preguntas_escena.jpg")
                 ventana = cambiar_status_presentador(ventana, (400,200), r"graficos\guido_pregunta.png", (1000, 400))
+                escribir_texto(ventana, seleccionar_pregunta(preguntas), fuente_titulo, BLANCO, 246,324 )
                 menu_principal = False
                 
             elif boton_salir.collidepoint(pygame.mouse.get_pos()):
