@@ -3,9 +3,12 @@ import random
 from texto import *
 
 # Definir la función comodin_publico_barras
-def dibujar_barras(ventana, color, x, y, width):
 
-    height = random.randint(30, 100)
+numero_aleatorio = lambda inicio, fin: random.randint(inicio, fin)
+
+
+def dibujar_barras(ventana, color, x, y, width, height):
+
     y -= height
     rectangulo = pygame.draw.rect(ventana, color, (x, y, width, height))
 
@@ -22,13 +25,27 @@ def mostrar_barras(ventana, color, x, y, width, fuente, color_txt):
 
     lista_alturas_barras = []
 
-    for opcion in opciones:
-        altura = dibujar_barras(ventana, color, x, y, width)
-        lista_alturas_barras.append(altura)
-        escribir_texto(ventana, opcion ,fuente, color_txt, x_texto, y_texto)
+    x_porcentaje = x + 18
+    y_porcentaje = y - 40
 
+    for opcion in opciones:
+        height = numero_aleatorio(30,100)
+        dibujar_barras(ventana, color, x, y, width, height)
+        escribir_texto(ventana, opcion ,fuente, color_txt, x_texto, y_texto)
+        lista_alturas_barras.append(height)
+    
         x_texto += 60
         x += 60
+
+        
+
+    for porcentaje in lista_alturas_barras:
+        escribir_texto(ventana, f"{porcentaje}%" ,fuente, color_txt, x_porcentaje, y_porcentaje)
+        x_porcentaje += 60
+        
+
+    
+
 
 def porcentaje_barras(valores:list):
 
