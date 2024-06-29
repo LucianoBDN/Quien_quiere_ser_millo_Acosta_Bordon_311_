@@ -13,6 +13,7 @@ DIMENSION_VENTANA = (ANCHO_VENTANA, ALTO_VENTANA)
 BLANCO = (255,255,255)
 AZUL_CLARO = (28,99,162)
 AZUL_OSCURO = (18,79,134)
+NEGRO = (0,0,0)
 
 
 pygame.init()
@@ -79,7 +80,7 @@ while flag == True:
 
         elif evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1:
             if boton_jugar.collidepoint(pygame.mouse.get_pos()):
-                ventana = cambiar_escena_jugar(ventana,DIMENSION_VENTANA, r"graficos\fondo_azul_oscuro.jpg")
+                ventana = agregar_img_a_escena(ventana,DIMENSION_VENTANA, r"graficos\fondo_azul_oscuro.jpg", (0,0))
                 ventana = cambiar_status_presentador(ventana, (400,200), r"graficos\guido_pregunta.png", (130, 5))
                 pregunta = seleccionar_pregunta(15, lista_preguntas)
                 ventana.blit(preguntas_superficie, preguntas_rectangulo)
@@ -90,6 +91,7 @@ while flag == True:
                 ventana.blit(boton_superficie_d, boton_rectangulo_d)
                 ventana.blit(banco_superficie, banco_rectangulo)
                 mostrar_respuestas(ventana, fuente_arial_veinte, pregunta['posibles_respuestas'], 65, 415)
+                mostrar_barras(ventana,BLANCO,rect_x,rect_y,rect_width, fuente_arial_quince, NEGRO)
                 #mostrar_barras(ventana, BLANCO, rect_x, rect_y, rect_width)
                 menu_principal = False
                 
