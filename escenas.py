@@ -15,6 +15,7 @@ def cambiar_status_presentador(ventana, dimension_reescalado: tuple, path: str, 
 
     presentador_img_sin_escalar = pygame.image.load(path).convert_alpha()
     presentador_img_reescalada = pygame.transform.scale(presentador_img_sin_escalar,dimension_reescalado)
+    presentador_img_reescalada = pygame.transform.flip(presentador_img_reescalada, True, False)
 
     ventana.blit(presentador_img_reescalada, posicion)
 

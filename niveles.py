@@ -1,22 +1,20 @@
 import random
 
 
-def nivel_pregunta(monto_jugador: int, lista_preguntas):
+def seleccionar_pregunta(nivel_jugador: int, preguntas: list[dict]):
 
-    pregunta_seleccionada = seleccionar_pregunta(lista_preguntas)
+    nivel_pregunta_random = 0
+    
+    while nivel_pregunta_random != nivel_jugador:
+    
+        id_pregunta_random = random.randint(1, 375)
 
-    while pregunta_seleccionada['monto_premio'] != monto_jugador:
-         pregunta_seleccionada = seleccionar_pregunta(lista_preguntas)
-            
-    return pregunta_seleccionada
+        for pregunta in preguntas:
 
-def seleccionar_pregunta(lista_preguntas: list):
+            if id_pregunta_random == pregunta['id']:
 
-    buscar_pregunta_por_id = random.randint(1, 25)
+                nivel_pregunta_random = pregunta['nivel']
 
-    for pregunta in lista_preguntas:
-        if pregunta['id'] == buscar_pregunta_por_id:
-            return pregunta['pregunta']
-        
+                pregunta_final = pregunta
 
-
+    return pregunta_final

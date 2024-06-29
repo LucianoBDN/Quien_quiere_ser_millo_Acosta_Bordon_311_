@@ -1,4 +1,5 @@
 import pygame
+from texto import *
 
 def pintar_boton(ventana, boton, color_boton_estatico, color_boton_seleccionado, texto_boton, color_texto, fuente):
 
