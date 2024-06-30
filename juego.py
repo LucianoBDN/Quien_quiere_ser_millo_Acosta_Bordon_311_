@@ -5,6 +5,7 @@ from datos import *
 from texto import *
 from niveles import *
 from comodines import *
+from test import *
 
 ANCHO_VENTANA = 1280
 ALTO_VENTANA = 720
@@ -39,19 +40,26 @@ boton_jugar = pygame.Rect(560,300,150,50)
 boton_salir = pygame.Rect(560,400,150,50)
 
 boton_superficie = pygame.image.load(r"graficos\boton_respuesta.png").convert_alpha()
-boton_superficie_a = pygame.transform.scale(boton_superficie,(550,200))
-boton_superficie_b = pygame.transform.scale(boton_superficie,(550,200))
-boton_superficie_c = pygame.transform.scale(boton_superficie,(550,200))
-boton_superficie_d = pygame.transform.scale(boton_superficie,(550,200))
-boton_rectangulo_a = boton_superficie_a.get_rect(topleft = (5,370))
-boton_rectangulo_b = boton_superficie_b.get_rect(topleft = (505,370))
-boton_rectangulo_c = boton_superficie_c.get_rect(topleft = (5,530))
-boton_rectangulo_d = boton_superficie_d.get_rect(topleft = (505,530))
+boton_a_superficie = pygame.transform.scale(boton_superficie,(550,200))
+boton_b_superficie = pygame.transform.scale(boton_superficie,(550,200))
+boton_c_superficie = pygame.transform.scale(boton_superficie,(550,200))
+boton_d_superficie = pygame.transform.scale(boton_superficie,(550,200))
+boton_a_rectangulo = boton_a_superficie.get_rect(topleft = (5,370))
+boton_b_rectangulo = boton_b_superficie.get_rect(topleft = (505,370))
+boton_c_rectangulo = boton_c_superficie.get_rect(topleft = (5,530))
+boton_d_rectangulo = boton_d_superficie.get_rect(topleft = (505,530))
 preguntas_superficie = pygame.image.load(r"graficos\boton_respuesta.png").convert_alpha()
 preguntas_superficie = pygame.transform.scale(boton_superficie,(850,300))
 preguntas_rectangulo = preguntas_superficie.get_rect(topleft = (100,150))
 banco_superficie = pygame.image.load(r"graficos\boton_banco.png").convert_alpha()
-banco_rectangulo = banco_superficie.get_rect(center = (620,100))
+banco_superficie = pygame.transform.scale(banco_superficie,(250,350))
+banco_rectangulo = banco_superficie.get_rect(center = (100,70))
+boton_rojo_superficie = pygame.image.load(r"graficos\boton_rojo.png").convert_alpha()
+boton_rojo_superficie = pygame.transform.scale(boton_rojo_superficie,(550,200))
+boton_a_rojo_rectangulo = boton_rojo_superficie.get_rect(topleft = (5,370))
+boton_b_rojo_rectangulo = boton_rojo_superficie.get_rect(topleft = (505,370))
+boton_c_rojo_rectangulo = boton_rojo_superficie.get_rect(topleft = (5,530))
+boton_d_rojo_rectangulo = boton_rojo_superficie.get_rect(topleft = (505,530))
 
 lista_preguntas = cargar_archivo_json(r"datos\preguntas_y_respuestas.json")
 
@@ -61,18 +69,24 @@ rect_y = 500  # Altura mayor que el ancho
 rect_width = 50
 rect_height = 40  # Altura mayor que el ancho
 
+switch_boton_a = True
+switch_boton_b = True
+switch_boton_c = True
+switch_boton_d = True
 menu_principal = True
 flag = True
-while flag == True:
+
+while flag:
 
     lista_eventos = pygame.event.get()
-    if menu_principal == True:
+    
+    if menu_principal:
         ventana.blit(fondo_superficie_escalado,(0,0))
         ventana.blit(guido_static_superficie, guido_static_rectangulo)
         pintar_boton(ventana, boton_jugar, AZUL_CLARO, AZUL_OSCURO, "Jugar", BLANCO, fuente_arial_treinta)
         pintar_boton(ventana, boton_salir, AZUL_CLARO, AZUL_OSCURO, "Salir", BLANCO, fuente_arial_treinta)
         escribir_texto(ventana, "Quien quiere ser millonario?", fuente_titulo, BLANCO, 310, 100)
-    
+
     for evento in lista_eventos:
 
         if evento.type == pygame.QUIT:
@@ -80,24 +94,74 @@ while flag == True:
 
         elif evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1:
             if boton_jugar.collidepoint(pygame.mouse.get_pos()):
-                ventana = agregar_img_a_escena(ventana,DIMENSION_VENTANA, r"graficos\fondo_azul_oscuro.jpg", (0,0))
-                ventana = cambiar_status_presentador(ventana, (400,200), r"graficos\guido_pregunta.png", (130, 5))
-                pregunta = seleccionar_pregunta(15, lista_preguntas)
-                ventana.blit(preguntas_superficie, preguntas_rectangulo)
-                escribir_texto(ventana, pregunta['pregunta'], fuente_arial_treinta, BLANCO, 195,265)
-                ventana.blit(boton_superficie_a, boton_rectangulo_a)
-                ventana.blit(boton_superficie_b, boton_rectangulo_b)
-                ventana.blit(boton_superficie_c, boton_rectangulo_c)
-                ventana.blit(boton_superficie_d, boton_rectangulo_d)
-                ventana.blit(banco_superficie, banco_rectangulo)
-                mostrar_respuestas(ventana, fuente_arial_veinte, pregunta['posibles_respuestas'], 65, 415)
-                mostrar_barras(ventana,BLANCO,rect_x,rect_y,rect_width, fuente_arial_quince, NEGRO)
-                #mostrar_barras(ventana, BLANCO, rect_x, rect_y, rect_width)
-                menu_principal = False
-                
+                menu_principal = not menu_principal
+                pregunta = seleccionar_pregunta(1, lista_preguntas)
+                switch_boton_a = True
+                switch_boton_b = True
+                switch_boton_c = True
+                switch_boton_d = True
             elif boton_salir.collidepoint(pygame.mouse.get_pos()):
                 flag = False
-    
+                
+    if menu_principal == False:        
+                
+        ventana = agregar_img_a_escena(ventana, DIMENSION_VENTANA, r"graficos\fondo_azul_oscuro.jpg", (0,0))
+        ventana = cambiar_status_presentador(ventana, (400,200), r"graficos\guido_pregunta.png", (130, 5))
+        ventana.blit(preguntas_superficie, preguntas_rectangulo)
+        escribir_texto(ventana, pregunta['pregunta'], fuente_arial_treinta, BLANCO, 195,265)
+                
+        if switch_boton_a:
+            ventana.blit(boton_a_superficie, boton_a_rectangulo)
+        else:
+            ventana.blit(boton_rojo_superficie, boton_a_rojo_rectangulo)
+
+        if switch_boton_b:
+            ventana.blit(boton_b_superficie, boton_b_rectangulo)
+        else:
+            ventana.blit(boton_rojo_superficie, boton_b_rojo_rectangulo)
+
+        if switch_boton_c:
+            ventana.blit(boton_c_superficie, boton_c_rectangulo)
+        else:
+            ventana.blit(boton_rojo_superficie, boton_c_rojo_rectangulo)
+
+        if switch_boton_d:
+            ventana.blit(boton_d_superficie, boton_d_rectangulo)
+        else:
+            ventana.blit(boton_rojo_superficie, boton_d_rojo_rectangulo)
+
+        ventana.blit(banco_superficie, banco_rectangulo)
+        mostrar_respuestas(ventana, fuente_arial_veinte, pregunta['posibles_respuestas'], 65, 415)
+
+        for evento in lista_eventos:
+            if evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1:
+                if boton_a_rectangulo.collidepoint(pygame.mouse.get_pos()) and switch_boton_a:
+                    if pregunta['posibles_respuestas'][0] == pregunta['respuesta_correcta']:
+                        print("COOORRECTOOOOOOO")
+                    else:
+                        switch_boton_a = not switch_boton_a
+                        print("BURROOOOOOOO")
+
+                elif boton_b_rectangulo.collidepoint(pygame.mouse.get_pos()) and switch_boton_b:
+                    if pregunta['posibles_respuestas'][1] == pregunta['respuesta_correcta']:
+                        print("COOORRECTOOOOOOO")
+                    else:
+                        switch_boton_b = not switch_boton_b
+                        print("BURROOOOOOOO")
+
+                elif boton_c_rectangulo.collidepoint(pygame.mouse.get_pos()) and switch_boton_c:
+                    if pregunta['posibles_respuestas'][2] == pregunta['respuesta_correcta']:
+                        print("COOORRECTOOOOOOO")
+                    else:
+                        switch_boton_c = not switch_boton_c
+                        print("BURROOOOOOOO")
+
+                elif boton_d_rectangulo.collidepoint(pygame.mouse.get_pos()) and switch_boton_d:
+                    if pregunta['posibles_respuestas'][3] == pregunta['respuesta_correcta']:
+                        print("COOORRECTOOOOOOO")
+                    else:
+                        switch_boton_d = not switch_boton_d
+                        print("BURROOOOOOOO")
     
     pygame.display.update()
     clock.tick(60)
