@@ -76,6 +76,10 @@ switch_boton_d = True
 menu_principal = True
 flag = True
 
+empieza_de_cero = True
+
+tiempo = 10
+
 while flag:
 
     lista_eventos = pygame.event.get()
@@ -86,7 +90,10 @@ while flag:
         pintar_boton(ventana, boton_jugar, AZUL_CLARO, AZUL_OSCURO, "Jugar", BLANCO, fuente_arial_treinta)
         pintar_boton(ventana, boton_salir, AZUL_CLARO, AZUL_OSCURO, "Salir", BLANCO, fuente_arial_treinta)
         escribir_texto(ventana, "Quien quiere ser millonario?", fuente_titulo, BLANCO, 310, 100)
+        
 
+
+        
     for evento in lista_eventos:
 
         if evento.type == pygame.QUIT:
@@ -94,8 +101,9 @@ while flag:
 
         elif evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1:
             if boton_jugar.collidepoint(pygame.mouse.get_pos()):
+                
                 menu_principal = not menu_principal
-                pregunta = seleccionar_pregunta(1, lista_preguntas)
+                pregunta = seleccionar_pregunta(7, lista_preguntas)
                 switch_boton_a = True
                 switch_boton_b = True
                 switch_boton_c = True
@@ -131,6 +139,12 @@ while flag:
             ventana.blit(boton_rojo_superficie, boton_d_rojo_rectangulo)
 
         ventana.blit(banco_superficie, banco_rectangulo)
+        if empieza_de_cero != False:
+            tiempo = cronometro(10)
+            escribir_texto(ventana, f"{tiempo}" , fuente_titulo, BLANCO, 640, 50)
+        if tiempo == None:
+            menu_principal = True
+            empieza_de_cero = True
         mostrar_respuestas(ventana, fuente_arial_veinte, pregunta['posibles_respuestas'], 65, 415)
 
         for evento in lista_eventos:
