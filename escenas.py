@@ -1,12 +1,12 @@
 import pygame
 
 
-def agregar_img_a_escena(ventana, DIMENSIONES: tuple, path_escena: str, posicion: tuple[int,int] ):
+def agregar_img_a_escena(ventana, DIMENSIONES: tuple, path_imagen: str, posicion: tuple[int,int] ):
 
-    fondo_superficie = pygame.image.load(path_escena)
-    fondo_superficie_escalado = pygame.transform.scale(fondo_superficie,(DIMENSIONES))
+    imagen_superficie = pygame.image.load(path_imagen)
+    imagen_superficie_escalado = pygame.transform.scale(imagen_superficie,(DIMENSIONES))
     
-    ventana.blit(fondo_superficie_escalado, posicion)
+    ventana.blit(imagen_superficie_escalado, posicion)
 
     return ventana
 

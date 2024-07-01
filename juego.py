@@ -6,6 +6,7 @@ from texto import *
 from niveles import *
 from comodines import *
 from test import *
+from cronometro import Cronometro
 
 ANCHO_VENTANA = 1280
 ALTO_VENTANA = 720
@@ -60,6 +61,12 @@ boton_a_rojo_rectangulo = boton_rojo_superficie.get_rect(topleft = (5,370))
 boton_b_rojo_rectangulo = boton_rojo_superficie.get_rect(topleft = (505,370))
 boton_c_rojo_rectangulo = boton_rojo_superficie.get_rect(topleft = (5,530))
 boton_d_rojo_rectangulo = boton_rojo_superficie.get_rect(topleft = (505,530))
+boton_verde_superficie = pygame.image.load(r"graficos\boton_verde.png").convert_alpha()
+boton_verde_superficie = pygame.transform.scale(boton_verde_superficie,(550,200))
+boton_a_verde_rectangulo = boton_verde_superficie.get_rect(topleft = (5,370))
+boton_b_verde_rectangulo = boton_verde_superficie.get_rect(topleft = (505,370))
+boton_c_verde_rectangulo = boton_verde_superficie.get_rect(topleft = (5,530))
+boton_d_verde_rectangulo = boton_verde_superficie.get_rect(topleft = (505,530))
 
 lista_preguntas = cargar_archivo_json(r"datos\preguntas_y_respuestas.json")
 
@@ -76,9 +83,7 @@ switch_boton_d = True
 menu_principal = True
 flag = True
 
-empieza_de_cero = True
-
-tiempo = 10
+cronometro = Cronometro(10)
 
 while flag:
 
@@ -104,10 +109,19 @@ while flag:
                 
                 menu_principal = not menu_principal
                 pregunta = seleccionar_pregunta(7, lista_preguntas)
+                cronometro.iniciar()
                 switch_boton_a = True
                 switch_boton_b = True
                 switch_boton_c = True
                 switch_boton_d = True
+                switch_boton_rojo_a = False
+                switch_boton_rojo_b = False
+                switch_boton_rojo_c = False
+                switch_boton_rojo_d = False
+                switch_boton_verde_a = False
+                switch_boton_verde_b = False
+                switch_boton_verde_c = False
+                switch_boton_verde_d = False
             elif boton_salir.collidepoint(pygame.mouse.get_pos()):
                 flag = False
                 
@@ -120,61 +134,80 @@ while flag:
                 
         if switch_boton_a:
             ventana.blit(boton_a_superficie, boton_a_rectangulo)
-        else:
+        elif switch_boton_rojo_a:
             ventana.blit(boton_rojo_superficie, boton_a_rojo_rectangulo)
+        elif switch_boton_verde_a:
+            ventana.blit(boton_verde_superficie, boton_a_verde_rectangulo)
 
         if switch_boton_b:
             ventana.blit(boton_b_superficie, boton_b_rectangulo)
-        else:
+        elif switch_boton_rojo_b:
             ventana.blit(boton_rojo_superficie, boton_b_rojo_rectangulo)
+        elif switch_boton_verde_b:
+            ventana.blit(boton_verde_superficie, boton_b_verde_rectangulo)
+        
 
         if switch_boton_c:
             ventana.blit(boton_c_superficie, boton_c_rectangulo)
-        else:
+        elif switch_boton_rojo_c:
             ventana.blit(boton_rojo_superficie, boton_c_rojo_rectangulo)
+        elif switch_boton_verde_c:
+            ventana.blit(boton_verde_superficie, boton_c_verde_rectangulo)
 
         if switch_boton_d:
             ventana.blit(boton_d_superficie, boton_d_rectangulo)
-        else:
+        elif switch_boton_rojo_d:
             ventana.blit(boton_rojo_superficie, boton_d_rojo_rectangulo)
+        elif switch_boton_verde_d:
+            ventana.blit(boton_verde_superficie, boton_d_verde_rectangulo)
 
         ventana.blit(banco_superficie, banco_rectangulo)
-        if empieza_de_cero != False:
-            tiempo = cronometro(10)
-            escribir_texto(ventana, f"{tiempo}" , fuente_titulo, BLANCO, 640, 50)
-        if tiempo == None:
-            menu_principal = True
-            empieza_de_cero = True
+        
         mostrar_respuestas(ventana, fuente_arial_veinte, pregunta['posibles_respuestas'], 65, 415)
+
+        tiempo_restante = cronometro.actualizar()
+        escribir_texto(ventana, f"{tiempo_restante}" , fuente_titulo, BLANCO, 640, 50)
 
         for evento in lista_eventos:
             if evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1:
                 if boton_a_rectangulo.collidepoint(pygame.mouse.get_pos()) and switch_boton_a:
                     if pregunta['posibles_respuestas'][0] == pregunta['respuesta_correcta']:
+                        switch_boton_a = not switch_boton_a
+                        switch_boton_verde_a = not switch_boton_verde_a
                         print("COOORRECTOOOOOOO")
                     else:
                         switch_boton_a = not switch_boton_a
+                        switch_boton_rojo_a = not switch_boton_rojo_a
                         print("BURROOOOOOOO")
 
                 elif boton_b_rectangulo.collidepoint(pygame.mouse.get_pos()) and switch_boton_b:
                     if pregunta['posibles_respuestas'][1] == pregunta['respuesta_correcta']:
+                        switch_boton_b = not switch_boton_b
+                        switch_boton_verde_b = not switch_boton_verde_b
                         print("COOORRECTOOOOOOO")
                     else:
                         switch_boton_b = not switch_boton_b
+                        switch_boton_rojo_b = not switch_boton_rojo_b
                         print("BURROOOOOOOO")
 
                 elif boton_c_rectangulo.collidepoint(pygame.mouse.get_pos()) and switch_boton_c:
                     if pregunta['posibles_respuestas'][2] == pregunta['respuesta_correcta']:
+                        switch_boton_c = not switch_boton_c
+                        switch_boton_verde_c = not switch_boton_verde_c
                         print("COOORRECTOOOOOOO")
                     else:
                         switch_boton_c = not switch_boton_c
+                        switch_boton_rojo_c = not switch_boton_rojo_c
                         print("BURROOOOOOOO")
 
                 elif boton_d_rectangulo.collidepoint(pygame.mouse.get_pos()) and switch_boton_d:
                     if pregunta['posibles_respuestas'][3] == pregunta['respuesta_correcta']:
+                        switch_boton_d = not switch_boton_d
+                        switch_boton_verde_d = not switch_boton_verde_d
                         print("COOORRECTOOOOOOO")
                     else:
                         switch_boton_d = not switch_boton_d
+                        switch_boton_rojo_d = not switch_boton_rojo_d
                         print("BURROOOOOOOO")
     
     pygame.display.update()
