@@ -62,5 +62,29 @@ def porcentaje_barras(valores:list):
     return porcentajes
 
 
-def palabra_clave():
-    pass
+def palabra_clave(ventana,pista: str, fuente, color_texto, x, y):
+
+    pista = "Puede ser " + pista
+
+    escribir_texto(ventana, pista , fuente, color_texto, x, y)
+
+
+
+
+def comodin_cincuenta(lista_respuestas: list, respuesta_correcta) :
+
+    lista_dos_respuesta = []
+
+    lista_dos_respuesta.append(respuesta_correcta)
+
+    for respuesta in lista_respuestas:
+        if respuesta != respuesta_correcta:
+            lista_dos_respuesta.append(respuesta)
+            break
+    
+
+    
+    return lista_dos_respuesta 
+
+
+
