@@ -3,10 +3,10 @@ import pygame
 
 def agregar_img_a_escena(ventana, DIMENSIONES: tuple, path_imagen: str, posicion: tuple[int,int] ):
 
-    imagen_superficie = pygame.image.load(path_imagen)
-    imagen_superficie_escalado = pygame.transform.scale(imagen_superficie,(DIMENSIONES))
-    
-    ventana.blit(imagen_superficie_escalado, posicion)
+    superficie = pygame.image.load(path_imagen)
+    superficie_escalado = pygame.transform.scale(superficie,(DIMENSIONES))
+    superficie_rectangulo = superficie_escalado.get_rect(topleft=posicion)
+    ventana.blit(superficie_escalado, posicion)
 
     return ventana
 

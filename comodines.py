@@ -62,4 +62,5 @@ def porcentaje_barras(valores:list):
     return porcentajes
 
 
-#print(porcentaje_barras([50, 35, 47, 66]))
+def palabra_clave():
+    pass

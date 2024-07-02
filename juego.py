@@ -7,7 +7,7 @@ from niveles import *
 from comodines import *
 from test import *
 from cronometro import Cronometro
-
+from botones import Boton
 ANCHO_VENTANA = 1280
 ALTO_VENTANA = 720
 DIMENSION_VENTANA = (ANCHO_VENTANA, ALTO_VENTANA)
@@ -83,32 +83,38 @@ switch_boton_d = True
 menu_principal = True
 flag = True
 
-cronometro = Cronometro(10)
+ 
+cronometro = Cronometro(11)
 
 while flag:
 
     lista_eventos = pygame.event.get()
     
-    if menu_principal:
-        ventana.blit(fondo_superficie_escalado,(0,0))
-        ventana.blit(guido_static_superficie, guido_static_rectangulo)
-        pintar_boton(ventana, boton_jugar, AZUL_CLARO, AZUL_OSCURO, "Jugar", BLANCO, fuente_arial_treinta)
-        pintar_boton(ventana, boton_salir, AZUL_CLARO, AZUL_OSCURO, "Salir", BLANCO, fuente_arial_treinta)
-        escribir_texto(ventana, "Quien quiere ser millonario?", fuente_titulo, BLANCO, 310, 100)
-        
-
-
-        
+    
     for evento in lista_eventos:
+        
+        if menu_principal:
+            ventana.blit(fondo_superficie_escalado,(0,0))
+            ventana.blit(guido_static_superficie, guido_static_rectangulo)
+            escribir_texto(ventana, "Quien quiere ser millonario?", fuente_titulo, BLANCO, 310, 100)
+
+        boton_jugar = Boton(560,300,150,50, AZUL_CLARO, AZUL_OSCURO, AZUL_OSCURO, "Jugar", fuente_arial_treinta)
+        Boton.manejar_evento(boton_jugar, evento)
+        Boton.dibujar(boton_jugar, ventana,BLANCO)
+        boton_salir = Boton(560,400,150,50, AZUL_CLARO, AZUL_OSCURO, AZUL_OSCURO, "Salir", fuente_arial_treinta)
+       
+        Boton.manejar_evento(boton_salir, evento)
+        Boton.dibujar(boton_salir, ventana, BLANCO)
 
         if evento.type == pygame.QUIT:
             flag = False
 
-        elif evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1:
-            if boton_jugar.collidepoint(pygame.mouse.get_pos()):
+        elif evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1 and menu_principal != False:
+
+            if boton_jugar.rect.collidepoint(pygame.mouse.get_pos()):
                 
                 menu_principal = not menu_principal
-                pregunta = seleccionar_pregunta(7, lista_preguntas)
+                pregunta = seleccionar_pregunta(13, lista_preguntas)
                 cronometro.iniciar()
                 switch_boton_a = True
                 switch_boton_b = True
@@ -122,10 +128,11 @@ while flag:
                 switch_boton_verde_b = False
                 switch_boton_verde_c = False
                 switch_boton_verde_d = False
-            elif boton_salir.collidepoint(pygame.mouse.get_pos()):
+
+            elif boton_salir.rect.collidepoint(pygame.mouse.get_pos()) and menu_principal != False:
                 flag = False
                 
-    if menu_principal == False:        
+    if menu_principal == False :        
                 
         ventana = agregar_img_a_escena(ventana, DIMENSION_VENTANA, r"graficos\fondo_azul_oscuro.jpg", (0,0))
         ventana = cambiar_status_presentador(ventana, (400,200), r"graficos\guido_pregunta.png", (130, 5))
@@ -170,12 +177,18 @@ while flag:
 
         for evento in lista_eventos:
             if evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1:
+
                 if boton_a_rectangulo.collidepoint(pygame.mouse.get_pos()) and switch_boton_a:
+                    
                     if pregunta['posibles_respuestas'][0] == pregunta['respuesta_correcta']:
+                        
+        
                         switch_boton_a = not switch_boton_a
                         switch_boton_verde_a = not switch_boton_verde_a
                         print("COOORRECTOOOOOOO")
                     else:
+                        
+                        
                         switch_boton_a = not switch_boton_a
                         switch_boton_rojo_a = not switch_boton_rojo_a
                         print("BURROOOOOOOO")

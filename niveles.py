@@ -19,3 +19,5 @@ def seleccionar_pregunta(nivel_jugador: int, preguntas: list[dict]):
                 pregunta_final = pregunta
 
     return pregunta_final
+
+
