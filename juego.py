@@ -5,18 +5,15 @@ from datos import *
 from texto import *
 from niveles import *
 from comodines import *
-from test import *
 from cronometro import Cronometro
 from botones import Boton
+from presentador import Presentador
+from fondo import Fondo
+from banco import Banco
+
 ANCHO_VENTANA = 1280
 ALTO_VENTANA = 720
 DIMENSION_VENTANA = (ANCHO_VENTANA, ALTO_VENTANA)
-
-BLANCO = (255,255,255)
-AZUL_CLARO = (28,99,162)
-AZUL_OSCURO = (18,79,134)
-NEGRO = (0,0,0)
-
 
 pygame.init()
 
@@ -30,51 +27,7 @@ fuente_arial_veinte = pygame.font.SysFont("Arial",20, bold=True)
 fuente_arial_treinta = pygame.font.SysFont("Arial",30)
 fuente_titulo = pygame.font.Font(r"fuentes\Audiowide.ttf", 40)
 
-fondo_superficie = pygame.image.load(r"graficos\stage.png")
-fondo_superficie_escalado = pygame.transform.scale(fondo_superficie,(DIMENSION_VENTANA))
-
-guido_static_superficie = pygame.image.load(r"graficos\guido_static.png").convert_alpha()
-guido_static_superficie = pygame.transform.flip(guido_static_superficie, True, False)
-guido_static_rectangulo = guido_static_superficie.get_rect(center = (1050,400))
-
-boton_jugar = pygame.Rect(560,300,150,50)
-boton_salir = pygame.Rect(560,400,150,50)
-
-boton_superficie = pygame.image.load(r"graficos\boton_respuesta.png").convert_alpha()
-boton_a_superficie = pygame.transform.scale(boton_superficie,(550,200))
-boton_b_superficie = pygame.transform.scale(boton_superficie,(550,200))
-boton_c_superficie = pygame.transform.scale(boton_superficie,(550,200))
-boton_d_superficie = pygame.transform.scale(boton_superficie,(550,200))
-boton_a_rectangulo = boton_a_superficie.get_rect(topleft = (5,370))
-boton_b_rectangulo = boton_b_superficie.get_rect(topleft = (505,370))
-boton_c_rectangulo = boton_c_superficie.get_rect(topleft = (5,530))
-boton_d_rectangulo = boton_d_superficie.get_rect(topleft = (505,530))
-preguntas_superficie = pygame.image.load(r"graficos\boton_respuesta.png").convert_alpha()
-preguntas_superficie = pygame.transform.scale(boton_superficie,(850,300))
-preguntas_rectangulo = preguntas_superficie.get_rect(topleft = (100,150))
-banco_superficie = pygame.image.load(r"graficos\boton_banco.png").convert_alpha()
-banco_superficie = pygame.transform.scale(banco_superficie,(250,350))
-banco_rectangulo = banco_superficie.get_rect(center = (100,70))
-boton_rojo_superficie = pygame.image.load(r"graficos\boton_rojo.png").convert_alpha()
-boton_rojo_superficie = pygame.transform.scale(boton_rojo_superficie,(550,200))
-boton_a_rojo_rectangulo = boton_rojo_superficie.get_rect(topleft = (5,370))
-boton_b_rojo_rectangulo = boton_rojo_superficie.get_rect(topleft = (505,370))
-boton_c_rojo_rectangulo = boton_rojo_superficie.get_rect(topleft = (5,530))
-boton_d_rojo_rectangulo = boton_rojo_superficie.get_rect(topleft = (505,530))
-boton_verde_superficie = pygame.image.load(r"graficos\boton_verde.png").convert_alpha()
-boton_verde_superficie = pygame.transform.scale(boton_verde_superficie,(550,200))
-boton_a_verde_rectangulo = boton_verde_superficie.get_rect(topleft = (5,370))
-boton_b_verde_rectangulo = boton_verde_superficie.get_rect(topleft = (505,370))
-boton_c_verde_rectangulo = boton_verde_superficie.get_rect(topleft = (5,530))
-boton_d_verde_rectangulo = boton_verde_superficie.get_rect(topleft = (505,530))
-
 lista_preguntas = cargar_archivo_json(r"datos\preguntas_y_respuestas.json")
-
-###COMODINES###
-rect_x = 100
-rect_y = 500  # Altura mayor que el ancho
-rect_width = 50
-rect_height = 40  # Altura mayor que el ancho
 
 switch_boton_a = True
 switch_boton_b = True
@@ -94,17 +47,20 @@ while flag:
     for evento in lista_eventos:
         
         if menu_principal:
-            ventana.blit(fondo_superficie_escalado,(0,0))
-            ventana.blit(guido_static_superficie, guido_static_rectangulo)
-            escribir_texto(ventana, "Quien quiere ser millonario?", fuente_titulo, BLANCO, 310, 100)
+            fondo_menu_principal = Fondo(r"graficos\stage.png", DIMENSION_VENTANA)
+            fondo_menu_principal.dibujar_fondo(ventana, (0,0))
+            presentador_bienvenida = Presentador(r"graficos\guido_static.png",(1050,400))
+            presentador_bienvenida.voltear_imagen(presentador_bienvenida.posicion)
+            presentador_bienvenida.dibujar(ventana)
+            escribir_texto(ventana, "Quien quiere ser millonario?", fuente_titulo, (255,255,255), 310, 100)
 
-        boton_jugar = Boton(560,300,150,50, AZUL_CLARO, AZUL_OSCURO, AZUL_OSCURO, "Jugar", fuente_arial_treinta)
+        boton_jugar = Boton(560,300,150,50, (28,99,162), (18,79,134), (18,79,134), "Jugar", fuente_arial_treinta)
         Boton.manejar_evento(boton_jugar, evento)
-        Boton.dibujar(boton_jugar, ventana,BLANCO)
-        boton_salir = Boton(560,400,150,50, AZUL_CLARO, AZUL_OSCURO, AZUL_OSCURO, "Salir", fuente_arial_treinta)
+        Boton.dibujar(boton_jugar, ventana,(255,255,255))
+        boton_salir = Boton(560,400,150,50, (28,99,162), (18,79,134), (18,79,134), "Salir", fuente_arial_treinta)
        
         Boton.manejar_evento(boton_salir, evento)
-        Boton.dibujar(boton_salir, ventana, BLANCO)
+        Boton.dibujar(boton_salir, ventana, (255,255,255))
 
         if evento.type == pygame.QUIT:
             flag = False
@@ -132,53 +88,78 @@ while flag:
             elif boton_salir.rect.collidepoint(pygame.mouse.get_pos()) and menu_principal != False:
                 flag = False
                 
-    if menu_principal == False :        
+    if menu_principal == False:        
                 
         ventana = agregar_img_a_escena(ventana, DIMENSION_VENTANA, r"graficos\fondo_azul_oscuro.jpg", (0,0))
-        ventana = cambiar_status_presentador(ventana, (400,200), r"graficos\guido_pregunta.png", (130, 5))
-        ventana.blit(preguntas_superficie, preguntas_rectangulo)
-        escribir_texto(ventana, pregunta['pregunta'], fuente_arial_treinta, BLANCO, 195,265)
+        presentador_pregunta = Presentador(r"graficos\guido_pregunta.png", (340,105))
+        presentador_pregunta.escalar_imagen(presentador_pregunta.posicion, 400, 200)
+        presentador_pregunta.voltear_imagen(presentador_pregunta.posicion)
+        presentador_pregunta.dibujar(ventana)
+        pregunta_superficie = Boton(100, 150, 840, 300, (18,79,134), (18,79,134), (18,79,134), pregunta['pregunta'],fuente_arial_treinta)
+        Boton.agregar_imagen_boton(pregunta_superficie, ventana,r"graficos\boton_respuesta.png", pregunta_superficie.rect.width, pregunta_superficie.rect.height, pregunta_superficie.rect.x, pregunta_superficie.rect.y)
+        Boton.escribir_sobre_imagen(pregunta_superficie, ventana, (255,255,255))
+        banco = Banco(r"graficos\boton_banco.png",(250,350),(100,70))
+        banco.dibujar_banco(ventana)
                 
         if switch_boton_a:
-            ventana.blit(boton_a_superficie, boton_a_rectangulo)
+            boton_a = Boton(5,370,550,200,(18,79,134), (18,79,134), (18,79,134),pregunta['posibles_respuestas'][0],fuente_arial_veinte)
+            Boton.agregar_imagen_boton(boton_a, ventana, r"graficos\boton_respuesta.png", boton_a.rect.width, boton_a.rect.height, boton_a.rect.x, boton_a.rect.y)
+            Boton.escribir_sobre_imagen(boton_a, ventana, (0,0,0))    
         elif switch_boton_rojo_a:
-            ventana.blit(boton_rojo_superficie, boton_a_rojo_rectangulo)
+            boton_a_rojo = Boton(5,370,550,200,(18,79,134), (18,79,134), (18,79,134),pregunta['posibles_respuestas'][0],fuente_arial_veinte)
+            Boton.agregar_imagen_boton(boton_a_rojo, ventana, r"graficos\boton_rojo.png", boton_a_rojo.rect.width, boton_a_rojo.rect.height, boton_a_rojo.rect.x, boton_a_rojo.rect.y)
+            Boton.escribir_sobre_imagen(boton_a_rojo, ventana, (0,0,0))
         elif switch_boton_verde_a:
-            ventana.blit(boton_verde_superficie, boton_a_verde_rectangulo)
+            boton_a_verde = Boton(5,370,550,200,(18,79,134), (18,79,134), (18,79,134),pregunta['posibles_respuestas'][0],fuente_arial_veinte)
+            Boton.agregar_imagen_boton(boton_a_verde, ventana, r"graficos\boton_verde.png", boton_a_verde.rect.width, boton_a_verde.rect.height, boton_a_verde.rect.x, boton_a_verde.rect.y)
+            Boton.escribir_sobre_imagen(boton_a_verde, ventana, (0,0,0))
 
         if switch_boton_b:
-            ventana.blit(boton_b_superficie, boton_b_rectangulo)
+            boton_b = Boton(505,370,550,200,(18,79,134), (18,79,134), (18,79,134),pregunta['posibles_respuestas'][1],fuente_arial_veinte)
+            Boton.agregar_imagen_boton(boton_b, ventana, r"graficos\boton_respuesta.png", boton_b.rect.width, boton_b.rect.height, boton_b.rect.x, boton_b.rect.y)
+            Boton.escribir_sobre_imagen(boton_b, ventana, (0,0,0))    
         elif switch_boton_rojo_b:
-            ventana.blit(boton_rojo_superficie, boton_b_rojo_rectangulo)
+            boton_b_rojo = Boton(505,370,550,200,(18,79,134), (18,79,134), (18,79,134),pregunta['posibles_respuestas'][1],fuente_arial_veinte)
+            Boton.agregar_imagen_boton(boton_b_rojo, ventana, r"graficos\boton_rojo.png", boton_b_rojo.rect.width, boton_b_rojo.rect.height, boton_b_rojo.rect.x, boton_b_rojo.rect.y)
+            Boton.escribir_sobre_imagen(boton_b_rojo, ventana, (0,0,0))
         elif switch_boton_verde_b:
-            ventana.blit(boton_verde_superficie, boton_b_verde_rectangulo)
+            boton_b_verde = Boton(505,370,550,200,(18,79,134), (18,79,134), (18,79,134),pregunta['posibles_respuestas'][1],fuente_arial_veinte)
+            Boton.agregar_imagen_boton(boton_b_verde, ventana, r"graficos\boton_verde.png", boton_b_verde.rect.width, boton_b_verde.rect.height, boton_b_verde.rect.x, boton_b_verde.rect.y)
+            Boton.escribir_sobre_imagen(boton_b_verde, ventana, (0,0,0))
         
-
         if switch_boton_c:
-            ventana.blit(boton_c_superficie, boton_c_rectangulo)
+            boton_c = Boton(5,530,550,200,(18,79,134), (18,79,134), (18,79,134),pregunta['posibles_respuestas'][2],fuente_arial_veinte)
+            Boton.agregar_imagen_boton(boton_c, ventana, r"graficos\boton_respuesta.png", boton_c.rect.width, boton_c.rect.height, boton_c.rect.x, boton_c.rect.y)
+            Boton.escribir_sobre_imagen(boton_c, ventana, (0,0,0))    
         elif switch_boton_rojo_c:
-            ventana.blit(boton_rojo_superficie, boton_c_rojo_rectangulo)
+            boton_c_rojo = Boton(5,530,550,200,(18,79,134), (18,79,134), (18,79,134),pregunta['posibles_respuestas'][2],fuente_arial_veinte)
+            Boton.agregar_imagen_boton(boton_c_rojo, ventana, r"graficos\boton_rojo.png", boton_c_rojo.rect.width, boton_c_rojo.rect.height, boton_c_rojo.rect.x, boton_c_rojo.rect.y)
+            Boton.escribir_sobre_imagen(boton_c_rojo, ventana, (0,0,0))
         elif switch_boton_verde_c:
-            ventana.blit(boton_verde_superficie, boton_c_verde_rectangulo)
+            boton_c_verde = Boton(5,530,550,200,(18,79,134), (18,79,134), (18,79,134),pregunta['posibles_respuestas'][2],fuente_arial_veinte)
+            Boton.agregar_imagen_boton(boton_c_verde, ventana, r"graficos\boton_verde.png", boton_c_verde.rect.width, boton_c_verde.rect.height, boton_c_verde.rect.x, boton_c_verde.rect.y)
+            Boton.escribir_sobre_imagen(boton_c_verde, ventana, (0,0,0))
 
         if switch_boton_d:
-            ventana.blit(boton_d_superficie, boton_d_rectangulo)
+            boton_d = Boton(505,530,550,200,(18,79,134), (18,79,134), (18,79,134),pregunta['posibles_respuestas'][3],fuente_arial_veinte)
+            Boton.agregar_imagen_boton(boton_d, ventana, r"graficos\boton_respuesta.png", boton_d.rect.width, boton_d.rect.height, boton_d.rect.x, boton_d.rect.y)
+            Boton.escribir_sobre_imagen(boton_d, ventana, (0,0,0))    
         elif switch_boton_rojo_d:
-            ventana.blit(boton_rojo_superficie, boton_d_rojo_rectangulo)
+            boton_d_rojo = Boton(505,530,550,200,(18,79,134), (18,79,134), (18,79,134),pregunta['posibles_respuestas'][3],fuente_arial_veinte)
+            Boton.agregar_imagen_boton(boton_d_rojo, ventana, r"graficos\boton_rojo.png", boton_d_rojo.rect.width, boton_d_rojo.rect.height, boton_d_rojo.rect.x, boton_d_rojo.rect.y)
+            Boton.escribir_sobre_imagen(boton_d_rojo, ventana, (0,0,0))
         elif switch_boton_verde_d:
-            ventana.blit(boton_verde_superficie, boton_d_verde_rectangulo)
-
-        ventana.blit(banco_superficie, banco_rectangulo)
+            boton_d_verde = Boton(505,530,550,200,(18,79,134), (18,79,134), (18,79,134),pregunta['posibles_respuestas'][3],fuente_arial_veinte)
+            Boton.agregar_imagen_boton(boton_d_verde, ventana, r"graficos\boton_verde.png", boton_d_verde.rect.width, boton_d_verde.rect.height, boton_d_verde.rect.x, boton_d_verde.rect.y)
+            Boton.escribir_sobre_imagen(boton_d_verde, ventana, (0,0,0))
         
-        mostrar_respuestas(ventana, fuente_arial_veinte, pregunta['posibles_respuestas'], 65, 415)
-
         tiempo_restante = cronometro.actualizar()
-        escribir_texto(ventana, f"{tiempo_restante}" , fuente_titulo, BLANCO, 640, 50)
+        escribir_texto(ventana, f"{tiempo_restante}" , fuente_titulo, (255,255,255), 640, 50)
 
         for evento in lista_eventos:
             if evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1:
 
-                if boton_a_rectangulo.collidepoint(pygame.mouse.get_pos()) and switch_boton_a:
+                if boton_a.rect.collidepoint(pygame.mouse.get_pos()) and switch_boton_a:
                     
                     if pregunta['posibles_respuestas'][0] == pregunta['respuesta_correcta']:
                         
@@ -187,13 +168,12 @@ while flag:
                         switch_boton_verde_a = not switch_boton_verde_a
                         print("COOORRECTOOOOOOO")
                     else:
-                        
-                        
+                                       
                         switch_boton_a = not switch_boton_a
                         switch_boton_rojo_a = not switch_boton_rojo_a
                         print("BURROOOOOOOO")
 
-                elif boton_b_rectangulo.collidepoint(pygame.mouse.get_pos()) and switch_boton_b:
+                elif boton_b.rect.collidepoint(pygame.mouse.get_pos()) and switch_boton_b:
                     if pregunta['posibles_respuestas'][1] == pregunta['respuesta_correcta']:
                         switch_boton_b = not switch_boton_b
                         switch_boton_verde_b = not switch_boton_verde_b
@@ -203,7 +183,7 @@ while flag:
                         switch_boton_rojo_b = not switch_boton_rojo_b
                         print("BURROOOOOOOO")
 
-                elif boton_c_rectangulo.collidepoint(pygame.mouse.get_pos()) and switch_boton_c:
+                elif boton_c.rect.collidepoint(pygame.mouse.get_pos()) and switch_boton_c:
                     if pregunta['posibles_respuestas'][2] == pregunta['respuesta_correcta']:
                         switch_boton_c = not switch_boton_c
                         switch_boton_verde_c = not switch_boton_verde_c
@@ -213,7 +193,7 @@ while flag:
                         switch_boton_rojo_c = not switch_boton_rojo_c
                         print("BURROOOOOOOO")
 
-                elif boton_d_rectangulo.collidepoint(pygame.mouse.get_pos()) and switch_boton_d:
+                elif boton_d.rect.collidepoint(pygame.mouse.get_pos()) and switch_boton_d:
                     if pregunta['posibles_respuestas'][3] == pregunta['respuesta_correcta']:
                         switch_boton_d = not switch_boton_d
                         switch_boton_verde_d = not switch_boton_verde_d

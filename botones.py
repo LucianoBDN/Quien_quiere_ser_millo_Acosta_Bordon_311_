@@ -11,10 +11,10 @@ class Boton:
         self.color_actual = self.color_normal
         self.click = False
 
-    def dibujar(self, pantalla, color_texto):
-        pygame.draw.rect(pantalla, self.color_actual, self.rect)
+    def dibujar(self, ventana, color_texto):
+        pygame.draw.rect(ventana, self.color_actual, self.rect)
         texto_superficie = self.fuente.render(self.texto, True, color_texto)
-        pantalla.blit(texto_superficie, (
+        ventana.blit(texto_superficie, (
             self.rect.x + (self.rect.width - texto_superficie.get_width()) // 2,
             self.rect.y + (self.rect.height - texto_superficie.get_height()) // 2))
 
@@ -32,12 +32,19 @@ class Boton:
             else:
                 self.color_actual = self.color_normal
 
-    def agregar_imgagen_boton(self, ventana, path, ancho, alto, x,y):
+    def agregar_imagen_boton(self, ventana, path, ancho, alto, x,y):
        
         boton_superficie = pygame.image.load(path).convert_alpha()
         boton_superficie = pygame.transform.scale(boton_superficie, (ancho, alto))
         self.rect = boton_superficie.get_rect(topleft= (x,y))
         ventana.blit(boton_superficie, (x,y))
+
+    def escribir_sobre_imagen(self, ventana, color_texto):
+
+        texto_superficie = self.fuente.render(self.texto, True, color_texto)
+        ventana.blit(texto_superficie, (
+            self.rect.x + (self.rect.width - texto_superficie.get_width()) // 2, #ALINEA EL TEXTO EN EJE HORIZONTAL
+            self.rect.y + (self.rect.height - texto_superficie.get_height()) // 2)) #ALINEA EL TEXTO EN EJE VERTICAL
 
 
     def es_click(self):

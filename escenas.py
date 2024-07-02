@@ -21,5 +21,3 @@ def cambiar_status_presentador(ventana, dimension_reescalado: tuple, path: str, 
 
     return ventana
 
-
-
