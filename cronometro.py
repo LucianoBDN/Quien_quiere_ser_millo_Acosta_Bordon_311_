@@ -21,3 +21,8 @@ class Cronometro:
                 self.iniciado = False
         
         return self.tiempo_restante
+    
+    def reiniciar(self):
+        self.tiempo_final = 0
+        self.tiempo_restante = self.duracion_tiempo
+        self.iniciado = False

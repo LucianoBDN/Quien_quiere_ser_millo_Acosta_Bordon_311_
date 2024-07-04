@@ -28,19 +28,27 @@ class Jugador:
         pygame.draw.rect(ventana, color, input_rect, 2)
         texto_superficie = fuente.render(texto, True, color_texto)
         ventana.blit(texto_superficie, (input_rect.x +5, input_rect.y +10))
-        
-        
-        
+              
         return texto
     
 
+    def aumentar_nivel(self, boton, respuesta):
 
-    def aumentar_nivel(self, sube_nivel: bool):
-
-        if sube_nivel == True:
+        if boton.texto == respuesta:                    
+            boton.switch_default = False
+            boton.switch_verde = True
             self.nivel += 1
-        else:
-            self.nivel = 1
+            print("COOORRECTOOOOOOO")
+            respuesta_correcta = True
+                
+        else:                               
+            boton.switch_default = False
+            boton.switch_rojo = True
+            self.vidas = 0
+            print("BURROOOOOOOO")
+            respuesta_correcta = False
+
+        return respuesta_correcta
 
     
 

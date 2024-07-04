@@ -14,7 +14,7 @@ class Boton:
         self.switch_default = True
         self.switch_verde = False
         self.switch_rojo = False
-        print(self.switch_rojo)
+
 
     def dibujar(self, color_texto):
         pygame.draw.rect(self.ventana, self.color_actual, self.rect)
@@ -63,26 +63,8 @@ class Boton:
                 self.escribir_sobre_imagen((0,0,0))
 
     
-    def manejar_switch_boton(self, evento, respuesta):
+    def reiniciar_switches(self):
                       
-        if self.texto == respuesta:                    
-            self.switch_default = not self.switch_default
-            self.switch_verde = not self.switch_verde
-            print("COOORRECTOOOOOOO")
-                
-        else:                               
-            self.switch_default = not self.switch_default
-            self.switch_rojo = not self.switch_rojo
-            print("BURROOOOOOOO")
-
-    # def manejar_switch_boton2(self, evento, respuesta):
-                      
-    #     if self.texto == respuesta:                    
-    #         self.switch_default = not self.switch_default
-    #         self.switch_verde = not self.switch_verde
-    #         print("COOORRECTOOOOOOO")
-                
-    #     else:                               
-    #         self.switch_default = not self.switch_default
-    #         self.switch_rojo = not self.switch_rojo
-    #         print("BURROOOOOOOO")
+        self.switch_default = True
+        self.switch_rojo = False
+        self.switch_verde = False

@@ -10,7 +10,7 @@ from botones import Boton
 from presentador import Presentador
 from fondo import Fondo
 from banco import Banco
-#from jugador import Jugador
+from jugador import Jugador
 
 ANCHO_VENTANA = 1280
 ALTO_VENTANA = 720
@@ -32,7 +32,6 @@ lista_preguntas = cargar_archivo_json(r"datos\preguntas_y_respuestas.json")
 
 menu_principal = True
 flag = True
-vidas_jugador = 1
 
 boton_a = Boton(ventana, 5,370,550,200,(18,79,134), (18,79,134), (18,79,134),"",fuente_arial_veinte)
 boton_b = Boton(ventana, 505,370,550,200,(18,79,134), (18,79,134), (18,79,134),"",fuente_arial_veinte)
@@ -100,45 +99,41 @@ while flag:
         boton_b.switch_default = True
         boton_c.switch_default = True
         boton_d.switch_default = True
+        player = Jugador()
 
         tiempo_restante = cronometro.actualizar()
         escribir_texto(ventana, f"{tiempo_restante}" , fuente_titulo, (255,255,255), 640, 50)
 
-        if vidas_jugador > 0 and tiempo_restante > 0:
-
-            boton_a.manejar_boton(boton_a.switch_default, r"graficos\boton_respuesta.png")
-            boton_a.manejar_boton(boton_a.switch_rojo, r"graficos\boton_rojo.png")
-            boton_a.manejar_boton(boton_a.switch_verde, r"graficos\boton_verde.png")
-            boton_b.manejar_boton(boton_b.switch_default, r"graficos\boton_respuesta.png")
-            boton_b.manejar_boton(boton_b.switch_rojo, r"graficos\boton_rojo.png")
-            boton_b.manejar_boton(boton_b.switch_verde, r"graficos\boton_verde.png")
-            boton_c.manejar_boton(boton_c.switch_default, r"graficos\boton_respuesta.png")
-            boton_d.manejar_boton(boton_d.switch_default, r"graficos\boton_respuesta.png")
-            boton_c.manejar_boton(boton_c.switch_rojo, r"graficos\boton_rojo.png")
-            boton_c.manejar_boton(boton_c.switch_verde, r"graficos\boton_verde.png")
-            boton_d.manejar_boton(boton_d.switch_rojo, r"graficos\boton_rojo.png")
-            boton_d.manejar_boton(boton_d.switch_verde, r"graficos\boton_verde.png")
-        
-        else:
-            print("perdiste")
-            menu_principal = True
-            vidas_jugador = 1
-        
+        boton_a.manejar_boton(boton_a.switch_default, r"graficos\boton_respuesta.png")
+        boton_a.manejar_boton(boton_a.switch_rojo, r"graficos\boton_rojo.png")
+        boton_a.manejar_boton(boton_a.switch_verde, r"graficos\boton_verde.png")
+        boton_b.manejar_boton(boton_b.switch_default, r"graficos\boton_respuesta.png")
+        boton_b.manejar_boton(boton_b.switch_rojo, r"graficos\boton_rojo.png")
+        boton_b.manejar_boton(boton_b.switch_verde, r"graficos\boton_verde.png")
+        boton_c.manejar_boton(boton_c.switch_default, r"graficos\boton_respuesta.png")
+        boton_d.manejar_boton(boton_d.switch_default, r"graficos\boton_respuesta.png")
+        boton_c.manejar_boton(boton_c.switch_rojo, r"graficos\boton_rojo.png")
+        boton_c.manejar_boton(boton_c.switch_verde, r"graficos\boton_verde.png")
+        boton_d.manejar_boton(boton_d.switch_rojo, r"graficos\boton_rojo.png")
+        boton_d.manejar_boton(boton_d.switch_verde, r"graficos\boton_verde.png")
+               
         for evento in lista_eventos:
             
             if evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1:
 
-                if boton_a.rect.collidepoint(pygame.mouse.get_pos()) and boton_a.switch_default:          
-                    boton_a.manejar_switch_boton(evento, pregunta['respuesta_correcta'])      
-                    
-                elif boton_b.rect.collidepoint(pygame.mouse.get_pos()) and boton_b.switch_default:    
-                    boton_b.manejar_switch_boton(evento, pregunta['respuesta_correcta'])
+                if player.vidas > 0 and tiempo_restante > 0:
 
-                elif boton_c.rect.collidepoint(pygame.mouse.get_pos()) and boton_c.switch_default:
-                    boton_c.manejar_switch_boton(evento, pregunta['respuesta_correcta'])
+                    if boton_a.rect.collidepoint(pygame.mouse.get_pos()) and boton_a.switch_default:          
+                        player.vidas = manejar_niveles(boton_a, pregunta['respuesta_correcta'], player.vidas)      
+                        
+                    elif boton_b.rect.collidepoint(pygame.mouse.get_pos()) and boton_b.switch_default:    
+                        player.vidas = manejar_niveles(boton_b, pregunta['respuesta_correcta'], player.vidas)
 
-                elif boton_d.rect.collidepoint(pygame.mouse.get_pos()) and boton_d.switch_default:
-                    boton_d.manejar_switch_boton(evento, pregunta['respuesta_correcta'])
+                    elif boton_c.rect.collidepoint(pygame.mouse.get_pos()) and boton_c.switch_default:
+                        player.vidas = manejar_niveles(boton_c, pregunta['respuesta_correcta'], player.vidas)
+
+                    elif boton_d.rect.collidepoint(pygame.mouse.get_pos()) and boton_d.switch_default:
+                        player.vidas = manejar_niveles(boton_d, pregunta['respuesta_correcta'], player.vidas)
 
 
     
