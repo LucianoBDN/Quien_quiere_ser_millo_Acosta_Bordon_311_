@@ -42,9 +42,6 @@ def mostrar_barras(ventana, color, x, y, width, fuente, color_txt):
     for porcentaje in lista_alturas_barras:
         escribir_texto(ventana, f"{porcentaje}%" ,fuente, color_txt, x_porcentaje, y_porcentaje)
         x_porcentaje += 60
-        
-
-    
 
 
 def porcentaje_barras(valores:list):
@@ -69,8 +66,6 @@ def palabra_clave(ventana,pista: str, fuente, color_texto, x, y):
     escribir_texto(ventana, pista , fuente, color_texto, x, y)
 
 
-
-
 def comodin_cincuenta(lista_respuestas: list, respuesta_correcta) :
 
     lista_dos_respuesta = []
@@ -81,9 +76,7 @@ def comodin_cincuenta(lista_respuestas: list, respuesta_correcta) :
         if respuesta != respuesta_correcta:
             lista_dos_respuesta.append(respuesta)
             break
-    
-
-    
+        
     return lista_dos_respuesta 
 
 
