@@ -26,3 +26,4 @@ class Cronometro:
         self.tiempo_final = 0
         self.tiempo_restante = self.duracion_tiempo
         self.iniciado = False
+        

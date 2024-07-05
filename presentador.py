@@ -18,3 +18,9 @@ class Presentador:
 
         self.imagen = pygame.transform.scale(self.imagen, (ancho,alto))
         self.rect = self.imagen.get_rect(center=posicion)
+  
+    def cambiar_imagen(self, imagen_path, ventana, posicion, ancho, alto):
+
+        self.imagen = pygame.image.load(imagen_path).convert_alpha()
+        self.escalar_imagen(posicion, ancho, alto)
+        self.dibujar(ventana)

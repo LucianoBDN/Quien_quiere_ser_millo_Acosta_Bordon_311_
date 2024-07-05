@@ -1,4 +1,4 @@
-def cargar_high_score(lista_puntuaciones):
+def cargar_high_score(lista_puntuaciones:list[list]):
 
     matriz = [[0]* 2 for _ in range(5)] 
 
@@ -20,7 +20,7 @@ def cargar_high_score(lista_puntuaciones):
 
 
 
-def bubble_sort(lista):
+def bubble_sort(lista:list[list]):
 
     for i in range(len(lista)):
         for j in range(0, len(lista) -1):
@@ -31,7 +31,7 @@ def bubble_sort(lista):
 
 
 
-def cargar_csv_highscore(lista_highscore):
+def cargar_csv_highscore(lista_highscore:list[list]):
 
     with open(r"datos/score.csv", "w",encoding= 'utf-8') as archivo:    
         for puntuacion in lista_highscore:
@@ -55,7 +55,9 @@ def cargar_matriz_csv():
     
     return lista_puntuacion
 
+def agregar_puntuaciones(lista_puntuaciones:list[list], nueva_puntuacion):
 
+    lista_puntuaciones.append(nueva_puntuacion)
 
-
+    return lista_puntuaciones
 
