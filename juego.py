@@ -83,7 +83,7 @@ while flag:
             elif boton_salir.rect.collidepoint(pygame.mouse.get_pos()):
                 flag = False
 
-        elif evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1 and menu_principal == False and jugando == True and pausa == False and player.nivel < 16 :
+        elif evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1 and menu_principal == False and jugando == True and pausa == False:
 
             if player.vidas > 0 and tiempo_restante > 0:
 
@@ -114,7 +114,7 @@ while flag:
                     elif boton_cincuenta.rect.collidepoint(pygame.mouse.get_pos()) and comodines.cincuenta > 0:
                         cincuenta_cincuenta = True
 
-        elif evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1 and resultado_respuesta == True and pausa == True and jugando == False:
+        elif evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1 and resultado_respuesta == True and pausa == True and jugando == False and player.nivel < 15:
 
             if boton_continuar.rect.collidepoint(pygame.mouse.get_pos()):
                 
