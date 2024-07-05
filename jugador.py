@@ -2,14 +2,35 @@ import pygame
 from texto import *
 class Jugador:
     def __init__(self):
+        """Inicia la clase con los valores por defecto de un jugador
+                self.nombre = ""
+                self.score = 100
+                self.vidas = 1
+                self.nivel = 
+        """
         self.nombre = ""
         self.score = 100
         self.vidas = 1
         self.nivel = 1
     
 
-    def manejar_evento_jugador(self,evento,texto):
-        
+    def manejar_evento_jugador(self,evento ,texto:str):
+        """Recibe como parametro una variable texto la cual al finalizar la funcion
+        pasara a ser el nombre del jugador para asi poder tener un registro
+        el primer si una tecla es presionada entra y realiza las acciones
+        borrar si la key presionada es K_BACKSPACE,
+        actualiza el nombre del jugador si la tecla presionada es (ENTER),
+        else if si el texto
+
+        Args:
+            evento (event): acciones dentro del juego
+            texto (str): string vacio a rellenar
+
+        Returns:
+            _type_: _description_
+        """
+
+
         bandera_escribir = True
             
         if evento.type == pygame.KEYDOWN:
@@ -28,6 +49,9 @@ class Jugador:
     
 
     def aumentar_nivel_y_monto(self):
+        """Si el jugador responde bien la pregunta se llamara a esta funcion para actualizar nivel y monto
+        utilizando un match que compare los distintos niveles y asigne el monto por el cual esta jugando
+        """
 
         self.nivel += 1
 

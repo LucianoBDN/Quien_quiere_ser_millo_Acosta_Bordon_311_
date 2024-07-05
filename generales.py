@@ -5,6 +5,14 @@ from texto import *
 # Definir la función comodin_publico_barras
 
 def generar_lista_alturas():
+    """genera numeros aleatorios los cuales se van a utilizar
+    para graficar rectangulos con distintas alturas
+    el for itera cuatro veces y agrega a lista aturas la altura que se genero
+    en cada vuelta
+
+    Returns:
+        list: lista de alturas
+    """
 
     lista_alturas = []
 
@@ -16,7 +24,21 @@ def generar_lista_alturas():
 
 
 
-def dibujar_barras(ventana, color, x, y, width, height):
+def dibujar_barras(ventana, color:tuple[int, int, int], x: int, y: int, width: int, height: int):
+    """dibuja rectangulos utilizando el metodo pygame.draw.rect
+    
+
+    Args:
+        ventana (surface): superficie donde se dibujara
+        color (tuple[int, int, int]): colores con valor RGB
+        x (int): posicion en pantalla sobre el eje x
+        y (int): posicion en patalla sobre el eje y
+        width (int): ancho de los rentangulos
+        height (int): alto de los rectangulos
+
+    Returns:
+        _type_: _description_
+    """
 
     y -= height
     rectangulo = pygame.draw.rect(ventana, color, (x, y, width, height))
@@ -27,6 +49,16 @@ def dibujar_barras(ventana, color, x, y, width, height):
 
 
 def porcentaje_barras(valores:list):
+    """Recibe una lista de numeros, los suma y normaliza
+    el resultado a una division para que cada numero tenga el
+    porcentaje de lo que ocupa en esa sumatoria total
+
+    Args:
+        valores (list): numeros
+
+    Returns:
+        list: lista de porcentajes
+    """
 
     suma_total = 0
     for valor in valores:
@@ -42,8 +74,3 @@ def porcentaje_barras(valores:list):
 
 
 
-def crear_rectangulo(ventana,color, fuente, texto):
-
-    input_rect = pygame.Rect(600,360,200,70)
-    pygame.draw.rect(ventana, color, input_rect, 2)
-    escribir_texto(ventana, texto,fuente,color,input_rect.x + 50 ,input_rect.y + 25)

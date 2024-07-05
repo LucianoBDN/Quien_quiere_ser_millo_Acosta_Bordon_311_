@@ -2,7 +2,18 @@ import random
 from texto import *
 import pygame
 
-def seleccionar_pregunta(nivel_jugador: int, preguntas: list[dict]):
+def seleccionar_pregunta(nivel_jugador: int, preguntas: list[dict]) -> dict:
+    """generera numeros ramdon de preguntas para compararlas con el id 
+    y valida qe el nivel de la pregunta random sea el mismo que el nivel del jugador
+    si no es asi selecciona otro id de pregunta hasta que se cumpla el requisito
+
+    Args:
+        nivel_jugador (int): _description_
+        preguntas (list[dict]): _description_
+
+    Returns:
+        dict: retorna el diccionario de la pregunta
+    """
 
     nivel_pregunta_random = 0
     
@@ -21,16 +32,27 @@ def seleccionar_pregunta(nivel_jugador: int, preguntas: list[dict]):
     return pregunta_final
 
 
-def manejar_niveles(boton, respuesta):
-                      
-        if boton.texto == respuesta:                    
-            boton.switch_default = False
-            boton.switch_verde = True
-            respuesta_correcta = True  
-                
-        else:                               
-            boton.switch_default = False
-            boton.switch_rojo = True
-            respuesta_correcta = False
+def manejar_niveles(boton, respuesta: str) -> bool:
+    """comprueba si el texto de la respuesta es igual texto que recibe el boton
+    si lo es cambia el switch_verde a True y switch_default a False
+    si no cambia el switch_rojo a True y switch_default a False
 
-        return respuesta_correcta
+    Args:
+        boton (_type_): elemento CLASS
+        respuesta (str): texto 
+
+    Returns:
+        bool: True o False
+    """
+
+    if boton.texto == respuesta:                    
+        boton.switch_default = False
+        boton.switch_verde = True
+        respuesta_correcta = True  
+            
+    else:                               
+        boton.switch_default = False
+        boton.switch_rojo = True
+        respuesta_correcta = False
+
+    return respuesta_correcta
