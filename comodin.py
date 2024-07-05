@@ -5,17 +5,33 @@ from generales import *
 
 class Comodin:
     def __init__(self) -> None:
+        """Inicializa el comodin con sus atributos
+        """
         self.llamada = 1
         self.cincuenta = 1
         self.publico = 1
     
     def reiniciar_comodines(self):
+        """Restablece los usos del comodín
+        """
         self.llamada = 1
         self.cincuenta = 1
         self.publico = 1
 
     
-    def mostrar_barras(self, ventana, color, x, y, width, fuente, color_txt, height):
+    def mostrar_barras(self, ventana, color: tuple, x: int, y: int, width: int, fuente: int, color_txt: tuple, height: int):
+        """Muestra el grafico del comodin del publico
+
+        Args:
+            ventana (surface): pantalla en la que se mostrará el grafico
+            color (tuple): color de las barras
+            x (int): posición en eje x de las barras
+            y (int): posición en eje y de las barras
+            width (int): ancho de las barras
+            fuente (str): fuente del texto para el grafico
+            color_txt (tuple): color para el texto
+            height (int): altura de las barras
+        """
 
         opciones = ["A", "B", "C", "D"]
 
@@ -44,8 +60,17 @@ class Comodin:
 
         self.publico = 0
         
-    def palabra_clave(self,ventana, pista: str, fuente, color_texto, x, y):
+    def palabra_clave(self, ventana, pista: str, fuente: str, color_texto: tuple, x: int, y: int):
+        """Otorga una pista en forma de palabra clave al jugador
 
+        Args:
+            ventana (surface): pantalla donde se mostrará la pista
+            pista (str): palabra clave en relación a la respuesta correcta
+            fuente (str): fuente que usará la pista
+            color_texto (tuple): color asignado al texto
+            x (int): posición en eje x de la pista
+            y (int): posición en eje y de la pista
+        """
         pista = "Pista: " + pista
 
         escribir_texto(ventana, pista , fuente, color_texto, x, y)
@@ -53,8 +78,16 @@ class Comodin:
         self.llamada = 0
 
     
-    def comodin_cincuenta(self,lista_respuestas: list, respuesta_correcta) :
+    def comodin_cincuenta(self,lista_respuestas: list, respuesta_correcta: str) :
+        """Borra 2 opciones posibles de las respuestas para que el jugado solo tenga que elegir entre 2
 
+        Args:
+            lista_respuestas (list): las 4 posibles respuestas
+            respuesta_correcta (str): la respuesta que es correcta 
+
+        Returns:
+            lista_dos_respuesta (list): lista que solo contiene 2 respuestas posibles
+        """
         lista_dos_respuesta = []
 
         lista_dos_respuesta.append(respuesta_correcta)

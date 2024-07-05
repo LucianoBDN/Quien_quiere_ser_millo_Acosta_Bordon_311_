@@ -1,7 +1,6 @@
 import pygame
 from ventana import *
 from escenas import *
-from boton import *
 from datos import *
 from texto import *
 from niveles import *
@@ -53,8 +52,8 @@ boton_llamada = Boton(ventana,1100,100,50,50,(0,0,0),(0,0,0),(0,0,0),"",fuente_a
 boton_cincuenta = Boton(ventana,1200,100,50,50,(0,0,0),(0,0,0),(0,0,0),"",fuente_arial_veinte)
 
  
-cronometro = Cronometro(5)
-cronometro_pausa = Cronometro(2)
+cronometro = Cronometro(30)
+cronometro_pausa = Cronometro(1)
 lista_alturas = []
 lista_score = cargar_matriz_csv()
 
@@ -205,7 +204,8 @@ while flag:
             comodines.mostrar_barras(ventana, (255,255,255), 600, 150, 50, fuente_arial_quince, (0,0,0),lista_alturas)
             
         if comodin_llamada:
-            comodines.palabra_clave(ventana,pregunta['pista'],fuente_arial_veinte, (255,255,255), 600, 100)
+            comodines.palabra_clave(ventana,pregunta['pista'],fuente_arial_veinte, (255,255,255), 600, 153)
+        
         if cincuenta_cincuenta:
              dos_respuestas = comodines.comodin_cincuenta(pregunta['posibles_respuestas'], pregunta['respuesta_correcta'])
 
