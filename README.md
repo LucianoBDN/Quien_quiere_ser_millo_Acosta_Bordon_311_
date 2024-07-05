@@ -2,4 +2,4 @@
 
 ## ¿Quien quiere ser milonario?
 
-[Menu principal](imagenes_readme\inicio.png)
+![Menu principal](imagenes_readme\inicio.png)
