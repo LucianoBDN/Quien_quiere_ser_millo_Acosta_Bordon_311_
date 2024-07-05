@@ -26,13 +26,11 @@ def manejar_niveles(boton, respuesta):
         if boton.texto == respuesta:                    
             boton.switch_default = False
             boton.switch_verde = True
-            print("COOORRECTOOOOOOO")
             respuesta_correcta = True  
                 
         else:                               
             boton.switch_default = False
             boton.switch_rojo = True
-            print("BURROOOOOOOO")
             respuesta_correcta = False
 
         return respuesta_correcta
