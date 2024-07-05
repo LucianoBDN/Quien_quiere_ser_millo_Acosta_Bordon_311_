@@ -32,23 +32,27 @@ class Jugador:
         return texto
     
 
-    def aumentar_nivel(self, boton, respuesta):
+    def aumentar_nivel_y_monto(self):
 
-        if boton.texto == respuesta:                    
-            boton.switch_default = False
-            boton.switch_verde = True
-            self.nivel += 1
-            print("COOORRECTOOOOOOO")
-            respuesta_correcta = True
-                
-        else:                               
-            boton.switch_default = False
-            boton.switch_rojo = True
-            self.vidas = 0
-            print("BURROOOOOOOO")
-            respuesta_correcta = False
+        self.nivel += 1
 
-        return respuesta_correcta
+        match (self.nivel):
+            
+            case 1: self.score = 100
+            case 2: self.score = 200
+            case 3: self.score = 300
+            case 4: self.score = 500
+            case 5: self.score = 1000
+            case 6: self.score = 2000
+            case 7: self.score = 4000
+            case 8: self.score = 8000
+            case 9: self.score = 16000
+            case 10: self.score = 32000
+            case 11: self.score = 64000
+            case 12: self.score = 125000
+            case 13: self.score = 250000
+            case 14: self.score = 500000
+            case 15: self.score = 1000000
 
     
 
