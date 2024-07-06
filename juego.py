@@ -158,6 +158,7 @@ while flag:
                 boton_c.reiniciar_switches()
                 boton_d.reiniciar_switches()
                 player.nivel = 1
+                player.score = 100
             
         elif evento.type == pygame.KEYDOWN and pantalla_score == True:
             player.nombre = player.manejar_evento(evento,player.nombre)
