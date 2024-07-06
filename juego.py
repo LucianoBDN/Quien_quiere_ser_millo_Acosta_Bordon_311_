@@ -148,8 +148,9 @@ while flag:
             
             if boton_volver.rect.collidepoint(pygame.mouse.get_pos()):
                 
-                
-            
+                cincuenta_cincuenta = None
+                comodin_publico = None
+                comodin_llamada = None
                 menu_principal = True
                 pausa = False
                 resultado_respuesta = None
