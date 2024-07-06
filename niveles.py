@@ -19,7 +19,7 @@ def seleccionar_pregunta(nivel_jugador: int, preguntas: list[dict]) -> dict:
     
     while nivel_pregunta_random != nivel_jugador:
     
-        id_pregunta_random = random.randint(1, 15)
+        id_pregunta_random = random.randint(1, 75)
 
         for pregunta in preguntas:
 
