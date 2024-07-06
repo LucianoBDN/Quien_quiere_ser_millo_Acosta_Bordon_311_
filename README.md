@@ -12,13 +12,14 @@ Deberán responder 15 preguntas de manera correcta y consecutiva para llevarse e
 ![En juego](imagenes_readme/juego.png)
 
 
+**Comodines**
+
 Cuenta con la ayuda de 3 comodines distintos (un uso cada uno) para responder las preguntas.
 Comodín "público": Consulta a toda la gente presente en el programa cuál opinan que es la opción correcta, y muestra un gráfico de barras con respecto a los resultados.
 Comodín "llamada telefónica": Permite hacer un amigo o familiar para que los ayude con una pista sobre la respuesta correcta.
 Comodín "50-50": Reduce la cantidad de posibles respuestas desde 4 a 2.
 
 
-**Comodines**
 ![Comodines](imagenes_readme/comodines.png)
 
 
