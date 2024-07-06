@@ -22,5 +22,9 @@ Comodín "50-50": Reduce la cantidad de posibles respuestas desde 4 a 2.
 
 Deberá apresurarse y pensar rápido, ya que cuenta con tan solo 30 segundos para responder cada pregunta
 
-![Cronometro](imagenes_readme\reloj.png)
+![Cronometro](imagenes_readme/reloj.png)
 
+## Desarrolladores:
+
+### Luciano Bordon
+### Pio Acosta
