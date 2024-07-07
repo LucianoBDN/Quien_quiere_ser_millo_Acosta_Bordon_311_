@@ -1,11 +1,12 @@
 import pygame
 
 class Boton:
-    def __init__(self, ventana, x: int, y: int, ancho: int, alto: int, color_normal: tuple, color_hover: tuple, color_click: tuple, texto: str, fuente: str):
+    def __init__(self, ventana, nombre: str, x: int, y: int, ancho: int, alto: int, color_normal: tuple, color_hover: tuple, color_click: tuple, texto: str, fuente: str):
         """Inicializa la clase boton con sus atributos
 
-        Args:
+        Args:         
             self.ventana (surface): pantalla en la que vamos a mostrar el botón
+            self.nombre (str): nombre del botón
             self.x (int): posicion x para la ubicación del boton
             self.y (int): posicion y para la ubicación del boton
             self.ancho (int): valor para el ancho del botón
@@ -17,6 +18,7 @@ class Boton:
             self.fuente (str): fuente que utilizará el texto
         """
         self.ventana = ventana
+        self.nombre = nombre
         self.rect = pygame.Rect(x, y, ancho, alto)
         self.color_normal = color_normal
         self.color_hover = color_hover

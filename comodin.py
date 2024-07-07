@@ -4,20 +4,18 @@ from texto import *
 from generales import *
 
 class Comodin:
-    def __init__(self) -> None:
+    def __init__(self, nombre) -> None:
         """Inicializa el comodin con sus atributos
         """
-        self.llamada = 1
-        self.cincuenta = 1
-        self.publico = 1
+        self.nombre = nombre
+        self.usos = 1
+        self.comodin_activo = False 
     
     def reiniciar_comodines(self):
         """Restablece los usos del comodín
         """
-        self.llamada = 1
-        self.cincuenta = 1
-        self.publico = 1
-
+        self.usos = 1
+        self.comodin_activo = False
     
     def mostrar_barras(self, ventana, color: tuple, x: int, y: int, width: int, fuente: int, color_txt: tuple, height: int):
         """Muestra el grafico del comodin del publico
@@ -58,7 +56,8 @@ class Comodin:
             escribir_texto(ventana, f"{porcentaje[:4]}%" ,fuente, color_txt, x_porcentaje, y_porcentaje)
             x_porcentaje += 55
 
-        self.publico = 0
+        self.comodin_activo = True
+        self.usos = 0
         
     def palabra_clave(self, ventana, pista: str, fuente: str, color_texto: tuple, x: int, y: int):
         """Otorga una pista en forma de palabra clave al jugador
@@ -75,7 +74,8 @@ class Comodin:
 
         escribir_texto(ventana, pista , fuente, color_texto, x, y)
 
-        self.llamada = 0
+        self.comodin_activo = True
+        self.usos = 0
 
     
     def comodin_cincuenta(self,lista_respuestas: list, respuesta_correcta: str) :
@@ -100,6 +100,7 @@ class Comodin:
                     respuesta = "----------------"
                     lista_dos_respuesta.append(respuesta)
         
-        self.cincuenta = 0
+        self.comodin_activo = True
+        self.usos = 0
 
-        return lista_dos_respuesta 
+        return lista_dos_respuesta
