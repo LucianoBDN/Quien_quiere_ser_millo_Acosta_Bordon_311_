@@ -9,7 +9,7 @@ from cronometro import Cronometro
 from botones import Boton
 from presentador import Presentador
 from fondo import Fondo
-from banco import Banco
+
 from jugador import Jugador
 from comodin import Comodin
 from score import *
@@ -39,7 +39,7 @@ resultado_respuesta = None
 pantalla_score = False
 bandera_retirarse = False
 player = Jugador()
-comodines = Comodin()
+comodines = Comodin("lucho")
 
 lista_botones = [
                     Boton(ventana, "boton_a", 5,370,550,200,(18,79,134), (18,79,134), (18,79,134),"",fuente_arial_veinte),
