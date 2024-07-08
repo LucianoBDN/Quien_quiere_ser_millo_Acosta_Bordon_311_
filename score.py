@@ -49,30 +49,31 @@ def bubble_sort(lista:list[list]):
 
 
 
-def cargar_csv_highscore(lista_highscore:list[list]):
+def cargar_csv_highscore(lista_highscore:list[list], path: str):
     """abre un archivo csv para escritura, completa la carga de todos los elementos de la lista
     y crea un archivo en un path especifico
 
     Args:
         lista_highscore (list[list]): lista a ingresar en archivo
     """
-    with open(r"datos/score.csv", "w",encoding= 'utf-8') as archivo:    
+    with open(path, "w",encoding= 'utf-8') as archivo:    
         for puntuacion in lista_highscore:
+            
             linea = f"{puntuacion[0]},{puntuacion[1]}\n"
             archivo.write(linea)
 
 
 
 import re
-def cargar_matriz_csv():
-    """carga los datos del archivo en una lista
+def cargar_matriz_csv(path: str):
+    """carga datos del path del archivo que se le pasa como parametro
 
     Returns:
         _type_: lista[list]
     """
     lista_puntuacion = []
 
-    with open(r"datos/score.csv", "r",encoding= 'utf-8') as archivo:    
+    with open(path, "r",encoding= 'utf-8') as archivo:    
         for linea in archivo:
             auxiliar = re.split(",|\n", linea)
 

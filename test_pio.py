@@ -9,7 +9,7 @@ from cronometro import Cronometro
 from botones import Boton
 from presentador import Presentador
 from fondo import Fondo
-from banco import Banco
+
 from jugador import Jugador
 from comodin import Comodin
 from score import *
@@ -31,6 +31,7 @@ lista_preguntas = cargar_archivo_json(r"datos\preguntas_y_respuestas.json")
 pregunta = Pregunta()
 
 player = Jugador()
+<<<<<<< HEAD
 
 switches = {
                 'bucle_principal' : True,
@@ -44,6 +45,9 @@ switches = {
                 'pantalla_score' : False,
                 'bandera_retirarse' : False,
             }
+=======
+comodines = Comodin("lucho")
+>>>>>>> 390f94ccc33ce5422995b958f735c998f07d2cb5
 
 lista_botones = [
                     Boton(ventana, "boton_a", 5,370,550,200,(18,79,134), (18,79,134), (18,79,134),"",fuente_arial_veinte),
