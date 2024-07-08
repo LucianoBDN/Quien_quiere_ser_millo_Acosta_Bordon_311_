@@ -14,6 +14,7 @@ from jugador import Jugador
 from comodin import Comodin
 from score import *
 from eventos import *
+from class_pregunta import Pregunta
 
 pygame.init()
 
@@ -27,19 +28,22 @@ fuente_titulo = pygame.font.Font(r"fuentes\Audiowide.ttf", 40)
 clock = pygame.time.Clock()
 
 lista_preguntas = cargar_archivo_json(r"datos\preguntas_y_respuestas.json")
+pregunta = Pregunta()
 
-menu_principal = True
-jugando = False
-pausa = False
-flag = True
-comodin_publico = False
-cincuenta_cincuenta = False
-comodin_llamada = False
-resultado_respuesta = None
-pantalla_score = False
-bandera_retirarse = False
 player = Jugador()
-comodines = Comodin()
+
+switches = {
+                'bucle_principal' : True,
+                'menu_principal' : True,
+                'jugando' : False,
+                'pausa' : False,
+                'comodin_publico' : False,
+                'cincuenta_cincuenta' : False,
+                'comodin_llamada' : False,
+                'resultado_respuesta' : None,
+                'pantalla_score' : False,
+                'bandera_retirarse' : False,
+            }
 
 lista_botones = [
                     Boton(ventana, "boton_a", 5,370,550,200,(18,79,134), (18,79,134), (18,79,134),"",fuente_arial_veinte),
@@ -66,16 +70,16 @@ cronometro_pausa = Cronometro(1)
 lista_alturas = []
 lista_score = cargar_matriz_csv()
 
-while flag:
+while switches['bucle_principal'] == True:
 
     lista_eventos = pygame.event.get()
     
-    flag = cerrar_ventana(lista_eventos, flag)
-    pregunta = manejar_eventos_menu_principal(menu_principal, jugando, player, cronometro, lista_eventos, lista_botones, lista_comodines, lista_preguntas)
-    resultado_respuesta = manejar_eventos_respuesta(menu_principal, jugando, pausa, player, cronometro, lista_eventos, lista_botones, pregunta)
-    manejar_eventos_comodines(menu_principal, jugando, pausa, lista_eventos, lista_comodines)
-    manejar_eventos_pausa(resultado_respuesta, jugando, pausa, bandera_retirarse, player, cronometro, lista_comodines, lista_eventos, lista_botones, lista_preguntas)
-    manejar_eventos_derrota(menu_principal, jugando, pausa, resultado_respuesta, player, cronometro, lista_eventos, lista_botones, lista_comodines, lista_preguntas)
+    cerrar_ventana(lista_eventos, switches)
+    manejar_eventos_menu_principal(switches, cronometro, player, lista_eventos, lista_botones, lista_comodines, pregunta, lista_preguntas)
+    manejar_eventos_respuesta(switches, player, cronometro, lista_eventos, lista_botones)
+    manejar_eventos_comodines(switches, lista_eventos, lista_comodines)
+    manejar_eventos_pausa(switches, player, cronometro, lista_comodines, lista_eventos, lista_botones, pregunta, lista_preguntas)
+    manejar_eventos_derrota(switches, player, cronometro, lista_eventos, lista_botones, lista_comodines, lista_preguntas)
     
 
     # if menu_principal:

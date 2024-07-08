@@ -13,23 +13,24 @@ from banco import Banco
 from jugador import Jugador
 from comodin import Comodin
 from score import *
+from class_pregunta import Pregunta
 
-def cerrar_ventana(lista_eventos: list, flag_bucle_principal: bool):
+def cerrar_ventana(lista_eventos: list, diccionario_switches: dict):
 
     for evento in lista_eventos:
         
         if evento.type == pygame.QUIT:
             
-            flag_bucle_principal = False
+            diccionario_switches['bucle_principal'] = False
 
-    return flag_bucle_principal
+    return diccionario_switches
 
 
-def manejar_eventos_menu_principal(flag_menu_principal: bool, flag_jugando: bool, jugador: object, cronometro: object, lista_eventos: list, lista_botones: list, lista_comodines: list, lista_preguntas: list):
-
+def manejar_eventos_menu_principal(diccionario_switches: dict, cronometro: object, jugador: object, lista_eventos: list, lista_botones: list, lista_comodines: list, pregunta: object, lista_preguntas: list):
+    
     for evento in lista_eventos:
 
-        if evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1 and flag_menu_principal == True:
+        if evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1 and diccionario_switches['menu_principal'] == True:
 
             for boton in lista_botones:
 
@@ -38,10 +39,10 @@ def manejar_eventos_menu_principal(flag_menu_principal: bool, flag_jugando: bool
                     match boton:
                         
                         case "boton_jugar":
-                            menu_principal = not menu_principal
-                            flag_jugando = not flag_jugando
-                            pregunta = seleccionar_pregunta(jugador.nivel, lista_preguntas)
+                            diccionario_switches['menu_principal'] = False
+                            diccionario_switches['jugando'] = True
                             cronometro.iniciar()
+                            pregunta.establecer_pregunta((pregunta, jugador.nivel, lista_preguntas))
                             
                             for comodin in lista_comodines:
                                 
@@ -49,16 +50,16 @@ def manejar_eventos_menu_principal(flag_menu_principal: bool, flag_jugando: bool
 
                         case "boton_salir":
                             
-                            flag_menu_principal = False
+                            diccionario_switches['bucle_principal'] = False
 
-    return pregunta
+    return diccionario_switches
 
 
-def manejar_eventos_respuesta(flag_menu_principal: bool, flag_jugando: bool, flag_pausa: bool, jugador: object, cronometro: object, lista_eventos: list, lista_botones: list, pregunta: list[dict]):
+def manejar_eventos_respuesta(diccionario_switches: dict, jugador: object, cronometro: object, lista_eventos: list, lista_botones: list, pregunta: list[dict]):
     
     for evento in lista_eventos:
     
-        if evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1 and flag_menu_principal == False and flag_jugando == True and flag_pausa == False:
+        if evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1 and diccionario_switches['menu_principal'] == False and diccionario_switches['jugando'] == True and diccionario_switches['pausa'] == False:
 
                 while jugador.vidas > 0 and cronometro.actualizar() > 0: # A chequear si funciona con while o si hay que reemplazar con "if"
 
@@ -69,24 +70,24 @@ def manejar_eventos_respuesta(flag_menu_principal: bool, flag_jugando: bool, fla
                             match boton.nombre:
                                 
                                 case "boton_a":                                
-                                    resultado_respuesta = manejar_niveles(boton, pregunta['respuesta_correcta'])
+                                    diccionario_switches['resultado_respuesta'] = manejar_niveles(boton, pregunta['respuesta_correcta'])
                                 
                                 case "boton_b":
-                                    resultado_respuesta = manejar_niveles(boton, pregunta['respuesta_correcta'])
+                                    diccionario_switches['resultado_respuesta'] = manejar_niveles(boton, pregunta['respuesta_correcta'])
                                 
                                 case "boton_c":
-                                    resultado_respuesta = manejar_niveles(boton, pregunta['respuesta_correcta'])
+                                    diccionario_switches['resultado_respuesta'] = manejar_niveles(boton, pregunta['respuesta_correcta'])
 
                                 case "boton_d":
-                                    resultado_respuesta = manejar_niveles(boton, pregunta['respuesta_correcta'])
+                                    diccionario_switches['resultado_respuesta'] = manejar_niveles(boton, pregunta['respuesta_correcta'])
 
-    return resultado_respuesta
+    return diccionario_switches
 
-def manejar_eventos_comodines(flag_menu_principal: bool, flag_jugando: bool, flag_pausa: bool, lista_eventos: list, lista_comodines: list):
+def manejar_eventos_comodines(diccionario_switches: dict, lista_eventos: list, lista_comodines: list):
     
     for evento in lista_eventos:
 
-        if evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1 and flag_menu_principal == False and flag_jugando == True and flag_pausa == False:
+        if evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1 and diccionario_switches['menu_principal'] == False and diccionario_switches['jugando'] == True and diccionario_switches['pausa'] == False:
 
             for comodin in lista_comodines:
 
@@ -105,11 +106,11 @@ def manejar_eventos_comodines(flag_menu_principal: bool, flag_jugando: bool, fla
                             comodin.activo = True
 
 
-def manejar_eventos_pausa(resultado_respuesta, flag_jugando: bool, flag_pausa: bool, flag_retirarse: bool, jugador: object, cronometro: object, lista_comodines: list, lista_eventos: list, lista_botones: list, lista_preguntas: list):
+def manejar_eventos_pausa(diccionario_switches: dict, jugador: object, cronometro: object, lista_comodines: list, lista_eventos: list, lista_botones: list, pregunta: object, lista_preguntas: list):
 
     for evento in lista_eventos:
 
-        if evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1 and resultado_respuesta == True and flag_pausa == True and flag_jugando == False:
+        if evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1 and diccionario_switches['resultado_respuesta'] == True and diccionario_switches['pausa'] == True and diccionario_switches['jugando'] == False:
                       
                 for boton in lista_botones:
 
@@ -129,12 +130,12 @@ def manejar_eventos_pausa(resultado_respuesta, flag_jugando: bool, flag_pausa: b
                                         
                                         comodin.reiniciar()
 
-                                    resultado_respuesta = None
-                                    flag_jugando = True
-                                    flag_pausa = False                             
+                                    pregunta.establecer_pregunta(pregunta, jugador.nivel, lista_preguntas)
+                                    diccionario_switches['resultado_respuesta'] = None
+                                    diccionario_switches['jugando'] = True
+                                    diccionario_switches['pausa'] = False                             
                                     jugador.aumentar_nivel_y_monto()
                                     cronometro.iniciar()
-                                    pregunta = seleccionar_pregunta(jugador.nivel, lista_preguntas)
 
                             case "boton_retirarse":
                                 pass
@@ -148,12 +149,14 @@ def manejar_eventos_pausa(resultado_respuesta, flag_jugando: bool, flag_pausa: b
                                 #         highscore = [jugador.nombre, jugador.score]
                                 #         lista_score.append(highscore)
 
+    return diccionario_switches
 
-def manejar_eventos_derrota(flag_menu_principal: bool, flag_jugando: bool, flag_pausa, resultado_respuesta, jugador: object, cronometro: object, lista_eventos: list, lista_botones: list, lista_comodines: list, lista_preguntas: list):
+
+def manejar_eventos_derrota(diccionario_switches: dict, jugador: object, cronometro: object, lista_eventos: list, lista_botones: list, lista_comodines: list):
 
     for evento in lista_eventos:
 
-        if evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1 and resultado_respuesta == False and flag_pausa == True and flag_jugando == False or (evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1 and cronometro.actualizar() == 0):
+        if evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1 and diccionario_switches['resultado_respuesta'] == False and diccionario_switches['pausa'] == True and diccionario_switches['jugando'] == False or (evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1 and cronometro.actualizar() == 0):
 
             for boton in lista_botones:
 
@@ -171,8 +174,10 @@ def manejar_eventos_derrota(flag_menu_principal: bool, flag_jugando: bool, flag_
 
                                 boton.reiniciar_switches()
                             
-                            flag_menu_principal = not flag_menu_principal
-                            flag_pausa = False
-                            resultado_respuesta = None
+                            diccionario_switches['menu_principal'] = True
+                            diccionario_switches['pausa'] = False
+                            diccionario_switches['resultado_respuesta'] = None
                             jugador.nivel = 1
                             jugador.score = 100
+
+    return diccionario_switches
