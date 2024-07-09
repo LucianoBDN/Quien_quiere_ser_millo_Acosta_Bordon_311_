@@ -65,32 +65,48 @@ pregunta = Pregunta()
 while switches["bucle_principal"]:
 
     lista_eventos = pygame.event.get()
-    
-    
-    
-  
-    switches = cerrar_ventana(lista_eventos, switches)
+
+
+
+
+
+
+    manejar_eventos_menu_principal(switches, cronometro, player, lista_eventos, lista_botones, lista_comodines, pregunta, lista_preguntas) 
+
+    switches = manejar_eventos_respuesta(switches, player, cronometro, lista_eventos, lista_botones, pregunta)
+
+    manejar_eventos_comodines(switches, lista_eventos, lista_comodines, lista_botones)
+
+
+
+
+
+
+
+
+
+
+
+
     pantalla_menu_principal(ventana,switches, lista_botones, lista_eventos)
 
-    manejar_eventos_menu_principal(switches, cronometro, player, lista_eventos, lista_botones, lista_comodines, pregunta, lista_preguntas)
-
+    pantalla_juego(ventana, switches, player.score, pregunta.pregunta, lista_botones, lista_comodines, pregunta, player, lista_eventos)
     
-    #actualizar_texto_respuestas(lista_botones, lista_preguntas[3]['posibles_respuestas'])
-
-    pantalla_juego(ventana, switches, player.score, pregunta.pregunta, lista_botones, lista_comodines, pregunta)
-
-    
-    
-    manejar_eventos_respuesta(switches, player, cronometro, lista_eventos, lista_botones, pregunta)
-    manejar_eventos_comodines(switches, lista_eventos, lista_comodines, lista_botones)
     manejar_eventos_pausa(switches, player, cronometro, lista_comodines, lista_eventos, lista_botones, pregunta, lista_preguntas)
-    manejar_eventos_derrota(switches, player, cronometro, lista_eventos, lista_botones, lista_comodines)
 
+    pantalla_perdiste(ventana, lista_botones, lista_eventos, switches)
+
+    manejar_eventos_derrota(switches, player, cronometro, lista_eventos, lista_botones, lista_comodines)
+    
     cerrar_ventana(lista_eventos, switches)
+
+
     pygame.display.update()
 
 
     clock.tick(60)
+
+
 
 pygame.quit()
 

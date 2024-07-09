@@ -20,20 +20,20 @@ def pantalla_menu_principal(ventana, dict_switches: dict, lista_botones: list, l
                 presentador_bienvenida.dibujar(ventana)
                 escribir_texto(ventana, "¿Quien quiere ser millonario?", pygame.font.Font(r"fuentes\Audiowide.ttf", 40) , (255,255,255), 310, 100)
                 
-                for Boton in lista_botones:
-                        if Boton.nombre == "boton_jugar" or Boton.nombre == "boton_salir":
-                                Boton.dibujar((255,255,255))
-                                Boton.manejar_evento(lista_eventos)
+                for boton in lista_botones:
+                        if boton.nombre == "boton_jugar" or boton.nombre == "boton_salir":
+                                boton.dibujar((255,255,255))
+                                boton.manejar_evento(lista_eventos)
         
                                 
 
 
 
 
-def pantalla_juego(ventana, dict_switches: dict, score: int, texto_cuadro_pregunta: str, lista_botones: list, lista_comodines, pregunta):
+def pantalla_juego(ventana, dict_switches: dict, score: int, texto_cuadro_pregunta: str, lista_botones: list, lista_comodines, pregunta: object, jugador: object, lista_eventos:list):
 
 
-        if dict_switches['menu_principal'] == False:
+        if dict_switches['menu_principal'] == False and dict_switches['jugando'] == True:
                 fondo_juego = Fondo(r"graficos\fondo_azul_oscuro.jpg", (1280, 720))
                 fondo_juego.dibujar_fondo(ventana, (0,0))
                 presentador_juego = Presentador(r"graficos\guido_pregunta.png",(340,105))
@@ -55,36 +55,107 @@ def pantalla_juego(ventana, dict_switches: dict, score: int, texto_cuadro_pregun
                 cuadro_pregunta.escribir_imagen(ventana, pygame.font.SysFont("Arial",25, bold=True), texto_cuadro_pregunta, (255,255,255))
                 
                 
-                mostrar_respuestas(lista_botones, r"graficos\boton_respuesta.png", pregunta)
-                mostrar_comodines(lista_comodines, lista_botones, r"graficos\publico.png", r"graficos\llamada.png", r"graficos\50_50.png")
+                mostrar_respuestas(lista_botones, r"graficos\boton_respuesta.png", r"graficos\boton_verde.png", r"graficos\boton_rojo.png", pregunta)
+                mostrar_comodines(ventana, lista_comodines, lista_botones, r"graficos\publico.png", r"graficos\llamada.png", r"graficos\50_50.png", pregunta)
+
+                if dict_switches['pausa'] == True and dict_switches['resultado_respuesta'] == True:
+                        mostrar_botones_pausa(lista_botones, jugador, lista_eventos)
 
 
 
-def mostrar_respuestas(lista_botones: list, path_boton: str, pregunta):
+def mostrar_botones_pausa(lista_botones, jugador, lista_eventos):
+
+        for boton in lista_botones:
+
+                match boton.nombre:
+
+                        case "boton_continuar":
+                                boton.dibujar((255,255,255))
+                                boton.manejar_evento(lista_eventos)
+
+                        case "boton_retirarse":
+                                if jugador.nivel == 4 or jugador.nivel == 9:
+
+                                        boton.dibujar((255,255,255))
+                                        boton.manejar_evento(lista_eventos)
+
+
+
+
+
+
+def mostrar_respuestas(lista_botones: list, path_boton: str,path_boton_verde: str, path_boton_rojo: str, pregunta):
         
         for boton in lista_botones:
 
                 match boton.nombre:
 
                         case "boton_a":
-                                boton.agregar_imagen_boton(path_boton,550,200,5,370)
-                                boton.escribir_sobre_imagen(pregunta.respuesta_a ,(255,255,255))
+                                if boton.switch_default:
 
+                                        boton.agregar_imagen_boton(path_boton,550,200,5,370)
+                                        boton.cambiar_texto(pregunta.respuesta_a)
+                                        boton.escribir_sobre_imagen(pregunta.respuesta_a ,(255,255,255))
+                                
+                                elif boton.switch_verde:
+
+                                        boton.agregar_imagen_boton(path_boton_rojo,550,200,5,370)
+                                        boton.escribir_sobre_imagen(pregunta.respuesta_a ,(255,255,255))
+
+                                        
                         case "boton_b":
-                                boton.agregar_imagen_boton(path_boton,550,200,505,370)
-                                boton.escribir_sobre_imagen(pregunta.respuesta_b,(255,255,255))
+                                if boton.switch_default:
+
+                                        boton.agregar_imagen_boton(path_boton,550,200,505,370)
+                                        boton.cambiar_texto(pregunta.respuesta_b)
+                                        boton.escribir_sobre_imagen(pregunta.respuesta_b,(255,255,255))
+
+                                elif boton.switch_verde:
+                                        boton.agregar_imagen_boton(path_boton_verde,550,200,505,370)
+                                        boton.escribir_sobre_imagen(pregunta.respuesta_b,(255,255,255))
+                                
+                                elif boton.switch_rojo:
+                                        boton.agregar_imagen_boton(path_boton_rojo,550,200,505,370)
+                                        boton.escribir_sobre_imagen(pregunta.respuesta_b,(255,255,255))
+                                
 
                         case "boton_c":
-                                boton.agregar_imagen_boton(path_boton,550,200,5,530)
-                                boton.escribir_sobre_imagen(pregunta.respuesta_c,(255,255,255))
+
+                                if boton.switch_default:
+
+                                        boton.agregar_imagen_boton(path_boton,550,200,5,530)
+                                        boton.cambiar_texto(pregunta.respuesta_c)
+                                        boton.escribir_sobre_imagen(pregunta.respuesta_c,(255,255,255))
+
+                                elif boton.switch_verde:
+                                        boton.agregar_imagen_boton(path_boton_verde,550,200,5,530)
+                                        boton.escribir_sobre_imagen(pregunta.respuesta_c,(255,255,255))
+
+                                elif boton.switch_rojo:
+                                        boton.agregar_imagen_boton(path_boton_rojo,550,200,505,370)
+                                        boton.escribir_sobre_imagen(pregunta.respuesta_b,(255,255,255))
 
                         case "boton_d":
-                                boton.agregar_imagen_boton(path_boton,550,200,505,530)
-                                boton.escribir_sobre_imagen(pregunta.respuesta_d,(255,255,255))
+                                
+                                if boton.switch_default:
 
-                              
+                                        boton.agregar_imagen_boton(path_boton,550,200,505,530)
+                                        boton.cambiar_texto(pregunta.respuesta_d)
+                                        boton.escribir_sobre_imagen(pregunta.respuesta_d,(255,255,255))
+
+
+                                elif boton.switch_verde:
+
+                                        boton.agregar_imagen_boton(path_boton_verde,550,200,505,530)
+                                        boton.escribir_sobre_imagen(pregunta.respuesta_d,(255,255,255))
+
+                                elif boton.switch_rojo:
+                                        boton.agregar_imagen_boton(path_boton_rojo,550,200,505,370)
+                                        boton.escribir_sobre_imagen(pregunta.respuesta_b,(255,255,255))
+
+                        
                 
-def mostrar_comodines(lista_comodines:list, lista_botones: list, path_comodin_publico, path_comodin_llamada, path_comodin_cincuenta):
+def mostrar_comodines(ventana, lista_comodines:list, lista_botones: list, path_comodin_publico, path_comodin_llamada, path_comodin_cincuenta, pregunta):
         
         for boton in lista_botones:
 
@@ -92,27 +163,51 @@ def mostrar_comodines(lista_comodines:list, lista_botones: list, path_comodin_pu
 
                         case "boton_publico":
                                 boton.agregar_imagen_boton(path_comodin_publico, 60,60,1000,10)
+                                
+                                
                         case "boton_llamada":
                                 boton.agregar_imagen_boton(path_comodin_llamada,50,50,1100,10)
+
                         case "boton_cincuenta":        
                                 boton.agregar_imagen_boton(path_comodin_cincuenta,50,50,1200,10)
-                                
 
-def pantalla_perdiste(ventana, lista_botones: list, lista_eventos):
 
-        fondo_menu_principal = Fondo(r"graficos\fondo_azul_oscuro.jpg", (1280,720))
-        fondo_menu_principal.dibujar_fondo(ventana, (0,0))
-        presentador_perdiste = Presentador(r"graficos\guido_triste.png",(400,250))
-        presentador_perdiste.escalar_imagen((400,250), 600, 500)
-        presentador_perdiste.voltear_imagen(presentador_perdiste.posicion)
-        presentador_perdiste.dibujar(ventana)
+        for comodin in lista_comodines:
 
-        escribir_texto(ventana,"PERDISTE SOS HORRIBLE",pygame.font.SysFont("Arial",50, bold=True), (255,255,255), 300, 600)
+                match comodin.nombre:
 
-        for boton in lista_botones:
-                if boton.nombre == "boton_volver":
-                        Boton.dibujar(boton, (255,255,255))
-                        Boton.manejar_evento(boton,lista_eventos)
+                        case "comodin_publico":
+                                if comodin.activo == True:
+                                        comodin.mostrar_barras(ventana, (255,255,255), 600, 150, 50, pygame.font.SysFont("Arial",18), (0,0,0))
+                        
+                        case "comodin_llamada":
+                                if comodin.activo == True:
+                                        comodin.palabra_clave(ventana, pregunta.pista, pygame.font.SysFont("Arial",18), (255,255,255), 600, 153)
+
+                        case "comodin_cincuenta":
+                                if comodin.activo == True:
+                                        comodin.cincuenta(pregunta)
+
+
+
+def pantalla_perdiste(ventana, lista_botones: list, lista_eventos, switches):
+
+
+
+        if switches['resultado_respuesta'] == False and switches['jugando'] == False and switches['menu_principal'] == False:
+                fondo_menu_principal = Fondo(r"graficos\fondo_azul_oscuro.jpg", (1280,720))
+                fondo_menu_principal.dibujar_fondo(ventana, (0,0))
+                presentador_perdiste = Presentador(r"graficos\guido_triste.png",(400,250))
+                presentador_perdiste.escalar_imagen((400,250), 600, 500)
+                presentador_perdiste.voltear_imagen(presentador_perdiste.posicion)
+                presentador_perdiste.dibujar(ventana)
+
+                escribir_texto(ventana,"PERDISTE SOS HORRIBLE",pygame.font.SysFont("Arial",50, bold=True), (255,255,255), 300, 600)
+
+                for boton in lista_botones:
+                        if boton.nombre == "boton_volver":
+                                Boton.dibujar(boton, (255,255,255))
+                                Boton.manejar_evento(boton,lista_eventos)
 
 
 def pantalla_score(ventana, lista_score, y):

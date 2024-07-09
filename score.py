@@ -83,6 +83,9 @@ def cargar_matriz_csv(path: str):
     
     return lista_puntuacion
 
+
+
+
 def agregar_puntuaciones(lista_puntuaciones:list[list], nueva_puntuacion: list):
     """agrega nuevas puntuaciones a la lista
 

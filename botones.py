@@ -43,6 +43,10 @@ class Boton:
         self.ventana.blit(texto_superficie, (
             self.rect.x + (self.rect.width - texto_superficie.get_width()) // 2,
             self.rect.y + (self.rect.height - texto_superficie.get_height()) // 2))
+        
+
+
+
 
     def manejar_evento(self, lista_eventos:list):
         """Se encarga de cambiar los colores del botón según la posición del mouse
@@ -64,6 +68,11 @@ class Boton:
                 else:
                     self.color_actual = self.color_normal
 
+
+
+
+
+
     def agregar_imagen_boton(self, path: str, ancho: int, alto: int, x: int, y: int):
         """Le agrega una imagen al botón
 
@@ -80,6 +89,11 @@ class Boton:
         self.rect = boton_superficie.get_rect(topleft= (x,y))
         self.ventana.blit(boton_superficie, (x,y))
 
+
+
+
+
+
     def escribir_sobre_imagen(self, texto, color_texto: tuple):
         """Le agrega texto dentro del botón que tenga una imagen
 
@@ -92,6 +106,11 @@ class Boton:
             self.rect.x + (self.rect.width - texto_superficie.get_width()) // 2, #ALINEA EL TEXTO EN EJE HORIZONTAL
             self.rect.y + (self.rect.height - texto_superficie.get_height()) // 2)) #ALINEA EL TEXTO EN EJE VERTICAL      
     
+
+
+
+
+
     def manejar_boton(self, switch_boton: bool, path_imagen: str):
         """Pinta el botón de determinado color según el estado del interruptor
 
@@ -106,6 +125,10 @@ class Boton:
             self.escribir_sobre_imagen((0,0,0))
 
     
+
+
+
+    
     def reiniciar_switches(self):
         """Restablece todos los interruptores del botón a su estado por defecto cuando se inicializan
         """
@@ -113,3 +136,7 @@ class Boton:
         self.switch_default = True
         self.switch_rojo = False
         self.switch_verde = False
+    
+    def cambiar_texto(self, texto):
+
+        self.texto = texto

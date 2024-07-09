@@ -70,16 +70,16 @@ def manejar_eventos_respuesta(diccionario_switches: dict, jugador: object, crono
                             match boton.nombre:
                                 
                                 case "boton_a":                                
-                                    diccionario_switches['resultado_respuesta'] = manejar_niveles(boton, pregunta, diccionario_switches)
+                                    manejar_niveles(boton, pregunta, diccionario_switches)
                                 
                                 case "boton_b":
-                                    diccionario_switches['resultado_respuesta'] = manejar_niveles(boton, pregunta, diccionario_switches)
+                                    manejar_niveles(boton, pregunta, diccionario_switches)
                                 
                                 case "boton_c":
-                                    diccionario_switches['resultado_respuesta'] = manejar_niveles(boton, pregunta, diccionario_switches)
+                                    manejar_niveles(boton, pregunta, diccionario_switches)
 
                                 case "boton_d":
-                                    diccionario_switches['resultado_respuesta'] = manejar_niveles(boton, pregunta, diccionario_switches)
+                                    manejar_niveles(boton, pregunta, diccionario_switches)
 
     return diccionario_switches
 
@@ -87,7 +87,7 @@ def manejar_eventos_comodines(diccionario_switches: dict, lista_eventos: list, l
 
     for evento in lista_eventos:
 
-        if evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1 and diccionario_switches['menu_principal'] == False and diccionario_switches['jugando'] == True and diccionario_switches['pausa'] == False:
+        if evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1 and diccionario_switches['menu_principal'] == False and diccionario_switches['jugando'] == True:
 
             for boton in lista_botones:
 
@@ -100,9 +100,10 @@ def manejar_eventos_comodines(diccionario_switches: dict, lista_eventos: list, l
                             for comodin in lista_comodines:
 
                                 if comodin.nombre == "comodin_publico" and comodin.usos > 0:
-
+                                    
+                                    print("click")
                                     comodin.activo = True
-                                    comodin.lista_alturas = generar_lista_alturas() # A editar cuando se convierta en metodo
+                                    comodin.generar_lista_alturas()
                                     break
 
                         case "boton_llamada":
@@ -110,6 +111,7 @@ def manejar_eventos_comodines(diccionario_switches: dict, lista_eventos: list, l
                             for comodin in lista_comodines:
 
                                 if comodin.nombre == "comodin_llamada" and comodin.usos > 0:
+                                   
 
                                     comodin.activo = True
                                     break
@@ -119,7 +121,7 @@ def manejar_eventos_comodines(diccionario_switches: dict, lista_eventos: list, l
                             for comodin in lista_comodines:
 
                                 if comodin.nombre == "comodin_cincuenta" and comodin.usos > 0:
-
+                                    comodin.generar_auxiliar_cincuenta()
                                     comodin.activo = True
                                     break
 
@@ -128,7 +130,7 @@ def manejar_eventos_pausa(diccionario_switches: dict, jugador: object, cronometr
 
     for evento in lista_eventos:
 
-        if evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1 and diccionario_switches['resultado_respuesta'] == True and diccionario_switches['pausa'] == True and diccionario_switches['jugando'] == False:
+        if evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1 and diccionario_switches['resultado_respuesta'] == True and diccionario_switches['pausa'] == True:
                       
                 for boton in lista_botones:
 
@@ -138,17 +140,20 @@ def manejar_eventos_pausa(diccionario_switches: dict, jugador: object, cronometr
                         
                             case "boton_continuar":
 
+
                                 if jugador.nivel < 15: #Probar con esta ubicación, sino subirlo
-                            
+                                    
+
+
                                     for boton in lista_botones:
 
                                         boton.reiniciar_switches()
                                                                         
                                     for comodin in lista_comodines:
                                         
-                                        comodin.reiniciar()
+                                        comodin.desactivar_comodin()
 
-                                    pregunta.establecer_pregunta(pregunta, jugador.nivel, lista_preguntas)
+                                    pregunta.establecer_pregunta(jugador.nivel, lista_preguntas)
                                     diccionario_switches['resultado_respuesta'] = None
                                     diccionario_switches['jugando'] = True
                                     diccionario_switches['pausa'] = False                             
@@ -174,7 +179,7 @@ def manejar_eventos_derrota(diccionario_switches: dict, jugador: object, cronome
 
     for evento in lista_eventos:
 
-        if evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1 and diccionario_switches['resultado_respuesta'] == False and diccionario_switches['pausa'] == True and diccionario_switches['jugando'] == False or (evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1 and cronometro.actualizar() == 0):
+        if evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1 and diccionario_switches['resultado_respuesta'] == False  and diccionario_switches['jugando'] == False:
 
             for boton in lista_botones:
 
@@ -183,10 +188,10 @@ def manejar_eventos_derrota(diccionario_switches: dict, jugador: object, cronome
                     match boton.nombre:
 
                         case "boton_volver":
-                
+                                                
                             for comodin in lista_comodines:
 
-                                comodin.reiniciar()
+                                comodin.reiniciar_comodines()
 
                             for boton in lista_botones:
 

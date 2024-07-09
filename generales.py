@@ -4,23 +4,23 @@ from texto import *
 
 # Definir la función comodin_publico_barras
 
-def generar_lista_alturas():
-    """genera numeros aleatorios los cuales se van a utilizar
-    para graficar rectangulos con distintas alturas
-    el for itera cuatro veces y agrega a lista aturas la altura que se genero
-    en cada vuelta
+# def generar_lista_alturas():
+#     """genera numeros aleatorios los cuales se van a utilizar
+#     para graficar rectangulos con distintas alturas
+#     el for itera cuatro veces y agrega a lista aturas la altura que se genero
+#     en cada vuelta
 
-    Returns:
-        list: lista de alturas
-    """
+#     Returns:
+#         list: lista de alturas
+#     """
 
-    lista_alturas = []
+#     lista_alturas = []
 
-    for i in range(4):
-        height = random.randint(30,100)
-        lista_alturas.append(height)
+#     for i in range(4):
+#         height = random.randint(30,100)
+#         lista_alturas.append(height)
 
-    return lista_alturas
+#     return lista_alturas
 
 
 

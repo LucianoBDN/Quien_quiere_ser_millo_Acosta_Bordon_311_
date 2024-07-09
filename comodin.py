@@ -10,14 +10,22 @@ class Comodin:
         self.nombre = nombre
         self.alturas = []
         self.usos = 1
-        self.comodin_activo = False 
+        self.activo = False 
+        self.auxiliar_cincuenta = None
     
     def reiniciar_comodines(self):
         """Restablece los usos del comodín
         """
         self.usos = 1
-        self.comodin_activo = False
+        self.activo = False
     
+    def desactivar_comodin(self):
+
+        if self.activo == True:
+
+            self.activo = False
+            self.usos = 0
+
     def generar_lista_alturas(self):
         """genera numeros aleatorios los cuales se van a utilizar
         para graficar rectangulos con distintas alturas
@@ -58,7 +66,7 @@ class Comodin:
 
         
 
-        x_porcentaje = x + 18
+        x_porcentaje = x
         y_porcentaje = y - 40
         vuelta = 0
 
@@ -74,9 +82,9 @@ class Comodin:
         for porcentaje in lista_alturas_barras:
             porcentaje = str(porcentaje)
             escribir_texto(ventana, f"{porcentaje[:4]}%" ,fuente, color_txt, x_porcentaje, y_porcentaje)
-            x_porcentaje += 55
+            x_porcentaje += 60
 
-        self.comodin_activo = True
+        self.activo = True
         self.usos = 0
         
     def palabra_clave(self, ventana, pista: str, fuente: str, color_texto: tuple, x: int, y: int):
@@ -94,11 +102,18 @@ class Comodin:
 
         escribir_texto(ventana, pista , fuente, color_texto, x, y)
 
-        self.comodin_activo = True
+        self.activo = True
         self.usos = 0
 
+
+
+    def generar_auxiliar_cincuenta(self):
+
+        self.auxiliar_cincuenta = random.randint(1,3)
+
+
     
-    def comodin_cincuenta(self,lista_respuestas: list, respuesta_correcta: str) :
+    def cincuenta(self, pregunta:object) :
         """Borra 2 opciones posibles de las respuestas para que el jugado solo tenga que elegir entre 2
 
         Args:
@@ -108,19 +123,60 @@ class Comodin:
         Returns:
             lista_dos_respuesta (list): lista que solo contiene 2 respuestas posibles
         """
-        lista_dos_respuesta = []
 
-        lista_dos_respuesta.append(respuesta_correcta)
 
-        for respuesta in lista_respuestas:
-            if respuesta != respuesta_correcta:
-                if len(lista_dos_respuesta) < 2:
-                    lista_dos_respuesta.append(respuesta)
-                else:
-                    respuesta = "----------------"
-                    lista_dos_respuesta.append(respuesta)
-        
-        self.comodin_activo = True
+
+        if pregunta.respuesta_a == pregunta.respuesta_correcta:
+
+            match self.auxiliar_cincuenta:
+                case 1:
+                    pregunta.respuesta_c = ""
+                    pregunta.respuesta_d = ""
+                case 2:
+                    pregunta.respuesta_b = ""
+                    pregunta.respuesta_d = ""
+                case 3:
+                    pregunta.respuesta_b = ""
+                    pregunta.respuesta_c = ""
+
+        elif pregunta.respuesta_b == pregunta.respuesta_correcta:
+
+            match self.auxiliar_cincuenta:
+                case 1:
+                    pregunta.respuesta_c = ""
+                    pregunta.respuesta_d = ""
+                case 2:
+                    pregunta.respuesta_a = ""
+                    pregunta.respuesta_d = ""
+                case 3:
+                    pregunta.respuesta_a = ""
+                    pregunta.respuesta_c = ""
+
+        elif pregunta.respuesta_c == pregunta.respuesta_correcta:
+
+            match self.auxiliar_cincuenta:
+                case 1:
+                    pregunta.respuesta_b = ""
+                    pregunta.respuesta_d = ""
+                case 2:
+                    pregunta.respuesta_a = ""
+                    pregunta.respuesta_d = ""
+                case 3:
+                    pregunta.respuesta_a = ""
+                    pregunta.respuesta_b = ""
+
+        elif pregunta.respuesta_d == pregunta.respuesta_correcta:
+
+            match self.auxiliar_cincuenta:
+                case 1:
+                    pregunta.respuesta_b = ""
+                    pregunta.respuesta_c = ""
+                case 2:
+                    pregunta.respuesta_a = ""
+                    pregunta.respuesta_c = ""
+                case 3:
+                    pregunta.respuesta_a = ""
+                    pregunta.respuesta_b = ""
+
+        self.activo = True
         self.usos = 0
-
-        return lista_dos_respuesta
