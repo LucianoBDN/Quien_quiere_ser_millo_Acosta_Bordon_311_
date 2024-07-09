@@ -9,7 +9,7 @@ from cronometro import Cronometro
 from botones import Boton
 from presentador import Presentador
 from fondo import Fondo
-from banco import Banco
+#from banco import Banco
 from jugador import Jugador
 from comodin import Comodin
 from score import *

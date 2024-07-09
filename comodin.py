@@ -8,6 +8,7 @@ class Comodin:
         """Inicializa el comodin con sus atributos
         """
         self.nombre = nombre
+        self.alturas = []
         self.usos = 1
         self.comodin_activo = False 
     
@@ -17,7 +18,26 @@ class Comodin:
         self.usos = 1
         self.comodin_activo = False
     
-    def mostrar_barras(self, ventana, color: tuple, x: int, y: int, width: int, fuente: int, color_txt: tuple, height: int):
+    def generar_lista_alturas(self):
+        """genera numeros aleatorios los cuales se van a utilizar
+        para graficar rectangulos con distintas alturas
+        el for itera cuatro veces y agrega a lista aturas la altura que se genero
+        en cada vuelta
+
+        Returns:
+            list: lista de alturas
+        """
+
+        lista_alturas = []
+
+        for i in range(4):
+            altura = random.randint(30,100)
+            lista_alturas.append(altura)
+
+        self.alturas = lista_alturas
+        
+
+    def mostrar_barras(self, ventana, color: tuple, x: int, y: int, width: int, fuente: int, color_txt: tuple):
         """Muestra el grafico del comodin del publico
 
         Args:
@@ -42,14 +62,14 @@ class Comodin:
         y_porcentaje = y - 40
         vuelta = 0
 
-        for i in range(len(height)):
-            dibujar_barras(ventana, color, x, y, width, height[i])
+        for i in range(len(self.alturas)):
+            dibujar_barras(ventana, color, x, y, width, self.alturas[i])
             escribir_texto(ventana, opciones[i] ,fuente, color_txt, x_texto, y_texto)
             vuelta += 1
             x_texto += 60
             x += 60
 
-        lista_alturas_barras = porcentaje_barras(height)
+        lista_alturas_barras = porcentaje_barras(self.alturas)
 
         for porcentaje in lista_alturas_barras:
             porcentaje = str(porcentaje)

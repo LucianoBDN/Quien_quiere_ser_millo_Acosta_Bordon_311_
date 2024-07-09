@@ -44,24 +44,25 @@ class Boton:
             self.rect.x + (self.rect.width - texto_superficie.get_width()) // 2,
             self.rect.y + (self.rect.height - texto_superficie.get_height()) // 2))
 
-    def manejar_evento(self, evento):
+    def manejar_evento(self, lista_eventos:list):
         """Se encarga de cambiar los colores del botón según la posición del mouse
 
         Args:
             evento (event): evento que ocurre al realizar determinada acción
         """
-        if evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1:
-            if self.rect.collidepoint(evento.pos):
-                self.color_actual = self.color_click
-                self.click = True
-        elif evento.type == pygame.MOUSEBUTTONUP:
-            if self.rect.collidepoint(evento.pos):
-                self.click = False
-        elif evento.type == pygame.MOUSEMOTION:
-            if self.rect.collidepoint(evento.pos):
-                self.color_actual = self.color_hover
-            else:
-                self.color_actual = self.color_normal
+        for evento in lista_eventos:
+            if evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1:
+                if self.rect.collidepoint(evento.pos):
+                    self.color_actual = self.color_click
+                    self.click = True
+            elif evento.type == pygame.MOUSEBUTTONUP:
+                if self.rect.collidepoint(evento.pos):
+                    self.click = False
+            elif evento.type == pygame.MOUSEMOTION:
+                if self.rect.collidepoint(evento.pos):
+                    self.color_actual = self.color_hover
+                else:
+                    self.color_actual = self.color_normal
 
     def agregar_imagen_boton(self, path: str, ancho: int, alto: int, x: int, y: int):
         """Le agrega una imagen al botón
@@ -79,14 +80,14 @@ class Boton:
         self.rect = boton_superficie.get_rect(topleft= (x,y))
         self.ventana.blit(boton_superficie, (x,y))
 
-    def escribir_sobre_imagen(self, color_texto: tuple):
+    def escribir_sobre_imagen(self, texto, color_texto: tuple):
         """Le agrega texto dentro del botón que tenga una imagen
 
         Args:
             color_texto (tuple): color del texto para el botón 
         """
 
-        texto_superficie = self.fuente.render(self.texto, True, color_texto)
+        texto_superficie = self.fuente.render(texto, True, color_texto)
         self.ventana.blit(texto_superficie, (
             self.rect.x + (self.rect.width - texto_superficie.get_width()) // 2, #ALINEA EL TEXTO EN EJE HORIZONTAL
             self.rect.y + (self.rect.height - texto_superficie.get_height()) // 2)) #ALINEA EL TEXTO EN EJE VERTICAL      

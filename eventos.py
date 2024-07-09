@@ -32,23 +32,24 @@ def manejar_eventos_menu_principal(diccionario_switches: dict, cronometro: objec
         if evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1 and diccionario_switches['menu_principal'] == True:
 
             for boton in lista_botones:
-
+                
                 if boton.rect.collidepoint(pygame.mouse.get_pos()):
                     
-                    match boton:
+                    match boton.nombre:
                         
                         case "boton_jugar":
+                            print("click")
                             diccionario_switches['menu_principal'] = False
                             diccionario_switches['jugando'] = True
                             cronometro.iniciar()
-                            pregunta.establecer_pregunta((pregunta, jugador.nivel, lista_preguntas))
-                            
+                            pregunta.establecer_pregunta(jugador.nivel, lista_preguntas)
+                            print(pregunta.pregunta)
                             for comodin in lista_comodines:
                                 
                                 comodin.reiniciar_comodines()
 
                         case "boton_salir":
-                            
+                            print("click")
                             diccionario_switches['bucle_principal'] = False
 
     return diccionario_switches
@@ -60,7 +61,7 @@ def manejar_eventos_respuesta(diccionario_switches: dict, jugador: object, crono
     
         if evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1 and diccionario_switches['menu_principal'] == False and diccionario_switches['jugando'] == True and diccionario_switches['pausa'] == False:
 
-                while jugador.vidas > 0 and cronometro.actualizar() > 0: # A chequear si funciona con while o si hay que reemplazar con "if"
+                if jugador.vidas > 0 and cronometro.actualizar() > 0: # A chequear si funciona con while o si hay que reemplazar con "if"
 
                     for boton in lista_botones:
 
@@ -82,27 +83,45 @@ def manejar_eventos_respuesta(diccionario_switches: dict, jugador: object, crono
 
     return diccionario_switches
 
-def manejar_eventos_comodines(diccionario_switches: dict, lista_eventos: list, lista_comodines: list):
-    
+def manejar_eventos_comodines(diccionario_switches: dict, lista_eventos: list, lista_comodines: list, lista_botones: list):
+
     for evento in lista_eventos:
 
         if evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1 and diccionario_switches['menu_principal'] == False and diccionario_switches['jugando'] == True and diccionario_switches['pausa'] == False:
 
-            for comodin in lista_comodines:
+            for boton in lista_botones:
 
-                if comodin.rect.collidepoint(pygame.mouse.get_pos()) and comodin.usos > 0:
+                if boton.rect.collidepoint(pygame.mouse.get_pos()):
 
-                    match comodin.nombre:
+                    match boton.nombre:
 
-                        case "comodin_publico":
-                            comodin.activo = True
-                            comodin.lista_alturas = generar_lista_alturas() # A editar cuando se convierta en metodo
+                        case "boton_publico":
 
-                        case "comodin_llamada":
-                            comodin.activo = True
+                            for comodin in lista_comodines:
 
-                        case "comodin_cincuenta_cincuenta":
-                            comodin.activo = True
+                                if comodin.nombre == "comodin_publico" and comodin.usos > 0:
+
+                                    comodin.activo = True
+                                    comodin.lista_alturas = generar_lista_alturas() # A editar cuando se convierta en metodo
+                                    break
+
+                        case "boton_llamada":
+
+                            for comodin in lista_comodines:
+
+                                if comodin.nombre == "comodin_llamada" and comodin.usos > 0:
+
+                                    comodin.activo = True
+                                    break
+
+                        case "boton_cincuenta":
+
+                            for comodin in lista_comodines:
+
+                                if comodin.nombre == "comodin_cincuenta" and comodin.usos > 0:
+
+                                    comodin.activo = True
+                                    break
 
 
 def manejar_eventos_pausa(diccionario_switches: dict, jugador: object, cronometro: object, lista_comodines: list, lista_eventos: list, lista_botones: list, pregunta: object, lista_preguntas: list):

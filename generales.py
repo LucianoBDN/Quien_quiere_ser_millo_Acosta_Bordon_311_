@@ -73,4 +73,12 @@ def porcentaje_barras(valores:list):
     return porcentajes
 
 
+# def actualizar_texto_respuestas(lista_botones, lista_respuestas):
 
+        #  for boton in lista_botones:
+
+        #      if boton.nombre == 'boton_a' or boton.nombre == 'boton_b' or boton.nombre == 'boton_c' or boton.nombre == 'boton_d':
+
+        #          for respuesta in lista_respuestas:
+
+        #              boton.texto = respuesta
