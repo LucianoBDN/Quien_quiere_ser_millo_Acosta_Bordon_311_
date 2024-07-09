@@ -55,7 +55,7 @@ def manejar_eventos_menu_principal(diccionario_switches: dict, cronometro: objec
     return diccionario_switches
 
 
-def manejar_eventos_respuesta(diccionario_switches: dict, jugador: object, cronometro: object, lista_eventos: list, lista_botones: list, pregunta: list[dict]):
+def manejar_eventos_respuesta(diccionario_switches: dict, jugador: object, cronometro: object, lista_eventos: list, lista_botones: list, pregunta: object):
     
     for evento in lista_eventos:
     
@@ -70,16 +70,16 @@ def manejar_eventos_respuesta(diccionario_switches: dict, jugador: object, crono
                             match boton.nombre:
                                 
                                 case "boton_a":                                
-                                    diccionario_switches['resultado_respuesta'] = manejar_niveles(boton, pregunta['respuesta_correcta'])
+                                    diccionario_switches['resultado_respuesta'] = manejar_niveles(boton, pregunta, diccionario_switches)
                                 
                                 case "boton_b":
-                                    diccionario_switches['resultado_respuesta'] = manejar_niveles(boton, pregunta['respuesta_correcta'])
+                                    diccionario_switches['resultado_respuesta'] = manejar_niveles(boton, pregunta, diccionario_switches)
                                 
                                 case "boton_c":
-                                    diccionario_switches['resultado_respuesta'] = manejar_niveles(boton, pregunta['respuesta_correcta'])
+                                    diccionario_switches['resultado_respuesta'] = manejar_niveles(boton, pregunta, diccionario_switches)
 
                                 case "boton_d":
-                                    diccionario_switches['resultado_respuesta'] = manejar_niveles(boton, pregunta['respuesta_correcta'])
+                                    diccionario_switches['resultado_respuesta'] = manejar_niveles(boton, pregunta, diccionario_switches)
 
     return diccionario_switches
 

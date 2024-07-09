@@ -32,7 +32,7 @@ def seleccionar_pregunta(nivel_jugador: int, preguntas: list[dict]) -> dict:
     return pregunta_final
 
 
-def manejar_niveles(lista_botones, respuesta: str) -> bool:
+def manejar_niveles(boton, pregunta, diccionario_switches) -> bool:
     """comprueba si el texto de la respuesta es igual texto que recibe el boton
     si lo es cambia el switch_verde a True y switch_default a False
     si no cambia el switch_rojo a True y switch_default a False
@@ -44,17 +44,17 @@ def manejar_niveles(lista_botones, respuesta: str) -> bool:
     Returns:
         bool: True o False
     """
-    for boton in lista_botones:
-        if boton.texto == respuesta:                    
-            boton.switch_default = False
-            boton.switch_verde = True
-            respuesta_correcta = True  
-                
-        else:                               
-            boton.switch_default = False
-            boton.switch_rojo = True
-            respuesta_correcta = False
 
-    return respuesta_correcta
+    if boton.texto == pregunta.respuesta_correcta:                
+        boton.switch_default = False
+        boton.switch_verde = True
+        diccionario_switches['respuesta_correcta'] = True
+            
+    else:                               
+        boton.switch_default = False
+        boton.switch_rojo = True
+        diccionario_switches['respuesta_correcta'] = False
+
+    return diccionario_switches
 
 
