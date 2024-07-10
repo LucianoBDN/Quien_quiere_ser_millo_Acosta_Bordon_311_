@@ -77,7 +77,7 @@ def cargar_matriz_csv(path: str):
         for linea in archivo:
             auxiliar = re.split(",|\n", linea)
 
-            puntuacion_jugador = [auxiliar[0],auxiliar[1]]
+            puntuacion_jugador = [auxiliar[0],int(auxiliar[1])]
 
             lista_puntuacion.append(puntuacion_jugador)
     
@@ -101,3 +101,19 @@ def agregar_puntuaciones(lista_puntuaciones:list[list], nueva_puntuacion: list):
 
     return lista_puntuaciones
 
+
+
+def agregar_jugador_highscore(nombre: str, putuacion: int, lista_score:list[list], path: str, ):
+
+
+    nueva_puntuacion = [nombre, putuacion]
+
+    lista_score.append(nueva_puntuacion)
+
+
+    lista_ordernada = bubble_sort(lista_score)
+
+
+    matriz = cargar_high_score(lista_ordernada)
+
+    cargar_csv_highscore(matriz, path)

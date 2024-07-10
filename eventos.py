@@ -38,7 +38,7 @@ def manejar_eventos_menu_principal(diccionario_switches: dict, cronometro: objec
                     match boton.nombre:
                         
                         case "boton_jugar":
-                            print("click")
+                            
                             diccionario_switches['menu_principal'] = False
                             diccionario_switches['jugando'] = True
                             cronometro.iniciar()
@@ -48,8 +48,19 @@ def manejar_eventos_menu_principal(diccionario_switches: dict, cronometro: objec
                                 
                                 comodin.reiniciar_comodines()
 
+                            for boton in lista_botones:
+                                boton.reiniciar_switches()
+
+
+                        case "boton_score":
+                            diccionario_switches['menu_principal'] = False
+                            diccionario_switches['pantalla_score'] = True
+
+
+
+
                         case "boton_salir":
-                            print("click")
+                            
                             diccionario_switches['bucle_principal'] = False
 
     return diccionario_switches
@@ -71,15 +82,26 @@ def manejar_eventos_respuesta(diccionario_switches: dict, jugador: object, crono
                                 
                                 case "boton_a":                                
                                     manejar_niveles(boton, pregunta, diccionario_switches)
-                                
+                                    cronometro.reiniciar()
+
                                 case "boton_b":
                                     manejar_niveles(boton, pregunta, diccionario_switches)
-                                
+                                    cronometro.reiniciar()
+
                                 case "boton_c":
                                     manejar_niveles(boton, pregunta, diccionario_switches)
+                                    cronometro.reiniciar()
+
 
                                 case "boton_d":
                                     manejar_niveles(boton, pregunta, diccionario_switches)
+                                    cronometro.reiniciar()
+
+
+                elif cronometro.actualizar() == 0:
+
+                    diccionario_switches['jugando'] = False
+                    diccionario_switches['resultado_respuesta'] = False
 
     return diccionario_switches
 
@@ -161,21 +183,17 @@ def manejar_eventos_pausa(diccionario_switches: dict, jugador: object, cronometr
                                     cronometro.iniciar()
 
                             case "boton_retirarse":
-                                pass
-                                # if (jugador.score == 1000 or jugador.score == 32000):
+                                
+                                    diccionario_switches['retirarse'] = True
+                                    diccionario_switches['jugando'] = False
+                                    
+                            
 
-                                #     flag_retirarse = not flag_retirarse
-                                #     jugador.nombre = jugador.manejar_evento_jugador(evento,jugador.nombre)
-
-                                #     if evento.key == pygame.K_RETURN:
-                                        
-                                #         highscore = [jugador.nombre, jugador.score]
-                                #         lista_score.append(highscore)
 
     return diccionario_switches
 
 
-def manejar_eventos_derrota(diccionario_switches: dict, jugador: object, cronometro: object, lista_eventos: list, lista_botones: list, lista_comodines: list):
+def manejar_eventos_derrota(diccionario_switches: dict, jugador: object, cronometro, lista_eventos: list, lista_botones: list, lista_comodines: list):
 
     for evento in lista_eventos:
 
@@ -197,10 +215,34 @@ def manejar_eventos_derrota(diccionario_switches: dict, jugador: object, cronome
 
                                 boton.reiniciar_switches()
                             
+                            cronometro.reiniciar()
                             diccionario_switches['menu_principal'] = True
                             diccionario_switches['pausa'] = False
                             diccionario_switches['resultado_respuesta'] = None
                             jugador.nivel = 1
                             jugador.score = 100
 
+    return diccionario_switches
+
+
+def manejar_eventos_score(diccionario_switches, lista_botones, lista_eventos):
+
+    for evento in lista_eventos:
+
+        if evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1 and diccionario_switches['pantalla_score'] == True:
+
+            for boton in lista_botones:
+
+                if boton.rect.collidepoint(pygame.mouse.get_pos()):
+
+                    match boton.nombre:
+
+                        case "boton_volver":
+
+                            diccionario_switches['pantalla_score'] = False
+                            diccionario_switches['menu_principal'] = True
+                            
+
+
+    
     return diccionario_switches

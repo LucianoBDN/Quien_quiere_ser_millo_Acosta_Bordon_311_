@@ -50,15 +50,15 @@ def manejar_niveles(boton, pregunta, diccionario_switches) -> bool:
         boton.switch_verde = True
         diccionario_switches['resultado_respuesta'] = True
         diccionario_switches['pausa'] = True
-        print("correcto")
+       
     else:                               
         boton.switch_default = False
         boton.switch_rojo = True
         diccionario_switches['resultado_respuesta'] = False
         diccionario_switches['jugando'] = False
-        print("incorrecto")
+       
 
-    print(diccionario_switches)
+   
 
     return diccionario_switches
 

@@ -21,7 +21,7 @@ def pantalla_menu_principal(ventana, dict_switches: dict, lista_botones: list, l
                 escribir_texto(ventana, "¿Quien quiere ser millonario?", pygame.font.Font(r"fuentes\Audiowide.ttf", 40) , (255,255,255), 310, 100)
                 
                 for boton in lista_botones:
-                        if boton.nombre == "boton_jugar" or boton.nombre == "boton_salir":
+                        if boton.nombre == "boton_jugar" or boton.nombre == "boton_salir" or boton.nombre == "boton_score":
                                 boton.dibujar((255,255,255))
                                 boton.manejar_evento(lista_eventos)
         
@@ -30,9 +30,9 @@ def pantalla_menu_principal(ventana, dict_switches: dict, lista_botones: list, l
 
 
 
-def pantalla_juego(ventana, dict_switches: dict, score: int, texto_cuadro_pregunta: str, lista_botones: list, lista_comodines, pregunta: object, jugador: object, lista_eventos:list):
+def pantalla_juego(ventana, dict_switches: dict, score: int, texto_cuadro_pregunta: str, lista_botones: list, lista_comodines, pregunta: object, jugador: object, lista_eventos:list, cronometro) :
 
-
+        
         if dict_switches['menu_principal'] == False and dict_switches['jugando'] == True:
                 fondo_juego = Fondo(r"graficos\fondo_azul_oscuro.jpg", (1280, 720))
                 fondo_juego.dibujar_fondo(ventana, (0,0))
@@ -52,9 +52,12 @@ def pantalla_juego(ventana, dict_switches: dict, score: int, texto_cuadro_pregun
 
                 cuadro_pregunta = Imagen(r"graficos\boton_respuesta.png", (840, 300), (500,300))
                 cuadro_pregunta.dibujar_imagen(ventana)
-                cuadro_pregunta.escribir_imagen(ventana, pygame.font.SysFont("Arial",25, bold=True), texto_cuadro_pregunta, (255,255,255))
+                cuadro_pregunta.escribir_imagen(ventana, pygame.font.SysFont("Arial",22, bold=True), texto_cuadro_pregunta, (255,255,255))
                 
-                
+                tiempo_restante = cronometro.actualizar()
+                escribir_texto(ventana, f"{tiempo_restante}" , pygame.font.Font(r"fuentes\Audiowide.ttf", 40), (255,255,255), 540, 50)
+
+
                 mostrar_respuestas(lista_botones, r"graficos\boton_respuesta.png", r"graficos\boton_verde.png", r"graficos\boton_rojo.png", pregunta)
                 mostrar_comodines(ventana, lista_comodines, lista_botones, r"graficos\publico.png", r"graficos\llamada.png", r"graficos\50_50.png", pregunta)
 
@@ -190,11 +193,11 @@ def mostrar_comodines(ventana, lista_comodines:list, lista_botones: list, path_c
 
 
 
-def pantalla_perdiste(ventana, lista_botones: list, lista_eventos, switches):
+def pantalla_perdiste(ventana, lista_botones: list, lista_eventos, switches, cronometro: object):
 
 
 
-        if switches['resultado_respuesta'] == False and switches['jugando'] == False and switches['menu_principal'] == False:
+        if switches['resultado_respuesta'] == False and switches['jugando'] == False and switches['menu_principal'] == False or cronometro.actualizar() == 0:
                 fondo_menu_principal = Fondo(r"graficos\fondo_azul_oscuro.jpg", (1280,720))
                 fondo_menu_principal.dibujar_fondo(ventana, (0,0))
                 presentador_perdiste = Presentador(r"graficos\guido_triste.png",(400,250))
@@ -210,20 +213,48 @@ def pantalla_perdiste(ventana, lista_botones: list, lista_eventos, switches):
                                 Boton.manejar_evento(boton,lista_eventos)
 
 
-def pantalla_score(ventana, lista_score, y):
+def pantalla_score(ventana, lista_score, switches, lista_botones, lista_eventos):
 
-        fondo_score = Fondo(r"graficos\fondo_azul_oscuro.jpg", (1280,720))
-        fondo_score.dibujar_fondo(ventana, (0,0))
-        presentador_score = Presentador(r"graficos\guido_respuesta_bien.png",(200,250))
-        presentador_score.escalar_imagen((300,350), 750, 750)
-        
-        presentador_score.dibujar(ventana)
+        y = 90
 
-        for score in lista_score:
-                escribir_texto(ventana, score[0],pygame.font.SysFont("Arial",40, bold=True) , (255,255,255), 700 , y)
-                escribir_texto(ventana, score[1],pygame.font.SysFont("Arial",40, bold=True) , (255,255,255), 900, y)
-                y += 70
+        if switches['menu_principal'] == False and switches['jugando'] == False and switches['pantalla_score'] == True:
+                fondo_score = Fondo(r"graficos\fondo_azul_oscuro.jpg", (1280,720))
+                fondo_score.dibujar_fondo(ventana, (0,0))
+                presentador_score = Presentador(r"graficos\guido_respuesta_bien.png",(200,250))
+                presentador_score.escalar_imagen((300,350), 750, 750)
+                
+                presentador_score.dibujar(ventana)
 
+
+                for score in lista_score:
+                        escribir_texto(ventana, score[0],pygame.font.SysFont("Arial",40, bold=True) , (255,255,255), 700 ,  y)
+                        escribir_texto(ventana, f"{score[1]}",pygame.font.SysFont("Arial",40, bold=True) , (255,255,255), 900 ,  y)
+                        y += 70
+
+                for boton in lista_botones:
+
+                        if boton.nombre == "boton_volver":
+                                Boton.manejar_evento(boton,lista_eventos)
+                                boton.dibujar((255,255,255))
+
+def pantalla_retirarse(ventana, lista_score: list[list], jugador: object, switches: dict, lista_eventos):
+
+        if switches['retirarse'] == True and switches['jugando'] == False and switches['menu_principal'] == False:
+                fondo_menu_principal = Fondo(r"graficos\fondo_azul_oscuro.jpg", (1280,720))
+                fondo_menu_principal.dibujar_fondo(ventana, (0,0))
+                presentador_bienvenida = Presentador(r"graficos\guido_feliz_sinfondo.png",(400, 390))
+                presentador_bienvenida.escalar_imagen((400, 390),1134,664)
+                presentador_bienvenida.voltear_imagen(presentador_bienvenida.posicion)
+                presentador_bienvenida.dibujar(ventana)
+                escribir_texto(ventana, "Sos un crack GANASTE:", pygame.font.Font(r"fuentes\Audiowide.ttf", 40) , (255,255,255), 550, 60)
+                escribir_texto(ventana, f"${jugador.score}", pygame.font.Font(r"fuentes\Audiowide.ttf", 45) , (255,223,0), 700, 150)
+                escribir_texto(ventana, "Escribe tu nombre para guardar tu puntuacion", pygame.font.Font(r"fuentes\Audiowide.ttf", 20) , (255,255,255), 600, 300)
+                
+                jugador.nombre = jugador.manejar_evento_jugador(lista_eventos, jugador.nombre, switches, lista_score, r"datos\score.csv")
+
+
+
+                escribir_texto(ventana, f"{jugador.nombre}", pygame.font.Font(r"fuentes\Audiowide.ttf", 40) , (255,255,255), 800, 400)
 
 
 

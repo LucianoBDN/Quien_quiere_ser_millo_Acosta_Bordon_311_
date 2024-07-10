@@ -82,3 +82,19 @@ def porcentaje_barras(valores:list):
         #          for respuesta in lista_respuestas:
 
         #              boton.texto = respuesta
+
+def reiniciar_switches(switches:dict):
+
+    switches['bucle_principal'] = True
+    switches['menu_principal'] = True
+    switches['jugando'] = False
+    switches['pausa'] = False
+    switches['comodin_publico'] = False
+    switches['cincuenta_cincuenta'] = False
+    switches['comodin_llamada'] = False
+    switches['resultado_respuesta'] = None
+    switches['pantalla_score'] = False
+    switches['retirarse'] = False
+    switches['escribir'] = True
+    
+    return switches

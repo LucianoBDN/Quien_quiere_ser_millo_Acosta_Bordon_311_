@@ -2,861 +2,731 @@
   {
     "id": 1,
     "monto_premio": 100,
-    "pregunta": "¿Quién fundó Microsoft?",
+    "pregunta": "¿Qué país es conocido por la torre inclinada de Pisa?",
     "posibles_respuestas": [
-      "Steve Jobs",
-      "Bill Gates",
-      "Larry Page",
-      "Mark Zuckerberg"
+      "Francia",
+      "Italia",
+      "España",
+      "Grecia"
     ],
-    "respuesta_correcta": "Bill Gates",
+    "respuesta_correcta": "Italia",
     "nivel": 1,
-    "pista": "Cofundador de Microsoft"
+    "pista": "Es un país en Europa conocido por su comida y arte."
   },
   {
     "id": 2,
     "monto_premio": 100,
-    "pregunta": "¿Cuál es el planeta más cercano al sol?",
-    "posibles_respuestas": ["Venus", "Marte", "Mercurio", "Júpiter"],
-    "respuesta_correcta": "Mercurio",
+    "pregunta": "¿Cuál es el mamífero más grande del mundo?",
+    "posibles_respuestas": ["Elefante", "Ballena azul", "Jirafa", "Hipopótamo"],
+    "respuesta_correcta": "Ballena azul",
     "nivel": 1,
-    "pista": "Es el primer planeta del sistema solar"
+    "pista": "Vive en el océano."
   },
   {
     "id": 3,
     "monto_premio": 100,
-    "pregunta": "¿Cuál es el océano más grande del mundo?",
-    "posibles_respuestas": ["Atlántico", "Índico", "Ártico", "Pacífico"],
-    "respuesta_correcta": "Pacífico",
+    "pregunta": "¿Qué elemento tiene el símbolo 'O'?",
+    "posibles_respuestas": ["Oro", "Oxígeno", "Osmio", "Olbón"],
+    "respuesta_correcta": "Oxígeno",
     "nivel": 1,
-    "pista": "Está ubicado entre Asia y América"
+    "pista": "Es esencial para la respiración."
   },
   {
     "id": 4,
     "monto_premio": 100,
-    "pregunta": "¿En qué año llegó el hombre a la luna?",
-    "posibles_respuestas": ["1965", "1969", "1972", "1975"],
-    "respuesta_correcta": "1969",
+    "pregunta": "¿Cuál es el deporte más popular del mundo?",
+    "posibles_respuestas": ["Baloncesto", "Tenis", "Fútbol", "Críquet"],
+    "respuesta_correcta": "Fútbol",
     "nivel": 1,
-    "pista": "Fue durante la misión Apolo 11"
+    "pista": "Se juega con un balón y dos equipos de once jugadores."
   },
   {
     "id": 5,
     "monto_premio": 100,
-    "pregunta": "¿Qué país tiene la mayor población del mundo?",
-    "posibles_respuestas": ["India", "Estados Unidos", "China", "Brasil"],
-    "respuesta_correcta": "China",
+    "pregunta": "¿Qué instrumento mide la presión atmosférica?",
+    "posibles_respuestas": ["Barómetro", "Termómetro", "Anemómetro", "Higrómetro"],
+    "respuesta_correcta": "Barómetro",
     "nivel": 1,
-    "pista": "Es el país más poblado de Asia"
+    "pista": "Es crucial en meteorología."
   },
   {
     "id": 6,
     "monto_premio": 200,
-    "pregunta": "¿País más grande?",
-    "posibles_respuestas": ["Canadá", "Estados Unidos", "Rusia", "China"],
-    "respuesta_correcta": "Rusia",
+    "pregunta": "¿Cuál es la moneda oficial de Japón?",
+    "posibles_respuestas": ["Yuan", "Won", "Yen", "Ringgit"],
+    "respuesta_correcta": "Yen",
     "nivel": 2,
-    "pista": "Extensión en Eurasia"
+    "pista": "Su símbolo es ¥."
   },
   {
     "id": 7,
     "monto_premio": 200,
-    "pregunta": "¿Qué gas es esencial para la respiración humana?",
+    "pregunta": "¿Quién es conocido como el 'Padre de la Computación'?",
     "posibles_respuestas": [
-      "Nitrógeno",
-      "Oxígeno",
-      "Dióxido de carbono",
-      "Helio"
+      "Charles Babbage",
+      "Alan Turing",
+      "John von Neumann",
+      "Bill Gates"
     ],
-    "respuesta_correcta": "Oxígeno",
+    "respuesta_correcta": "Charles Babbage",
     "nivel": 2,
-    "pista": "Es el segundo gas más abundante en la atmósfera"
+    "pista": "Diseñó la máquina analítica."
   },
   {
     "id": 8,
     "monto_premio": 200,
-    "pregunta": "¿Quién pintó la Mona Lisa?",
+    "pregunta": "¿Cuál es la capital de Canadá?",
     "posibles_respuestas": [
-      "Vincent van Gogh",
-      "Pablo Picasso",
-      "Claude Monet",
-      "Leonardo da Vinci"
+      "Toronto",
+      "Vancouver",
+      "Montreal",
+      "Ottawa"
     ],
-    "respuesta_correcta": "Leonardo da Vinci",
+    "respuesta_correcta": "Ottawa",
     "nivel": 2,
-    "pista": "Fue un artista del Renacimiento"
+    "pista": "Es conocida por su colina del Parlamento."
   },
   {
     "id": 9,
     "monto_premio": 200,
-    "pregunta": "¿Cuál es el metal más abundante en la corteza terrestre?",
-    "posibles_respuestas": ["Hierro", "Aluminio", "Cobre", "Oro"],
-    "respuesta_correcta": "Aluminio",
+    "pregunta": "¿Qué fenómeno natural se mide con la escala de Richter?",
+    "posibles_respuestas": ["Huracanes", "Terremotos", "Inundaciones", "Tormentas eléctricas"],
+    "respuesta_correcta": "Terremotos",
     "nivel": 2,
-    "pista": "Es el tercer elemento más abundante después del oxígeno y el silicio"
+    "pista": "Se asocia con movimientos sísmicos."
   },
   {
     "id": 10,
     "monto_premio": 200,
-    "pregunta": "¿Quién escribió 'Don Quijote de la Mancha'?",
+    "pregunta": "¿Quién fue el autor de 'La Odisea'?",
     "posibles_respuestas": [
-      "Gabriel García Márquez",
-      "Miguel de Cervantes",
-      "Jorge Luis Borges",
-      "Federico García Lorca"
+      "Sófocles",
+      "Homero",
+      "Virgilio",
+      "Platón"
     ],
-    "respuesta_correcta": "Miguel de Cervantes",
+    "respuesta_correcta": "Homero",
     "nivel": 2,
-    "pista": "Es considerado uno de los mejores escritores en lengua española"
+    "pista": "También escribió 'La Ilíada'."
   },
   {
     "id": 11,
     "monto_premio": 300,
-    "pregunta": "¿Río más largo?",
+    "pregunta": "¿Cuál es el animal más grande que ha existido?",
     "posibles_respuestas": [
-      "Río Amazonas",
-      "Río Nilo",
-      "Río Yangtsé",
-      "Río Misisipi"
+      "Tiranosaurio Rex",
+      "Megalodón",
+      "Ballena Azul",
+      "Diplodocus"
     ],
-    "respuesta_correcta": "Río Nilo",
+    "respuesta_correcta": "Ballena Azul",
     "nivel": 3,
-    "pista": "Ubicado en África"
+    "pista": "Vive en el océano y es más grande que cualquier dinosaurio."
   },
   {
     "id": 12,
     "monto_premio": 300,
-    "pregunta": "¿Cuál es la capital de Australia?",
-    "posibles_respuestas": ["Sídney", "Melbourne", "Canberra", "Brisbane"],
-    "respuesta_correcta": "Canberra",
+    "pregunta": "¿Cuál es la capital de Brasil?",
+    "posibles_respuestas": ["Río de Janeiro", "Sao Paulo", "Brasilia", "Salvador"],
+    "respuesta_correcta": "Brasilia",
     "nivel": 3,
-    "pista": "No es la ciudad más grande de Australia"
+    "pista": "Fue inaugurada en 1960."
   },
   {
     "id": 13,
     "monto_premio": 300,
-    "pregunta": "¿Cuál es el animal terrestre más rápido?",
-    "posibles_respuestas": ["León", "Tigre", "Guepardo", "Canguro"],
-    "respuesta_correcta": "Guepardo",
+    "pregunta": "¿En qué año empezó la Primera Guerra Mundial?",
+    "posibles_respuestas": ["1912", "1914", "1916", "1918"],
+    "respuesta_correcta": "1914",
     "nivel": 3,
-    "pista": "Puede alcanzar velocidades de hasta 70 mph"
+    "pista": "Comenzó tras el asesinato del archiduque Francisco Fernando."
   },
   {
     "id": 14,
     "monto_premio": 300,
-    "pregunta": "¿Cuál es el elemento químico más ligero?",
-    "posibles_respuestas": ["Oxígeno", "Helio", "Hidrógeno", "Carbono"],
+    "pregunta": "¿Cuál es el elemento químico más abundante en el universo?",
+    "posibles_respuestas": ["Oxígeno", "Hidrógeno", "Helio", "Carbono"],
     "respuesta_correcta": "Hidrógeno",
     "nivel": 3,
-    "pista": "Es el primer elemento de la tabla periódica"
+    "pista": "Es el elemento más ligero."
   },
   {
     "id": 15,
     "monto_premio": 300,
-    "pregunta": "¿Quién fue el primer presidente de Estados Unidos?",
+    "pregunta": "¿Quién fue el autor de 'El Principito'?",
     "posibles_respuestas": [
-      "Thomas Jefferson",
-      "John Adams",
-      "George Washington",
-      "Abraham Lincoln"
+      "J.K. Rowling",
+      "Antoine de Saint-Exupéry",
+      "Lewis Carroll",
+      "Hans Christian Andersen"
     ],
-    "respuesta_correcta": "George Washington",
+    "respuesta_correcta": "Antoine de Saint-Exupéry",
     "nivel": 3,
-    "pista": "Conocido como el 'Padre de su país'"
+    "pista": "Fue un aviador y escritor francés."
   },
   {
     "id": 16,
     "monto_premio": 500,
-    "pregunta": "¿Planeta más grande?",
-    "posibles_respuestas": ["Tierra", "Marte", "Júpiter", "Saturno"],
-    "respuesta_correcta": "Júpiter",
+    "pregunta": "¿Cuál es el desierto más grande del mundo?",
+    "posibles_respuestas": ["Sahara", "Gobi", "Antártico", "Kalahari"],
+    "respuesta_correcta": "Antártico",
     "nivel": 4,
-    "pista": "Gran Mancha Roja"
+    "pista": "Es frío y cubierto de hielo."
   },
   {
     "id": 17,
     "monto_premio": 500,
-    "pregunta": "¿Cuál es el idioma más hablado en el mundo?",
+    "pregunta": "¿Cuál es el idioma más hablado en el mundo por número de hablantes nativos?",
     "posibles_respuestas": ["Inglés", "Español", "Mandarín", "Hindi"],
     "respuesta_correcta": "Mandarín",
     "nivel": 4,
-    "pista": "Es el idioma oficial de China"
+    "pista": "Es el idioma oficial de China."
   },
   {
     "id": 18,
     "monto_premio": 500,
-    "pregunta": "¿Cuál es la fórmula química del agua?",
-    "posibles_respuestas": ["CO2", "H2O", "O2", "NaCl"],
-    "respuesta_correcta": "H2O",
+    "pregunta": "¿Quién fue el autor de '1984'?",
+    "posibles_respuestas": ["Aldous Huxley", "Ray Bradbury", "George Orwell", "Philip K. Dick"],
+    "respuesta_correcta": "George Orwell",
     "nivel": 4,
-    "pista": "Compuesta por dos átomos de hidrógeno y uno de oxígeno"
+    "pista": "También escribió 'Rebelión en la Granja'."
   },
   {
     "id": 19,
     "monto_premio": 500,
-    "pregunta": "¿En qué país se encuentra la Torre Eiffel?",
-    "posibles_respuestas": ["Italia", "España", "Francia", "Alemania"],
-    "respuesta_correcta": "Francia",
+    "pregunta": "¿Cuál es la moneda oficial del Reino Unido?",
+    "posibles_respuestas": ["Euro", "Dólar", "Libra esterlina", "Franco"],
+    "respuesta_correcta": "Libra esterlina",
     "nivel": 4,
-    "pista": "Está ubicada en París"
+    "pista": "Su símbolo es £."
   },
   {
     "id": 20,
     "monto_premio": 500,
-    "pregunta": "¿Cuál es el metal más valioso?",
-    "posibles_respuestas": ["Oro", "Plata", "Platino", "Rodio"],
-    "respuesta_correcta": "Rodio",
+    "pregunta": "¿Qué sustancia se usa para hacer la tiza de las pizarras?",
+    "posibles_respuestas": ["Carbonato de calcio", "Sulfato de calcio", "Carbonato de sodio", "Sulfato de sodio"],
+    "respuesta_correcta": "Sulfato de calcio",
     "nivel": 4,
-    "pista": "Es un metal raro y altamente valuado"
+    "pista": "Es un compuesto químico."
   },
   {
     "id": 21,
     "monto_premio": 1000,
-    "pregunta": "¿País de la Torre Eiffel?",
-    "posibles_respuestas": ["Italia", "Francia", "España", "Alemania"],
-    "respuesta_correcta": "Francia",
+    "pregunta": "¿Cuál es el río más largo del mundo?",
+    "posibles_respuestas": ["Amazonas", "Nilo", "Misisipi", "Yangtsé"],
+    "respuesta_correcta": "Nilo",
     "nivel": 5,
-    "pista": "Torre en París"
+    "pista": "Se encuentra en África."
   },
   {
     "id": 22,
     "monto_premio": 1000,
-    "pregunta": "¿Cuál es el único satélite natural de la Tierra?",
-    "posibles_respuestas": ["Marte", "Luna", "Venus", "Sol"],
-    "respuesta_correcta": "Luna",
+    "pregunta": "¿Cuál es el planeta más cercano al sol?",
+    "posibles_respuestas": ["Venus", "Marte", "Mercurio", "Júpiter"],
+    "respuesta_correcta": "Mercurio",
     "nivel": 5,
-    "pista": "Visible en el cielo nocturno"
+    "pista": "Es también el más pequeño del sistema solar."
   },
   {
     "id": 23,
     "monto_premio": 1000,
-    "pregunta": "¿Quién escribió 'Cien años de soledad'?",
-    "posibles_respuestas": [
-      "Mario Vargas Llosa",
-      "Pablo Neruda",
-      "Gabriel García Márquez",
-      "Julio Cortázar"
-    ],
-    "respuesta_correcta": "Gabriel García Márquez",
+    "pregunta": "¿Qué órgano humano consume más energía?",
+    "posibles_respuestas": ["Corazón", "Hígado", "Riñones", "Cerebro"],
+    "respuesta_correcta": "Cerebro",
     "nivel": 5,
-    "pista": "Es un autor colombiano ganador del Premio Nobel de Literatura"
+    "pista": "Controla todas las funciones del cuerpo."
   },
   {
     "id": 24,
     "monto_premio": 1000,
-    "pregunta": "¿Cuál es el gas más abundante en la atmósfera terrestre?",
-    "posibles_respuestas": [
-      "Oxígeno",
-      "Hidrógeno",
-      "Nitrógeno",
-      "Dióxido de carbono"
-    ],
-    "respuesta_correcta": "Nitrógeno",
+    "pregunta": "¿En qué año cayó el Muro de Berlín?",
+    "posibles_respuestas": ["1987", "1988", "1989", "1990"],
+    "respuesta_correcta": "1989",
     "nivel": 5,
-    "pista": "Constituye aproximadamente el 78% de la atmósfera"
+    "pista": "Marcó el fin de la Guerra Fría."
   },
   {
     "id": 25,
     "monto_premio": 1000,
-    "pregunta": "¿Cuál es el órgano más grande del cuerpo humano?",
-    "posibles_respuestas": ["Hígado", "Pulmón", "Piel", "Corazón"],
-    "respuesta_correcta": "Piel",
+    "pregunta": "¿Qué científico desarrolló la teoría de la relatividad?",
+    "posibles_respuestas": ["Isaac Newton", "Albert Einstein", "Niels Bohr", "Galileo Galilei"],
+    "respuesta_correcta": "Albert Einstein",
     "nivel": 5,
-    "pista": "Cubre todo el cuerpo"
+    "pista": "Es conocido por su ecuación E=mc²."
   },
   {
     "id": 26,
     "monto_premio": 2000,
-    "pregunta": "¿Autor de 'Don Quijote'?",
+    "pregunta": "¿Qué es el Bosón de Higgs?",
     "posibles_respuestas": [
-      "Gabriel García Márquez",
-      "Miguel de Cervantes",
-      "Jorge Luis Borges",
-      "Pablo Neruda"
+      "Una partícula subatómica",
+      "Un tipo de planta",
+      "Una estrella",
+      "Un fenómeno meteorológico"
     ],
-    "respuesta_correcta": "Miguel de Cervantes",
+    "respuesta_correcta": "Una partícula subatómica",
     "nivel": 6,
-    "pista": "Escritor español"
+    "pista": "Es fundamental en la física de partículas."
   },
   {
     "id": 27,
     "monto_premio": 2000,
-    "pregunta": "¿En qué país nació el pintor Pablo Picasso?",
-    "posibles_respuestas": ["España", "Francia", "Italia", "Alemania"],
-    "respuesta_correcta": "España",
+    "pregunta": "¿Cuál es la capital de Australia?",
+    "posibles_respuestas": ["Sydney", "Melbourne", "Canberra", "Perth"],
+    "respuesta_correcta": "Canberra",
     "nivel": 6,
-    "pista": "País europeo conocido por su arte"
+    "pista": "No es la ciudad más grande de Australia."
   },
   {
     "id": 28,
     "monto_premio": 2000,
-    "pregunta": "¿Quién escribió 'Cien años de soledad'?",
-    "posibles_respuestas": [
-      "Mario Vargas Llosa",
-      "Gabriel García Márquez",
-      "Isabel Allende",
-      "Julio Cortázar"
-    ],
-    "respuesta_correcta": "Gabriel García Márquez",
+    "pregunta": "¿En qué año llegó el hombre a la luna?",
+    "posibles_respuestas": ["1965", "1969", "1971", "1973"],
+    "respuesta_correcta": "1969",
     "nivel": 6,
-    "pista": "Escritor colombiano"
+    "pista": "Fue durante la misión del Apolo 11."
   },
   {
     "id": 29,
     "monto_premio": 2000,
-    "pregunta": "¿Cuál es el río más largo del mundo?",
-    "posibles_respuestas": ["Amazonas", "Nilo", "Misisipi", "Yangtsé"],
-    "respuesta_correcta": "Amazonas",
+    "pregunta": "¿Qué filósofo escribió 'La República'?",
+    "posibles_respuestas": ["Sócrates", "Platón", "Aristóteles", "Epicuro"],
+    "respuesta_correcta": "Platón",
     "nivel": 6,
-    "pista": "El pulmón del planeta"
+    "pista": "Fue discípulo de Sócrates y maestro de Aristóteles."
   },
   {
     "id": 30,
     "monto_premio": 2000,
-    "pregunta": "¿Quién pintó la 'Mona Lisa'?",
-    "posibles_respuestas": [
-      "Leonardo da Vinci",
-      "Pablo Picasso",
-      "Vincent van Gogh",
-      "Michelangelo"
-    ],
-    "respuesta_correcta": "Leonardo da Vinci",
+    "pregunta": "¿Cuál es el metal más ligero?",
+    "posibles_respuestas": ["Aluminio", "Titanio", "Litio", "Berilio"],
+    "respuesta_correcta": "Litio",
     "nivel": 6,
-    "pista": "Renacentista italiano"
+    "pista": "Se utiliza en baterías."
   },
   {
     "id": 31,
     "monto_premio": 4000,
-    "pregunta": "¿País más joven?",
-    "posibles_respuestas": [
-      "Timor-Leste",
-      "Eritrea",
-      "Sudán del Sur",
-      "Kosovo"
-    ],
-    "respuesta_correcta": "Sudán del Sur",
+    "pregunta": "¿Cuál es la capital de Egipto?",
+    "posibles_respuestas": ["El Cairo", "Alejandría", "Luxor", "Giza"],
+    "respuesta_correcta": "El Cairo",
     "nivel": 7,
-    "pista": "En África"
+    "pista": "Es la ciudad más grande de África."
   },
   {
     "id": 32,
     "monto_premio": 4000,
-    "pregunta": "¿País más joven?",
-    "posibles_respuestas": [
-      "Timor-Leste",
-      "Eritrea",
-      "Sudán del Sur",
-      "Kosovo"
-    ],
-    "respuesta_correcta": "Sudán del Sur",
+    "pregunta": "¿Qué país es conocido por el carnaval de Río de Janeiro?",
+    "posibles_respuestas": ["México", "Argentina", "Brasil", "Colombia"],
+    "respuesta_correcta": "Brasil",
     "nivel": 7,
-    "pista": "En África"
+    "pista": "Es el país más grande de América del Sur."
   },
   {
     "id": 33,
     "monto_premio": 4000,
-    "pregunta": "¿Dónde se encuentra el Gran Cañón del Colorado?",
-    "posibles_respuestas": [
-      "Utah, EE.UU.",
-      "Arizona, EE.UU.",
-      "Nevada, EE.UU.",
-      "California, EE.UU."
-    ],
-    "respuesta_correcta": "Arizona, EE.UU.",
+    "pregunta": "¿Quién pintó 'La Última Cena'?",
+    "posibles_respuestas": ["Miguel Ángel", "Leonardo da Vinci", "Rafael", "Donatello"],
+    "respuesta_correcta": "Leonardo da Vinci",
     "nivel": 7,
-    "pista": "En Estados Unidos"
+    "pista": "También pintó 'La Mona Lisa'."
   },
   {
     "id": 34,
     "monto_premio": 4000,
-    "pregunta": "¿Qué país es conocido como la 'Tierra de los Mil Lagos'?",
-    "posibles_respuestas": ["Canadá", "Suecia", "Finlandia", "Noruega"],
-    "respuesta_correcta": "Finlandia",
+    "pregunta": "¿Qué instrumento se utiliza para medir la temperatura?",
+    "posibles_respuestas": ["Termómetro", "Barómetro", "Anemómetro", "Altímetro"],
+    "respuesta_correcta": "Termómetro",
     "nivel": 7,
-    "pista": "En Europa"
+    "pista": "Es un instrumento de medición muy común."
   },
   {
     "id": 35,
     "monto_premio": 4000,
-    "pregunta": "¿Cuál es la montaña más alta de África?",
-    "posibles_respuestas": [
-      "Monte Kilimanjaro",
-      "Monte Elbrús",
-      "Monte Everest",
-      "Monte Aconcagua"
-    ],
-    "respuesta_correcta": "Monte Kilimanjaro",
+    "pregunta": "¿En qué país se encuentra la Torre Eiffel?",
+    "posibles_respuestas": ["Italia", "España", "Alemania", "Francia"],
+    "respuesta_correcta": "Francia",
     "nivel": 7,
-    "pista": "En Tanzania"
+    "pista": "Se encuentra en París."
   },
   {
     "id": 36,
     "monto_premio": 8000,
-    "pregunta": "¿Cuál es el río más largo del mundo?",
-    "posibles_respuestas": ["Amazonas", "Nilo", "Yangtsé", "Misisipi"],
-    "respuesta_correcta": "Amazonas",
+    "pregunta": "¿Cuál es la fórmula química del agua?",
+    "posibles_respuestas": ["H2O", "CO2", "O2", "H2SO4"],
+    "respuesta_correcta": "H2O",
     "nivel": 8,
-    "pista": "En América del Sur"
+    "pista": "Está compuesta por dos elementos."
   },
   {
     "id": 37,
     "monto_premio": 8000,
-    "pregunta": "¿Año del Muro de Berlín?",
-    "posibles_respuestas": ["1987", "1988", "1989", "1990"],
-    "respuesta_correcta": "1989",
+    "pregunta": "¿Qué instrumento mide la intensidad de los terremotos?",
+    "posibles_respuestas": ["Barómetro", "Sismógrafo", "Higrómetro", "Termómetro"],
+    "respuesta_correcta": "Sismógrafo",
     "nivel": 8,
-    "pista": "Fin de los 80"
+    "pista": "Es fundamental en la sismología."
   },
   {
     "id": 38,
     "monto_premio": 8000,
-    "pregunta": "¿Teoría de la relatividad?",
-    "posibles_respuestas": [
-      "Isaac Newton",
-      "Albert Einstein",
-      "Galileo Galilei",
-      "Niels Bohr"
-    ],
-    "respuesta_correcta": "Albert Einstein",
+    "pregunta": "¿Cuál es el idioma oficial de Brasil?",
+    "posibles_respuestas": ["Español", "Portugués", "Inglés", "Francés"],
+    "respuesta_correcta": "Portugués",
     "nivel": 8,
-    "pista": "E=mc²"
+    "pista": "Es el único país de América del Sur que no habla español."
   },
   {
     "id": 39,
     "monto_premio": 8000,
-    "pregunta": "¿Autor de 'Cien años de soledad'?",
-    "posibles_respuestas": [
-      "Julio Cortázar",
-      "Pablo Neruda",
-      "Gabriel García Márquez",
-      "Mario Vargas Llosa"
-    ],
-    "respuesta_correcta": "Gabriel García Márquez",
+    "pregunta": "¿Quién descubrió la penicilina?",
+    "posibles_respuestas": ["Marie Curie", "Isaac Newton", "Albert Einstein", "Alexander Fleming"],
+    "respuesta_correcta": "Alexander Fleming",
     "nivel": 8,
-    "pista": "Escritor colombiano"
+    "pista": "Fue un médico y bacteriólogo británico."
   },
   {
     "id": 40,
     "monto_premio": 8000,
-    "pregunta": "¿Ciudad de la Estatua de la Libertad?",
-    "posibles_respuestas": [
-      "Nueva York",
-      "Washington D.C.",
-      "Los Ángeles",
-      "Chicago"
-    ],
-    "respuesta_correcta": "Nueva York",
+    "pregunta": "¿Qué país tiene la mayor población del mundo?",
+    "posibles_respuestas": ["India", "Estados Unidos", "China", "Indonesia"],
+    "respuesta_correcta": "China",
     "nivel": 8,
-    "pista": "Gran manzana"
+    "pista": "Tiene más de mil millones de habitantes."
   },
   {
     "id": 41,
     "monto_premio": 16000,
-    "pregunta": "¿Compositor de 'La Traviata'?",
-    "posibles_respuestas": [
-      "Giuseppe Verdi",
-      "Wolfgang Amadeus Mozart",
-      "Ludwig van Beethoven",
-      "Johann Sebastian Bach"
-    ],
-    "respuesta_correcta": "Giuseppe Verdi",
+    "pregunta": "¿Cuál es el planeta más grande del sistema solar?",
+    "posibles_respuestas": ["Saturno", "Júpiter", "Urano", "Neptuno"],
+    "respuesta_correcta": "Júpiter",
     "nivel": 9,
-    "pista": "Ópera italiana"
+    "pista": "Es un gigante gaseoso."
   },
   {
     "id": 42,
     "monto_premio": 16000,
-    "pregunta": "¿Descubridor de la penicilina?",
+    "pregunta": "¿Quién escribió 'Don Quijote de la Mancha'?",
     "posibles_respuestas": [
-      "Alexander Fleming",
-      "Louis Pasteur",
-      "Marie Curie",
-      "Gregor Mendel"
+      "Lope de Vega",
+      "Miguel de Cervantes",
+      "Francisco de Quevedo",
+      "Garcilaso de la Vega"
     ],
-    "respuesta_correcta": "Alexander Fleming",
+    "respuesta_correcta": "Miguel de Cervantes",
     "nivel": 9,
-    "pista": "Flema"
+    "pista": "Es uno de los libros más traducidos del mundo."
   },
   {
     "id": 43,
     "monto_premio": 16000,
-    "pregunta": "¿Monumento de Atenas?",
-    "posibles_respuestas": ["Coliseo", "Acrópolis", "Torre Eiffel", "Partenón"],
-    "respuesta_correcta": "Partenón",
+    "pregunta": "¿Qué gas es esencial para la respiración humana?",
+    "posibles_respuestas": ["Dióxido de carbono", "Nitrógeno", "Oxígeno", "Hidrógeno"],
+    "respuesta_correcta": "Oxígeno",
     "nivel": 9,
-    "pista": "Templo griego"
+    "pista": "Es el componente principal del aire que respiramos."
   },
   {
     "id": 44,
     "monto_premio": 16000,
-    "pregunta": "¿Descubridor de la gravedad?",
-    "posibles_respuestas": [
-      "Isaac Newton",
-      "Albert Einstein",
-      "Galileo Galilei",
-      "Nikola Tesla"
-    ],
-    "respuesta_correcta": "Isaac Newton",
+    "pregunta": "¿Qué país ganó la Copa del Mundo de Fútbol en 2018?",
+    "posibles_respuestas": ["Alemania", "Brasil", "Francia", "Argentina"],
+    "respuesta_correcta": "Francia",
     "nivel": 9,
-    "pista": "Manzana y Luna"
+    "pista": "Fue su segunda victoria en la Copa del Mundo."
   },
   {
     "id": 45,
     "monto_premio": 16000,
-    "pregunta": "¿Cuál es el nombre del primer satélite artificial lanzado al espacio?",
-    "posibles_respuestas": ["Explorer 1", "Sputnik 1", "Vanguard 1", "Luna 1"],
-    "respuesta_correcta": "Sputnik 1",
+    "pregunta": "¿Qué es el 'Punto G'?",
+    "posibles_respuestas": [
+      "Un punto de acupuntura",
+      "Un punto erógeno",
+      "Un punto en la galaxia",
+      "Un punto de gravedad"
+    ],
+    "respuesta_correcta": "Un punto erógeno",
     "nivel": 9,
-    "pista": "Fue lanzado por la Unión Soviética en 1957"
+    "pista": "Se dice que se encuentra en la anatomía femenina."
   },
   {
     "id": 46,
     "monto_premio": 32000,
-    "pregunta": "¿Quién fue el primer matemático en demostrar el último teorema de Fermat?",
+    "pregunta": "¿Qué filósofo alemán escribió 'Así habló Zaratustra'?",
     "posibles_respuestas": [
-      "Pierre de Fermat",
-      "Andrew Wiles",
-      "Leonhard Euler",
-      "Carl Friedrich Gauss"
+      "Karl Marx",
+      "Immanuel Kant",
+      "Friedrich Nietzsche",
+      "Arthur Schopenhauer"
     ],
-    "respuesta_correcta": "Andrew Wiles",
+    "respuesta_correcta": "Friedrich Nietzsche",
     "nivel": 10,
-    "pista": "Lo demostró en 1994"
+    "pista": "Es conocido por su filosofía del superhombre."
   },
   {
     "id": 47,
     "monto_premio": 32000,
-    "pregunta": "¿Qué elemento tiene el número atómico 92?",
-    "posibles_respuestas": ["Plutonio", "Uranio", "Neptunio", "Torio"],
-    "respuesta_correcta": "Uranio",
+    "pregunta": "¿Cuál es la moneda oficial de Japón?",
+    "posibles_respuestas": ["Won", "Yuan", "Yen", "Baht"],
+    "respuesta_correcta": "Yen",
     "nivel": 10,
-    "pista": "Es un elemento radiactivo utilizado en reactores nucleares"
+    "pista": "Tiene un símbolo similar a la letra Y."
   },
   {
     "id": 48,
     "monto_premio": 32000,
-    "pregunta": "¿En qué año se inauguró el Canal de Panamá?",
-    "posibles_respuestas": ["1904", "1914", "1924", "1934"],
-    "respuesta_correcta": "1914",
+    "pregunta": "¿Qué vitamina es producida por el cuerpo cuando se expone al sol?",
+    "posibles_respuestas": ["Vitamina A", "Vitamina B", "Vitamina C", "Vitamina D"],
+    "respuesta_correcta": "Vitamina D",
     "nivel": 10,
-    "pista": "Fue construido por Estados Unidos"
+    "pista": "Es esencial para la salud ósea."
   },
   {
     "id": 49,
     "monto_premio": 32000,
-    "pregunta": "¿Quién escribió 'En busca del tiempo perdido'?",
-    "posibles_respuestas": [
-      "James Joyce",
-      "Marcel Proust",
-      "Thomas Mann",
-      "Virginia Woolf"
-    ],
-    "respuesta_correcta": "Marcel Proust",
+    "pregunta": "¿Qué elemento tiene el símbolo químico 'Au'?",
+    "posibles_respuestas": ["Plata", "Mercurio", "Oro", "Plomo"],
+    "respuesta_correcta": "Oro",
     "nivel": 10,
-    "pista": "Es una obra monumental de la literatura francesa"
+    "pista": "Es un metal precioso muy valorado."
   },
   {
     "id": 50,
     "monto_premio": 32000,
-    "pregunta": "¿Cuál es el país más grande del continente africano?",
-    "posibles_respuestas": [
-      "Sudán",
-      "Argelia",
-      "República Democrática del Congo",
-      "Libia"
-    ],
-    "respuesta_correcta": "Argelia",
+    "pregunta": "¿Qué animal es conocido como el 'rey de la selva'?",
+    "posibles_respuestas": ["Tigre", "Elefante", "León", "Oso"],
+    "respuesta_correcta": "León",
     "nivel": 10,
-    "pista": "Se encuentra en el norte de África"
+    "pista": "Es un gran felino."
   },
   {
     "id": 51,
     "monto_premio": 64000,
-    "pregunta": "¿Cuál es el nombre del proceso por el cual una célula se divide en dos células hijas idénticas?",
-    "posibles_respuestas": [
-      "Meiosis",
-      "Mitosis",
-      "Citocinesis",
-      "Fisión binaria"
-    ],
-    "respuesta_correcta": "Mitosis",
+    "pregunta": "¿Qué inventor es conocido por su trabajo con la corriente alterna?",
+    "posibles_respuestas": ["Thomas Edison", "Alexander Graham Bell", "Nikola Tesla", "Michael Faraday"],
+    "respuesta_correcta": "Nikola Tesla",
     "nivel": 11,
-    "pista": "Es un proceso de división celular en organismos eucariotas"
+    "pista": "Fue un pionero en la electricidad y el electromagnetismo."
   },
   {
     "id": 52,
     "monto_premio": 64000,
-    "pregunta": "¿Qué filósofo griego fue maestro de Alejandro Magno?",
-    "posibles_respuestas": ["Sócrates", "Platón", "Aristóteles", "Pitágoras"],
-    "respuesta_correcta": "Aristóteles",
+    "pregunta": "¿Cuál es el órgano más grande del cuerpo humano?",
+    "posibles_respuestas": ["Corazón", "Hígado", "Piel", "Pulmones"],
+    "respuesta_correcta": "Piel",
     "nivel": 11,
-    "pista": "Fue un discípulo de Platón y el tutor de un famoso conquistador"
+    "pista": "Es el único órgano visible del cuerpo."
   },
   {
     "id": 53,
     "monto_premio": 64000,
-    "pregunta": "¿Qué ciudad es la capital del estado australiano de Tasmania?",
-    "posibles_respuestas": ["Sydney", "Melbourne", "Hobart", "Perth"],
-    "respuesta_correcta": "Hobart",
+    "pregunta": "¿Cuál es la capital de Canadá?",
+    "posibles_respuestas": ["Toronto", "Montreal", "Vancouver", "Ottawa"],
+    "respuesta_correcta": "Ottawa",
     "nivel": 11,
-    "pista": "Es una de las ciudades más antiguas de Australia"
+    "pista": "No es la ciudad más grande del país."
   },
   {
     "id": 54,
     "monto_premio": 64000,
-    "pregunta": "¿Cuál es el libro sagrado del Zoroastrismo?",
-    "posibles_respuestas": [
-      "El Talmud",
-      "El Corán",
-      "El Avesta",
-      "El Bhagavad Gita"
-    ],
-    "respuesta_correcta": "El Avesta",
+    "pregunta": "¿Qué científico propuso la teoría heliocéntrica?",
+    "posibles_respuestas": ["Galileo Galilei", "Isaac Newton", "Nicolás Copérnico", "Johannes Kepler"],
+    "respuesta_correcta": "Nicolás Copérnico",
     "nivel": 11,
-    "pista": "Es una de las religiones más antiguas del mundo"
+    "pista": "Sugirió que la Tierra orbita alrededor del sol."
   },
   {
     "id": 55,
     "monto_premio": 64000,
-    "pregunta": "¿Qué científico formuló la ley de la gravitación universal?",
-    "posibles_respuestas": [
-      "Albert Einstein",
-      "Galileo Galilei",
-      "Isaac Newton",
-      "Johannes Kepler"
-    ],
-    "respuesta_correcta": "Isaac Newton",
+    "pregunta": "¿En qué año comenzó la Segunda Guerra Mundial?",
+    "posibles_respuestas": ["1937", "1938", "1939", "1940"],
+    "respuesta_correcta": "1939",
     "nivel": 11,
-    "pista": "Su obra más famosa es 'Principia Mathematica'"
+    "pista": "Comenzó con la invasión de Polonia."
   },
   {
     "id": 56,
     "monto_premio": 125000,
-    "pregunta": "¿Cuál es el nombre de la molécula que transporta energía en las células?",
-    "posibles_respuestas": ["ADN", "ARN", "ATP", "NADH"],
-    "respuesta_correcta": "ATP",
+    "pregunta": "¿Qué país es el mayor productor de café del mundo?",
+    "posibles_respuestas": ["Colombia", "Vietnam", "Brasil", "Etiopía"],
+    "respuesta_correcta": "Brasil",
     "nivel": 12,
-    "pista": "Es conocida como la moneda energética de la célula"
+    "pista": "Produce alrededor del 40% del café mundial."
   },
   {
     "id": 57,
     "monto_premio": 125000,
-    "pregunta": "¿Quién pintó 'La ronda de noche'?",
-    "posibles_respuestas": [
-      "Vincent van Gogh",
-      "Johannes Vermeer",
-      "Rembrandt",
-      "Peter Paul Rubens"
-    ],
-    "respuesta_correcta": "Rembrandt",
+    "pregunta": "¿Cuál es el país más pequeño del mundo?",
+    "posibles_respuestas": ["Mónaco", "Nauru", "San Marino", "Ciudad del Vaticano"],
+    "respuesta_correcta": "Ciudad del Vaticano",
     "nivel": 12,
-    "pista": "Es uno de los más grandes maestros del arte barroco"
+    "pista": "Es un estado independiente dentro de Roma."
   },
   {
     "id": 58,
     "monto_premio": 125000,
-    "pregunta": "¿Cuál es el planeta más grande de nuestro sistema solar?",
-    "posibles_respuestas": ["Saturno", "Júpiter", "Urano", "Neptuno"],
-    "respuesta_correcta": "Júpiter",
+    "pregunta": "¿Qué tipo de animal es un koala?",
+    "posibles_respuestas": ["Reptil", "Ave", "Marsupial", "Mamífero"],
+    "respuesta_correcta": "Marsupial",
     "nivel": 12,
-    "pista": "Es conocido por su Gran Mancha Roja"
+    "pista": "Lleva a sus crías en una bolsa."
   },
   {
     "id": 59,
     "monto_premio": 125000,
-    "pregunta": "¿Qué país tiene la mayor cantidad de islas en el mundo?",
-    "posibles_respuestas": ["Noruega", "Indonesia", "Filipinas", "Suecia"],
-    "respuesta_correcta": "Suecia",
+    "pregunta": "¿Qué país es conocido por la Torre Inclinada de Pisa?",
+    "posibles_respuestas": ["España", "Italia", "Grecia", "Francia"],
+    "respuesta_correcta": "Italia",
     "nivel": 12,
-    "pista": "Tiene más de 200,000 islas"
+    "pista": "Está en la ciudad de Pisa."
   },
   {
     "id": 60,
     "monto_premio": 125000,
-    "pregunta": "¿Cuál fue la primera película en ganar el Oscar a Mejor Película?",
-    "posibles_respuestas": [
-      "Lo que el viento se llevó",
-      "Amanecer",
-      "Alas",
-      "El cantor de jazz"
-    ],
-    "respuesta_correcta": "Alas",
+    "pregunta": "¿Cuál es el océano más grande del mundo?",
+    "posibles_respuestas": ["Atlántico", "Índico", "Ártico", "Pacífico"],
+    "respuesta_correcta": "Pacífico",
     "nivel": 12,
-    "pista": "Fue premiada en la primera ceremonia de los Oscar en 1929"
+    "pista": "Cubre más del 30% de la superficie de la Tierra."
   },
   {
     "id": 61,
     "monto_premio": 250000,
-    "pregunta": "¿Cuál es el nombre del único satélite natural de Plutón?",
-    "posibles_respuestas": ["Nix", "Hydra", "Caronte", "Styx"],
-    "respuesta_correcta": "Caronte",
+    "pregunta": "¿Quién escribió 'Cien años de soledad'?",
+    "posibles_respuestas": [
+      "Gabriel García Márquez",
+      "Mario Vargas Llosa",
+      "Julio Cortázar",
+      "Pablo Neruda"
+    ],
+    "respuesta_correcta": "Gabriel García Márquez",
     "nivel": 13,
-    "pista": "Es el más grande de los satélites de Plutón"
+    "pista": "Ganó el Premio Nobel de Literatura en 1982."
   },
   {
     "id": 62,
     "monto_premio": 250000,
-    "pregunta": "¿Quién escribió la obra 'El Aleph'?",
-    "posibles_respuestas": [
-      "Julio Cortázar",
-      "Gabriel García Márquez",
-      "Jorge Luis Borges",
-      "Mario Vargas Llosa"
-    ],
-    "respuesta_correcta": "Jorge Luis Borges",
+    "pregunta": "¿Cuál es el país más grande del mundo por área?",
+    "posibles_respuestas": ["Canadá", "Estados Unidos", "China", "Rusia"],
+    "respuesta_correcta": "Rusia",
     "nivel": 13,
-    "pista": "Es un famoso escritor argentino"
+    "pista": "Se extiende por Europa y Asia."
   },
   {
     "id": 63,
     "monto_premio": 250000,
-    "pregunta": "¿Cuál es la fórmula química de la glucosa?",
-    "posibles_respuestas": ["C6H12O6", "C12H22O11", "CH4", "C2H5OH"],
-    "respuesta_correcta": "C6H12O6",
+    "pregunta": "¿En qué año se hundió el Titanic?",
+    "posibles_respuestas": ["1910", "1912", "1914", "1916"],
+    "respuesta_correcta": "1912",
     "nivel": 13,
-    "pista": "Es un monosacárido y una fuente de energía para las células"
+    "pista": "Fue en su viaje inaugural."
   },
   {
     "id": 64,
     "monto_premio": 250000,
-    "pregunta": "¿En qué año comenzó la construcción de la Gran Muralla China?",
-    "posibles_respuestas": ["221 a.C.", "306 a.C.", "475 a.C.", "214 a.C."],
-    "respuesta_correcta": "221 a.C.",
+    "pregunta": "¿Qué pintor es conocido por su periodo azul?",
+    "posibles_respuestas": ["Vincent van Gogh", "Claude Monet", "Pablo Picasso", "Salvador Dalí"],
+    "respuesta_correcta": "Pablo Picasso",
     "nivel": 13,
-    "pista": "Fue durante la dinastía Qin"
+    "pista": "También es conocido por el cubismo."
   },
   {
     "id": 65,
     "monto_premio": 250000,
-    "pregunta": "¿Qué científico es conocido por su trabajo sobre la radiactividad y ganó dos premios Nobel?",
-    "posibles_respuestas": [
-      "Marie Curie",
-      "Ernest Rutherford",
-      "Niels Bohr",
-      "Albert Einstein"
-    ],
-    "respuesta_correcta": "Marie Curie",
+    "pregunta": "¿Cuál es el río más largo de América del Sur?",
+    "posibles_respuestas": ["Orinoco", "Paraná", "Amazonas", "Magdalena"],
+    "respuesta_correcta": "Amazonas",
     "nivel": 13,
-    "pista": "Fue galardonada en física y química"
+    "pista": "Desemboca en el océano Atlántico."
   },
   {
     "id": 66,
     "monto_premio": 500000,
-    "pregunta": "¿Cuál es el nombre de la partícula más pequeña conocida?",
-    "posibles_respuestas": ["Átomo", "Molécula", "Quark", "Neutrón"],
-    "respuesta_correcta": "Quark",
+    "pregunta": "¿Cuál es el elemento químico más abundante en la corteza terrestre?",
+    "posibles_respuestas": ["Hierro", "Oxígeno", "Silicio", "Aluminio"],
+    "respuesta_correcta": "Oxígeno",
     "nivel": 14,
-    "pista": "Es un componente fundamental de los protones y neutrones"
+    "pista": "Es esencial para la vida."
   },
   {
     "id": 67,
     "monto_premio": 500000,
-    "pregunta": "¿Quién escribió 'La montaña mágica'?",
-    "posibles_respuestas": [
-      "Franz Kafka",
-      "Thomas Mann",
-      "Hermann Hesse",
-      "Stefan Zweig"
-    ],
-    "respuesta_correcta": "Thomas Mann",
+    "pregunta": "¿Qué país tiene la mayor cantidad de islas?",
+    "posibles_respuestas": ["Canadá", "Suecia", "Indonesia", "Filipinas"],
+    "respuesta_correcta": "Suecia",
     "nivel": 14,
-    "pista": "Es una de las obras maestras de la literatura alemana"
+    "pista": "Se encuentra en el norte de Europa."
   },
   {
     "id": 68,
     "monto_premio": 500000,
-    "pregunta": "¿Cuál es el nombre del primer hombre en realizar un paseo espacial?",
-    "posibles_respuestas": [
-      "Yuri Gagarin",
-      "Neil Armstrong",
-      "Alexei Leonov",
-      "Buzz Aldrin"
-    ],
-    "respuesta_correcta": "Alexei Leonov",
+    "pregunta": "¿Cuál es el único mamífero capaz de volar?",
+    "posibles_respuestas": ["Murciélago", "Ardilla voladora", "Colugo", "Petauro del azúcar"],
+    "respuesta_correcta": "Murciélago",
     "nivel": 14,
-    "pista": "Realizó el paseo en 1965"
+    "pista": "Es un animal nocturno."
   },
   {
     "id": 69,
     "monto_premio": 500000,
-    "pregunta": "¿Qué país tiene el récord de más Copas del Mundo de la FIFA ganadas?",
-    "posibles_respuestas": ["Italia", "Alemania", "Argentina", "Brasil"],
-    "respuesta_correcta": "Brasil",
+    "pregunta": "¿Quién pintó el 'Guernica'?",
+    "posibles_respuestas": ["Joan Miró", "Pablo Picasso", "Salvador Dalí", "Antoni Gaudí"],
+    "respuesta_correcta": "Pablo Picasso",
     "nivel": 14,
-    "pista": "Ha ganado el torneo cinco veces"
+    "pista": "Es una obra sobre la Guerra Civil Española."
   },
   {
     "id": 70,
     "monto_premio": 500000,
-    "pregunta": "¿Cuál es la constante de Planck?",
-    "posibles_respuestas": [
-      "6.626 × 10^-34 J·s",
-      "9.109 × 10^-31 kg",
-      "1.602 × 10^-19 C",
-      "2.998 × 10^8 m/s"
-    ],
-    "respuesta_correcta": "6.626 × 10^-34 J·s",
+    "pregunta": "¿Cuál es el desierto más grande del mundo?",
+    "posibles_respuestas": ["Kalahari", "Sahara", "Gobi", "Atacama"],
+    "respuesta_correcta": "Sahara",
     "nivel": 14,
-    "pista": "Es fundamental en la mecánica cuántica"
+    "pista": "Se encuentra en el norte de África."
   },
   {
     "id": 71,
     "monto_premio": 1000000,
-    "pregunta": "¿Cuál es el nombre de la teoría que unifica las fuerzas fundamentales de la naturaleza?",
-    "posibles_respuestas": [
-      "Teoría de la Relatividad General",
-      "Teoría de la Gran Unificación",
-      "Teoría de Cuerdas",
-      "Mecánica Cuántica"
-    ],
-    "respuesta_correcta": "Teoría de Cuerdas",
+    "pregunta": "¿Qué físico desarrolló la teoría de la relatividad?",
+    "posibles_respuestas": ["Isaac Newton", "Galileo Galilei", "Albert Einstein", "Niels Bohr"],
+    "respuesta_correcta": "Albert Einstein",
     "nivel": 15,
-    "pista": "Propone que las partículas fundamentales son en realidad cuerdas vibrantes"
+    "pista": "Es famoso por su ecuación E=mc²."
   },
   {
     "id": 72,
     "monto_premio": 1000000,
-    "pregunta": "¿Cuál es la única letra que no aparece en el nombre de ningún elemento químico en inglés?",
-    "posibles_respuestas": ["Q", "J", "X", "Z"],
-    "respuesta_correcta": "J",
+    "pregunta": "¿Cuál es el país con más pirámides en el mundo?",
+    "posibles_respuestas": ["Egipto", "Sudán", "México", "Perú"],
+    "respuesta_correcta": "Sudán",
     "nivel": 15,
-    "pista": "Es una de las letras menos utilizadas en el alfabeto inglés"
+    "pista": "Está en África y al sur de Egipto."
   },
   {
     "id": 73,
     "monto_premio": 1000000,
-    "pregunta": "¿Qué científico propuso el principio de incertidumbre?",
-    "posibles_respuestas": [
-      "Werner Heisenberg",
-      "Albert Einstein",
-      "Niels Bohr",
-      "Max Planck"
-    ],
-    "respuesta_correcta": "Werner Heisenberg",
+    "pregunta": "¿Cuál es la capital de Nueva Zelanda?",
+    "posibles_respuestas": ["Auckland", "Christchurch", "Wellington", "Hamilton"],
+    "respuesta_correcta": "Wellington",
     "nivel": 15,
-    "pista": "Este principio es fundamental en la mecánica cuántica"
+    "pista": "Está en la isla norte."
   },
   {
     "id": 74,
     "monto_premio": 1000000,
-    "pregunta": "¿En qué año se publicó la teoría de la evolución de Charles Darwin, 'El origen de las especies'?",
-    "posibles_respuestas": ["1842", "1859", "1871", "1882"],
-    "respuesta_correcta": "1859",
+    "pregunta": "¿Qué país es conocido como la Tierra del Sol Naciente?",
+    "posibles_respuestas": ["Corea del Sur", "China", "Japón", "Tailandia"],
+    "respuesta_correcta": "Japón",
     "nivel": 15,
-    "pista": "Fue un hito en la biología y la ciencia en general"
+    "pista": "Es una nación insular en Asia."
   },
   {
     "id": 75,
     "monto_premio": 1000000,
-    "pregunta": "¿Cuál es la distancia media entre la Tierra y el Sol?",
-    "posibles_respuestas": [
-      "93 millones de millas",
-      "150 millones de kilómetros",
-      "1 unidad astronómica",
-      "Todas las anteriores"
-    ],
-    "respuesta_correcta": "Todas las anteriores",
+    "pregunta": "¿Cuál es el idioma más hablado del mundo?",
+    "posibles_respuestas": ["Español", "Inglés", "Chino mandarín", "Hindú"],
+    "respuesta_correcta": "Chino mandarín",
     "nivel": 15,
-    "pista": "Es una medida estándar en astronomía"
+    "pista": "Mandarina"
   }
 ]
