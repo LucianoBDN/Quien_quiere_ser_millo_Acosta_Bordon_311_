@@ -185,7 +185,7 @@ def mostrar_comodines(ventana, lista_comodines:list, lista_botones: list, path_c
 
                         case "comodin_publico":
                                 if comodin.activo == True:
-                                        comodin.mostrar_barras(ventana, (255,255,255), 600, 150, 50, pygame.font.SysFont("Arial",18), (0,0,0))
+                                        comodin.mostrar_barras(ventana, (255,255,255), 700, 150, 50, pygame.font.SysFont("Arial",18), (0,0,0))
                         
                         case "comodin_llamada":
                                 if comodin.activo == True:

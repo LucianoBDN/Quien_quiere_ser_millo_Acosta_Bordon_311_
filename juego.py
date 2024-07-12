@@ -6,55 +6,33 @@ from eventos import *
 from pantalla import *
 from class_pregunta import Pregunta
 from generales import *
+from  funciones_lambda import *
 
 pygame.init()
 
 ventana = setear_ventana("¿Quién quiere ser millonario?", r"logos\utnavellaneda.jpg", 1280, 720)
 clock = pygame.time.Clock()
-lista_preguntas = cargar_archivo_json(r"datos\preguntas_y_respuestas.json")
 player = Jugador()
-switches = {
-                'bucle_principal' : True,
-                'menu_principal' : True,
-                'jugando' : False,
-                'pausa' : False,
-                'comodin_publico' : False,
-                'cincuenta_cincuenta' : False,
-                'comodin_llamada' : False,
-                'resultado_respuesta' : None,
-                'pantalla_score' : False,
-                'retirarse' : False,
-                'escribir' : True
-            }
-lista_botones = [   Boton(ventana, "boton_jugar", 560,300,150,50, (28,99,162), (18,79,134), (18,79,134), "Jugar", pygame.font.SysFont("Arial",30)),
-                    Boton(ventana, "boton_score", 560,400,150,50, (28,99,162), (18,79,134), (18,79,134), "Highscore", pygame.font.SysFont("Arial",30)),
-                    Boton(ventana, "boton_salir", 560,500,150,50, (28,99,162), (18,79,134), (18,79,134), "Salir", pygame.font.SysFont("Arial",30)),
-                    Boton(ventana, "boton_a", 5,370,550,200,(18,79,134), (18,79,134), (18,79,134),"",pygame.font.SysFont("Arial",20, bold=True)),
-                    Boton(ventana, "boton_b", 505,370,550,200,(18,79,134), (18,79,134), (18,79,134),"",pygame.font.SysFont("Arial",20, bold=True)),
-                    Boton(ventana, "boton_c", 5,530,550,200,(18,79,134), (18,79,134), (18,79,134),"",pygame.font.SysFont("Arial",20, bold=True)),
-                    Boton(ventana, "boton_d", 505,530,550,200,(18,79,134), (18,79,134), (18,79,134),"",pygame.font.SysFont("Arial",20, bold=True)),
-                    Boton(ventana, "boton_continuar", 870,270,150,50, (28,99,162), (18,79,134), (18,79,134), "Continuar", pygame.font.SysFont("Arial",18)),
-                    Boton(ventana, "boton_retirarse", 870,330,150,50, (28,99,162), (18,79,134), (18,79,134), "Retirarse", pygame.font.SysFont("Arial",18)),
-                    Boton(ventana, "boton_volver", 870,500,200,50, (28,99,162), (18,79,134), (18,79,134), "Volver al menú principal", pygame.font.SysFont("Arial",18)),
-                    Boton(ventana, "boton_publico", 1000,100,50,50,(0,0,0),(0,0,0),(0,0,0),"",pygame.font.SysFont("Arial",20, bold=True)),
-                    Boton(ventana, "boton_llamada", 1100,100,50,50,(0,0,0),(0,0,0),(0,0,0),"",pygame.font.SysFont("Arial",20, bold=True)),
-                    Boton(ventana, "boton_cincuenta", 1200,100,50,50,(0,0,0),(0,0,0),(0,0,0),"",pygame.font.SysFont("Arial",20, bold=True))
-                ]
-lista_comodines = [ 
-                    Comodin("comodin_publico"),
-                    Comodin("comodin_llamada"),
-                    Comodin("comodin_cincuenta")
-                    ]
-musica_fondo = pygame.mixer.music.load(r"sonidos\musica_fondo.mp3")
-sonido_respuesta_mal = pygame.mixer.Sound(r"sonidos\respuesta_mal.mp3")
-sonido_respuesta_bien = pygame.mixer.Sound(r"sonidos\sonido_acierto.mp3")
-sonido_respuesta_bien.set_volume(0.2)
+
+lista_preguntas = cargar_archivo_json(r"datos\preguntas_y_respuestas.json")
+
+switches = cargar_switches()
+
+lista_botones = cargar_botones(ventana)
+
+lista_comodines = cargar_comodines()
+
+
+
+sonido = cargar_sonidos(r"sonidos\musica_fondo.mp3", r"sonidos\sonido_acierto.mp3", r"sonidos\respuesta_mal.mp3")
+
+
+
 cronometro = Cronometro(30)
 lista_score = cargar_matriz_csv(r"datos\score.csv")
-print(lista_score)
+
+
 pregunta = Pregunta()
-pygame.mixer.music.play(-1)
-pygame.mixer_music.set_volume(0.2)
 
 while switches["bucle_principal"]:
 
@@ -62,7 +40,7 @@ while switches["bucle_principal"]:
 
     manejar_eventos_menu_principal(switches, cronometro, player, lista_eventos, lista_botones, lista_comodines, pregunta, lista_preguntas) 
 
-    manejar_eventos_respuesta(switches, player, cronometro, lista_eventos, lista_botones, pregunta, sonido_respuesta_mal, sonido_respuesta_bien)
+    manejar_eventos_respuesta(switches, player, cronometro, lista_eventos, lista_botones, pregunta, sonido[0], sonido[1])
 
     manejar_eventos_comodines(switches, lista_eventos, lista_comodines, lista_botones)
 

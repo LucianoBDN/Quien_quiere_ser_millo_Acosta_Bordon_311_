@@ -98,3 +98,15 @@ def reiniciar_switches(switches:dict):
     switches['escribir'] = True
     
     return switches
+
+
+def cargar_sonidos(path_musica, path_correcto, path_perdiste):
+
+    musica_fondo = pygame.mixer.music.load(r"sonidos\musica_fondo.mp3")
+    sonido_respuesta_mal = pygame.mixer.Sound(r"sonidos\respuesta_mal.mp3")
+    sonido_respuesta_bien = pygame.mixer.Sound(r"sonidos\sonido_acierto.mp3")
+    sonido_respuesta_bien.set_volume(0.2)
+    pygame.mixer.music.play(-1)
+    pygame.mixer_music.set_volume(0.2)
+
+    return sonido_respuesta_mal, sonido_respuesta_bien

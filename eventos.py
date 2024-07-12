@@ -113,7 +113,7 @@ def manejar_eventos_comodines(diccionario_switches: dict, lista_eventos: list, l
 
     for evento in lista_eventos:
 
-        if evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1 and diccionario_switches['menu_principal'] == False and diccionario_switches['jugando'] == True:
+        if evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1 and diccionario_switches['menu_principal'] == False and diccionario_switches['jugando'] == True and diccionario_switches['pausa'] == False:
 
             for boton in lista_botones:
 
