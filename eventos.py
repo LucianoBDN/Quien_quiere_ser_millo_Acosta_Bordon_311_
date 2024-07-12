@@ -15,6 +15,15 @@ from score import *
 from class_pregunta import Pregunta
 
 def cerrar_ventana(lista_eventos: list, diccionario_switches: dict):
+    """Cierra el juego cuando se toca la "X"
+
+    Args:
+        lista_eventos (list): lista de eventos
+        diccionario_switches (dict): diccionario de interruptores
+
+    Returns:
+        diccionario_switches (dict): diccionario de interruptores actualizado
+    """
 
     for evento in lista_eventos:
         
@@ -26,6 +35,21 @@ def cerrar_ventana(lista_eventos: list, diccionario_switches: dict):
 
 
 def manejar_eventos_menu_principal(diccionario_switches: dict, cronometro: object, jugador: object, lista_eventos: list, lista_botones: list, lista_comodines: list, pregunta: object, lista_preguntas: list):
+    """Se encarga de todos los eventos que sucedan en la pantalla de menú principal
+
+    Args:
+        diccionario_switches (dict): diccionario de interruptores
+        cronometro (object): el cronometro de las preguntas
+        jugador (object): la clase jugador
+        lista_eventos (list): lista de eventos
+        lista_botones (list): lista de botones
+        lista_comodines (list): lista de comodines
+        pregunta (object): la clase pregunta
+        lista_preguntas (list): lista de preguntas
+
+    Returns:
+        diccionario_switches (dict): el diccionario de interruptores acutalizado
+    """
     
     for evento in lista_eventos:
 
@@ -67,10 +91,25 @@ def manejar_eventos_menu_principal(diccionario_switches: dict, cronometro: objec
 
 
 def manejar_eventos_respuesta(diccionario_switches: dict, jugador: object, cronometro: object, lista_eventos: list, lista_botones: list, pregunta: object, sonido_respuesta_mal, sonido_respuesta_bien):
+    """Se encarga de los eventos cuando el jugador selecciona una respuesta
+
+    Args:
+        diccionario_switches (dict): diccionario de interruptores
+        jugador (object): clase jugador
+        cronometro (object): el cronometro para responder
+        lista_eventos (list): lista de todos los eventos
+        lista_botones (list): lista de botones
+        pregunta (object): clase de la pregunta
+        sonido_respuesta_mal (_type_): sonido cuando responde mal
+        sonido_respuesta_bien (_type_): sonido cuando responde bien
+
+    Returns:
+        diccionario_switches (dict): diccionario de interruptores
+    """
     
     for evento in lista_eventos:
     
-        if evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1 and diccionario_switches['menu_principal'] == False and diccionario_switches['jugando'] == True and diccionario_switches['pausa'] == False:
+        if evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1 and diccionario_switches['menu_principal'] == False and diccionario_switches['jugando'] == True and diccionario_switches['pausa'] == False and jugador.nivel < 16:
 
                 if jugador.vidas > 0 and cronometro.actualizar() > 0: # A chequear si funciona con while o si hay que reemplazar con "if"
 
@@ -110,7 +149,14 @@ def manejar_eventos_respuesta(diccionario_switches: dict, jugador: object, crono
     return diccionario_switches
 
 def manejar_eventos_comodines(diccionario_switches: dict, lista_eventos: list, lista_comodines: list, lista_botones: list):
+    """Se encarga de los eventos cuando se usa un comodin
 
+    Args:
+        diccionario_switches (dict): diccionario de interruptores
+        lista_eventos (list): lista de eventos
+        lista_comodines (list): lista de comodines
+        lista_botones (list): lista de botones
+    """
     for evento in lista_eventos:
 
         if evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1 and diccionario_switches['menu_principal'] == False and diccionario_switches['jugando'] == True and diccionario_switches['pausa'] == False:
@@ -153,6 +199,21 @@ def manejar_eventos_comodines(diccionario_switches: dict, lista_eventos: list, l
 
 
 def manejar_eventos_pausa(diccionario_switches: dict, jugador: object, cronometro: object, lista_comodines: list, lista_eventos: list, lista_botones: list, pregunta: object, lista_preguntas: list):
+    """Maneja los eventos cuando hay una pausa antes de pasar a la próxima pregunta
+
+    Args:
+        diccionario_switches (dict): diccionario de interruptores
+        jugador (object): clase del jugador
+        cronometro (object): cronometro
+        lista_comodines (list): lista de comodines
+        lista_eventos (list): lista de eventos
+        lista_botones (list): lista de botones
+        pregunta (object): clase de la pregunta
+        lista_preguntas (list): lista de preguntas
+
+    Returns:
+        diccionario_switches (dict): diccionario de interruptores
+    """
 
     for evento in lista_eventos:
 
@@ -190,14 +251,25 @@ def manejar_eventos_pausa(diccionario_switches: dict, jugador: object, cronometr
                                 
                                     diccionario_switches['retirarse'] = True
                                     diccionario_switches['jugando'] = False
-                                    
-                            
-
+                                                    
 
     return diccionario_switches
 
 
 def manejar_eventos_derrota(diccionario_switches: dict, jugador: object, cronometro, lista_eventos: list, lista_botones: list, lista_comodines: list):
+    """Maneja los eventos en la pantalla cuando perdes
+
+    Args:
+        diccionario_switches (dict): diccionario de interruptores
+        jugador (object): clase jugador
+        cronometro (_type_): cronometro
+        lista_eventos (list): lista de eventos
+        lista_botones (list): lista de botones
+        lista_comodines (list): lista de comodines
+
+    Returns:
+        diccionario_switches (dict): diccionario de interruptores
+    """
 
     for evento in lista_eventos:
 
@@ -229,7 +301,17 @@ def manejar_eventos_derrota(diccionario_switches: dict, jugador: object, cronome
     return diccionario_switches
 
 
-def manejar_eventos_score(diccionario_switches, lista_botones, lista_eventos):
+def manejar_eventos_score(diccionario_switches: dict, lista_botones: list, lista_eventos: list):
+    """Maneja los eventos que suceden en la pantalla de highscore
+
+    Args:
+        diccionario_switches (_type_): diccionario de interruptores
+        lista_botones (_type_): lista de botones
+        lista_eventos (_type_): lista de eventos
+
+    Returns:
+        diccionario_switches (_type_): diccionario de interruptores
+    """
 
     for evento in lista_eventos:
 
@@ -246,7 +328,5 @@ def manejar_eventos_score(diccionario_switches, lista_botones, lista_eventos):
                             diccionario_switches['pantalla_score'] = False
                             diccionario_switches['menu_principal'] = True
                             
-
-
     
     return diccionario_switches

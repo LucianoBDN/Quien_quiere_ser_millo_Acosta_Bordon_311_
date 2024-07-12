@@ -3,6 +3,8 @@ import random
 
 class Pregunta:
     def __init__(self):
+        """Inicializa la clase pregunta con sus atributos
+        """
         self.id = None
         self.monto_premio = None
         self.pregunta = None
@@ -16,6 +18,15 @@ class Pregunta:
 
 
     def establecer_pregunta(self, nivel_jugador: int, lista_preguntas: list[dict]) -> dict:
+        """Establece una nueva pregunta según los atributos del jugador
+
+        Args:
+            nivel_jugador (int): nivel en el que se encuentra el jugador
+            lista_preguntas (list[dict]): _description_
+
+        Returns:
+            dict: _description_
+        """
 
         nivel_pregunta_random = 0
 
