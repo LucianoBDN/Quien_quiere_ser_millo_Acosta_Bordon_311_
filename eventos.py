@@ -301,7 +301,7 @@ def manejar_eventos_derrota(diccionario_switches: dict, jugador: object, cronome
     return diccionario_switches
 
 
-def manejar_eventos_score(diccionario_switches: dict, lista_botones: list, lista_eventos: list):
+def manejar_eventos_score(diccionario_switches: dict, lista_botones: list, lista_eventos: list, jugador: object):
     """Maneja los eventos que suceden en la pantalla de highscore
 
     Args:
@@ -327,6 +327,9 @@ def manejar_eventos_score(diccionario_switches: dict, lista_botones: list, lista
 
                             diccionario_switches['pantalla_score'] = False
                             diccionario_switches['menu_principal'] = True
+                            jugador.nivel = 1
+                            jugador.score = 100
+                            
                             
     
     return diccionario_switches

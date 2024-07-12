@@ -40,7 +40,7 @@ while switches["bucle_principal"]:
 
     manejar_eventos_comodines(switches, lista_eventos, lista_comodines, lista_botones)
 
-    pantalla_score(ventana, lista_score, switches, lista_botones, lista_eventos)
+    pantalla_score(ventana, lista_score, switches, lista_botones, lista_eventos, player)
 
     manejar_eventos_score(switches, lista_botones, lista_eventos)
 
