@@ -47,6 +47,8 @@ lista_comodines = [
                     ]
 musica_fondo = pygame.mixer.music.load(r"sonidos\musica_fondo.mp3")
 sonido_respuesta_mal = pygame.mixer.Sound(r"sonidos\respuesta_mal.mp3")
+sonido_respuesta_bien = pygame.mixer.Sound(r"sonidos\sonido_acierto.mp3")
+sonido_respuesta_bien.set_volume(0.2)
 cronometro = Cronometro(30)
 lista_score = cargar_matriz_csv(r"datos\score.csv")
 print(lista_score)
@@ -60,7 +62,7 @@ while switches["bucle_principal"]:
 
     manejar_eventos_menu_principal(switches, cronometro, player, lista_eventos, lista_botones, lista_comodines, pregunta, lista_preguntas) 
 
-    manejar_eventos_respuesta(switches, player, cronometro, lista_eventos, lista_botones, pregunta, sonido_respuesta_mal)
+    manejar_eventos_respuesta(switches, player, cronometro, lista_eventos, lista_botones, pregunta, sonido_respuesta_mal, sonido_respuesta_bien)
 
     manejar_eventos_comodines(switches, lista_eventos, lista_comodines, lista_botones)
 

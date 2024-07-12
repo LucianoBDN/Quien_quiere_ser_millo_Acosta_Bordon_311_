@@ -66,7 +66,7 @@ def manejar_eventos_menu_principal(diccionario_switches: dict, cronometro: objec
     return diccionario_switches
 
 
-def manejar_eventos_respuesta(diccionario_switches: dict, jugador: object, cronometro: object, lista_eventos: list, lista_botones: list, pregunta: object, sonido_respuesta_mal):
+def manejar_eventos_respuesta(diccionario_switches: dict, jugador: object, cronometro: object, lista_eventos: list, lista_botones: list, pregunta: object, sonido_respuesta_mal, sonido_respuesta_bien):
     
     for evento in lista_eventos:
     
@@ -82,23 +82,23 @@ def manejar_eventos_respuesta(diccionario_switches: dict, jugador: object, crono
                                 
                                 case "boton_a":                                
                                     if boton.texto !="":
-                                        manejar_niveles(boton, pregunta, diccionario_switches, sonido_respuesta_mal)
+                                        manejar_niveles(boton, pregunta, diccionario_switches, sonido_respuesta_mal, sonido_respuesta_bien)
                                         cronometro.reiniciar()
 
                                 case "boton_b":
                                     if boton.texto !="":
-                                        manejar_niveles(boton, pregunta, diccionario_switches, sonido_respuesta_mal)
+                                        manejar_niveles(boton, pregunta, diccionario_switches, sonido_respuesta_mal, sonido_respuesta_bien)
                                         cronometro.reiniciar()
 
                                 case "boton_c":
                                     if boton.texto !="":
-                                        manejar_niveles(boton, pregunta, diccionario_switches, sonido_respuesta_mal)
+                                        manejar_niveles(boton, pregunta, diccionario_switches, sonido_respuesta_mal, sonido_respuesta_bien)
                                         cronometro.reiniciar()
 
 
                                 case "boton_d":
                                     if boton.texto !="":
-                                        manejar_niveles(boton, pregunta, diccionario_switches, sonido_respuesta_mal)
+                                        manejar_niveles(boton, pregunta, diccionario_switches, sonido_respuesta_mal, sonido_respuesta_bien)
                                         cronometro.reiniciar()
 
 
@@ -179,11 +179,11 @@ def manejar_eventos_pausa(diccionario_switches: dict, jugador: object, cronometr
                                         
                                         comodin.desactivar_comodin()
 
+                                    jugador.aumentar_nivel_y_monto()
                                     pregunta.establecer_pregunta(jugador.nivel, lista_preguntas)
                                     diccionario_switches['resultado_respuesta'] = None
                                     diccionario_switches['jugando'] = True
                                     diccionario_switches['pausa'] = False                             
-                                    jugador.aumentar_nivel_y_monto()
                                     cronometro.iniciar()
 
                             case "boton_retirarse":
