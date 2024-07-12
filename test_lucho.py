@@ -54,17 +54,11 @@ while switches["bucle_principal"]:
 
     lista_eventos = pygame.event.get()
 
-
-
-
-
-
     manejar_eventos_menu_principal(switches, cronometro, player, lista_eventos, lista_botones, lista_comodines, pregunta, lista_preguntas) 
 
     manejar_eventos_respuesta(switches, player, cronometro, lista_eventos, lista_botones, pregunta)
 
     manejar_eventos_comodines(switches, lista_eventos, lista_comodines, lista_botones)
-
 
     pantalla_score(ventana, lista_score, switches, lista_botones, lista_eventos)
 
@@ -72,15 +66,11 @@ while switches["bucle_principal"]:
 
     pantalla_menu_principal(ventana,switches, lista_botones, lista_eventos)
 
-
     pantalla_juego(ventana, switches, player.score, pregunta.pregunta, lista_botones, lista_comodines, pregunta, player, lista_eventos, cronometro)
-
 
     manejar_eventos_pausa(switches, player, cronometro, lista_comodines, lista_eventos, lista_botones, pregunta, lista_preguntas)
 
-
     pantalla_perdiste(ventana, lista_botones, lista_eventos, switches, cronometro)
-
 
     manejar_eventos_derrota(switches, player, cronometro, lista_eventos, lista_botones, lista_comodines)
 
@@ -88,12 +78,9 @@ while switches["bucle_principal"]:
 
     cerrar_ventana(lista_eventos, switches)
 
-
     pygame.display.update()
 
-
     clock.tick(60)
-
 
 
 pygame.quit()

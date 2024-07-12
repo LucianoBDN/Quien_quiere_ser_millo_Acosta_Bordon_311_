@@ -81,21 +81,25 @@ def manejar_eventos_respuesta(diccionario_switches: dict, jugador: object, crono
                             match boton.nombre:
                                 
                                 case "boton_a":                                
-                                    manejar_niveles(boton, pregunta, diccionario_switches)
-                                    cronometro.reiniciar()
+                                    if boton.texto !="":
+                                        manejar_niveles(boton, pregunta, diccionario_switches)
+                                        cronometro.reiniciar()
 
                                 case "boton_b":
-                                    manejar_niveles(boton, pregunta, diccionario_switches)
-                                    cronometro.reiniciar()
+                                    if boton.texto !="":
+                                        manejar_niveles(boton, pregunta, diccionario_switches)
+                                        cronometro.reiniciar()
 
                                 case "boton_c":
-                                    manejar_niveles(boton, pregunta, diccionario_switches)
-                                    cronometro.reiniciar()
+                                    if boton.texto !="":
+                                        manejar_niveles(boton, pregunta, diccionario_switches)
+                                        cronometro.reiniciar()
 
 
                                 case "boton_d":
-                                    manejar_niveles(boton, pregunta, diccionario_switches)
-                                    cronometro.reiniciar()
+                                    if boton.texto !="":
+                                        manejar_niveles(boton, pregunta, diccionario_switches)
+                                        cronometro.reiniciar()
 
 
                 elif cronometro.actualizar() == 0:
@@ -152,7 +156,7 @@ def manejar_eventos_pausa(diccionario_switches: dict, jugador: object, cronometr
 
     for evento in lista_eventos:
 
-        if evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1 and diccionario_switches['resultado_respuesta'] == True and diccionario_switches['pausa'] == True:
+        if evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1 and diccionario_switches['resultado_respuesta'] != False and diccionario_switches['pausa'] == True:
                       
                 for boton in lista_botones:
 

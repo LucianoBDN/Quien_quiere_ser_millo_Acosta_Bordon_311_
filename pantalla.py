@@ -102,8 +102,12 @@ def mostrar_respuestas(lista_botones: list, path_boton: str,path_boton_verde: st
                                 
                                 elif boton.switch_verde:
 
-                                        boton.agregar_imagen_boton(path_boton_rojo,550,200,5,370)
+                                        boton.agregar_imagen_boton(path_boton_verde,550,200,5,370)
                                         boton.escribir_sobre_imagen(pregunta.respuesta_a ,(255,255,255))
+                                        
+                                elif boton.switch_rojo:
+                                        boton.agregar_imagen_boton(path_boton_rojo,550,200,505,370)
+                                        boton.escribir_sobre_imagen(pregunta.respuesta_a,(255,255,255))
 
                                         
                         case "boton_b":
@@ -136,7 +140,7 @@ def mostrar_respuestas(lista_botones: list, path_boton: str,path_boton_verde: st
 
                                 elif boton.switch_rojo:
                                         boton.agregar_imagen_boton(path_boton_rojo,550,200,505,370)
-                                        boton.escribir_sobre_imagen(pregunta.respuesta_b,(255,255,255))
+                                        boton.escribir_sobre_imagen(pregunta.respuesta_c,(255,255,255))
 
                         case "boton_d":
                                 
@@ -154,7 +158,7 @@ def mostrar_respuestas(lista_botones: list, path_boton: str,path_boton_verde: st
 
                                 elif boton.switch_rojo:
                                         boton.agregar_imagen_boton(path_boton_rojo,550,200,505,370)
-                                        boton.escribir_sobre_imagen(pregunta.respuesta_b,(255,255,255))
+                                        boton.escribir_sobre_imagen(pregunta.respuesta_d,(255,255,255))
 
                         
                 
@@ -195,9 +199,9 @@ def mostrar_comodines(ventana, lista_comodines:list, lista_botones: list, path_c
 
 def pantalla_perdiste(ventana, lista_botones: list, lista_eventos, switches, cronometro: object):
 
+        tiempo_restante = cronometro.actualizar()
 
-
-        if switches['resultado_respuesta'] == False and switches['jugando'] == False and switches['menu_principal'] == False or cronometro.actualizar() == 0:
+        if (switches['resultado_respuesta'] == False and switches['jugando'] == False and switches['menu_principal'] == False) or (tiempo_restante ==0):
                 fondo_menu_principal = Fondo(r"graficos\fondo_azul_oscuro.jpg", (1280,720))
                 fondo_menu_principal.dibujar_fondo(ventana, (0,0))
                 presentador_perdiste = Presentador(r"graficos\guido_triste.png",(400,250))

@@ -58,8 +58,5 @@ def manejar_niveles(boton, pregunta, diccionario_switches) -> bool:
         diccionario_switches['jugando'] = False
        
 
-   
 
     return diccionario_switches
-
-

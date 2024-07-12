@@ -43,11 +43,11 @@
   {
     "id": 5,
     "monto_premio": 100,
-    "pregunta": "¿Qué instrumento mide la presión atmosférica?",
-    "posibles_respuestas": ["Barómetro", "Termómetro", "Anemómetro", "Higrómetro"],
-    "respuesta_correcta": "Barómetro",
+    "pregunta": "¿Quién ganó el mundial de futbol en el año 2010",
+    "posibles_respuestas": ["España", "Francia", "Holanda", "Uruguay"],
+    "respuesta_correcta": "España",
     "nivel": 1,
-    "pista": "Es crucial en meteorología."
+    "pista": "el rubius"
   },
   {
     "id": 6,
