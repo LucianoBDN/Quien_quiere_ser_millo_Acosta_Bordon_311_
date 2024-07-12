@@ -1,0 +1,213 @@
+[
+    {
+      "id": 1,
+      "monto_premio": 100,
+      "pregunta": "¿Qué país es conocido por la torre inclinada de Pisa?",
+      "posibles_respuestas": [
+        "Francia",
+        "Italia",
+        "España",
+        "Grecia"
+      ],
+      "respuesta_correcta": "Italia",
+      "nivel": 1,
+      "pista": "Es un país en Europa conocido por su comida y arte."
+    },
+    {
+      "id": 2,
+      "monto_premio": 200,
+      "pregunta": "¿Cuál es la capital de Francia?",
+      "posibles_respuestas": [
+        "Londres",
+        "Madrid",
+        "París",
+        "Roma"
+      ],
+      "respuesta_correcta": "París",
+      "nivel": 2,
+      "pista": "Es conocida como la ciudad del amor."
+    },
+    {
+      "id": 3,
+      "monto_premio": 300,
+      "pregunta": "¿En qué país se encuentra la Gran Muralla China?",
+      "posibles_respuestas": [
+        "India",
+        "China",
+        "Japón",
+        "Corea del Sur"
+      ],
+      "respuesta_correcta": "China",
+      "nivel": 3,
+      "pista": "Es el país más poblado del mundo."
+    },
+    {
+      "id": 4,
+      "monto_premio": 400,
+      "pregunta": "¿Qué famosa estructura se encuentra en la ciudad de Agra, India?",
+      "posibles_respuestas": [
+        "El Coliseo",
+        "El Taj Mahal",
+        "La Torre Eiffel",
+        "El Partenón"
+      ],
+      "respuesta_correcta": "El Taj Mahal",
+      "nivel": 4,
+      "pista": "Es un mausoleo construido en mármol blanco."
+    },
+    {
+      "id": 5,
+      "monto_premio": 500,
+      "pregunta": "¿Qué famoso pintor fue conocido por su obra 'La Mona Lisa'?",
+      "posibles_respuestas": [
+        "Vincent van Gogh",
+        "Leonardo da Vinci",
+        "Pablo Picasso",
+        "Claude Monet"
+      ],
+      "respuesta_correcta": "Leonardo da Vinci",
+      "nivel": 5,
+      "pista": "Es considerado un genio del Renacimiento italiano."
+    },
+    {
+      "id": 6,
+      "monto_premio": 600,
+      "pregunta": "¿Cuál es el río más largo del mundo?",
+      "posibles_respuestas": [
+        "Río Amazonas",
+        "Río Nilo",
+        "Río Yangtsé",
+        "Río Misisipi"
+      ],
+      "respuesta_correcta": "Río Amazonas",
+      "nivel": 6,
+      "pista": "Fluye a través de América del Sur y desemboca en el océano Atlántico."
+    },
+    {
+      "id": 7,
+      "monto_premio": 700,
+      "pregunta": "¿Quién escribió 'Don Quijote de la Mancha'?",
+      "posibles_respuestas": [
+        "Miguel de Cervantes",
+        "Gabriel García Márquez",
+        "Pablo Neruda",
+        "Jorge Luis Borges"
+      ],
+      "respuesta_correcta": "Miguel de Cervantes",
+      "nivel": 7,
+      "pista": "Es considerada una de las obras más importantes de la literatura española."
+    },
+    {
+      "id": 8,
+      "monto_premio": 800,
+      "pregunta": "¿En qué ciudad se encuentra la ópera famosa conocida como la Sydney Opera House?",
+      "posibles_respuestas": [
+        "Sydney",
+        "Londres",
+        "Nueva York",
+        "París"
+      ],
+      "respuesta_correcta": "Sydney",
+      "nivel": 8,
+      "pista": "Es la ciudad más grande de Australia."
+    },
+    {
+      "id": 9,
+      "monto_premio": 900,
+      "pregunta": "¿Qué país tiene forma de bota en el mapa?",
+      "posibles_respuestas": [
+        "España",
+        "Italia",
+        "Francia",
+        "Alemania"
+      ],
+      "respuesta_correcta": "Italia",
+      "nivel": 9,
+      "pista": "Es conocido por su cocina y su historia romana."
+    },
+    {
+      "id": 10,
+      "monto_premio": 1000,
+      "pregunta": "¿Cuál es el océano más grande del mundo?",
+      "posibles_respuestas": [
+        "Océano Pacífico",
+        "Océano Atlántico",
+        "Océano Índico",
+        "Océano Ártico"
+      ],
+      "respuesta_correcta": "Océano Pacífico",
+      "nivel": 10,
+      "pista": "Es el océano que limita con la costa occidental de América del Norte y del Sur."
+    },
+    {
+        "id": 11,
+        "monto_premio": 1100,
+        "pregunta": "¿En qué continente se encuentra el desierto del Sahara?",
+        "posibles_respuestas": [
+          "África",
+          "Asia",
+          "América",
+          "Europa"
+        ],
+        "respuesta_correcta": "África",
+        "nivel": 11,
+        "pista": "Es el desierto más grande del mundo."
+      },
+      {
+        "id": 12,
+        "monto_premio": 1200,
+        "pregunta": "¿Quién pintó 'La noche estrellada'?",
+        "posibles_respuestas": [
+          "Pablo Picasso",
+          "Vincent van Gogh",
+          "Leonardo da Vinci",
+          "Claude Monet"
+        ],
+        "respuesta_correcta": "Vincent van Gogh",
+        "nivel": 12,
+        "pista": "Es conocido por su obra postimpresionista."
+      },
+      {
+        "id": 13,
+        "monto_premio": 1300,
+        "pregunta": "¿En qué país se encuentra el Machu Picchu?",
+        "posibles_respuestas": [
+          "Perú",
+          "Brasil",
+          "Chile",
+          "Argentina"
+        ],
+        "respuesta_correcta": "Perú",
+        "nivel": 13,
+        "pista": "Es una antigua ciudad inca ubicada en los Andes."
+      },
+      {
+        "id": 14,
+        "monto_premio": 1400,
+        "pregunta": "¿Cuál es el río más largo de Europa?",
+        "posibles_respuestas": [
+          "Río Támesis",
+          "Río Danubio",
+          "Río Rin",
+          "Río Volga"
+        ],
+        "respuesta_correcta": "Río Volga",
+        "nivel": 14,
+        "pista": "Fluye a través de Rusia y es importante para su historia y economía."
+      },
+      {
+        "id": 15,
+        "monto_premio": 1500,
+        "pregunta": "¿Cuál es el país más grande del mundo por área terrestre?",
+        "posibles_respuestas": [
+          "Estados Unidos",
+          "China",
+          "Canadá",
+          "Rusia"
+        ],
+        "respuesta_correcta": "Rusia",
+        "nivel": 15,
+        "pista": "Se extiende desde Europa Oriental hasta el norte de Asia."
+      }
+  ]
+  
