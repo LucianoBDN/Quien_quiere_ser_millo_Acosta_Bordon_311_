@@ -247,6 +247,10 @@ def manejar_eventos_pausa(diccionario_switches: dict, jugador: object, cronometr
                                     diccionario_switches['pausa'] = False                             
                                     cronometro.iniciar()
 
+                                elif jugador.nivel == 15:
+                                    diccionario_switches['retirarse'] = True
+                                    diccionario_switches['jugando'] = False
+
                             case "boton_retirarse":
                                 
                                     diccionario_switches['retirarse'] = True

@@ -42,11 +42,11 @@ while switches["bucle_principal"]:
 
     pantalla_score(ventana, lista_score, switches, lista_botones, lista_eventos, player)
 
-    manejar_eventos_score(switches, lista_botones, lista_eventos)
+    manejar_eventos_score(switches, lista_botones, lista_eventos, player)
 
     pantalla_menu_principal(ventana,switches, lista_botones, lista_eventos)
 
-    pantalla_juego(ventana, switches, player.score, pregunta.pregunta, lista_botones, lista_comodines, pregunta, player, lista_eventos, cronometro)
+    pantalla_juego(ventana, switches, pregunta, lista_botones, lista_comodines, pregunta, player, lista_eventos, cronometro)
 
     manejar_eventos_pausa(switches, player, cronometro, lista_comodines, lista_eventos, lista_botones, pregunta, lista_preguntas)
 

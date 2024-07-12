@@ -13,9 +13,9 @@ def pantalla_menu_principal(ventana, dict_switches: dict, lista_botones: list, l
 
         Args:
             ventana (suface): superficie donde se vera el menu
-            dict_switches (dict): _description_
-            lista_botones (list): _description_
-            lista_eventos (list): _description_
+            dict_switches (dict): diccionario de banderas
+            lista_botones (list): lista de botones que se muetran en el menu
+            lista_eventos (list): eventos de pygame
         """
         
 
@@ -38,10 +38,23 @@ def pantalla_menu_principal(ventana, dict_switches: dict, lista_botones: list, l
 
 
 
-def pantalla_juego(ventana, dict_switches: dict, score: int, texto_cuadro_pregunta: str, lista_botones: list, lista_comodines: list, pregunta: object, jugador: object, lista_eventos:list, cronometro: object) :
+def pantalla_juego(ventana, dict_switches: dict, score: int, lista_botones: list, lista_comodines: list, pregunta: object, jugador: object, lista_eventos:list, cronometro: object) :
+        """muestra todo lo grafico que se vera en la pantalla de juego para su funcionamiento
+
+        Args:
+            ventana (surface): donde se vera
+            dict_switches (dict): diccionario de banderas
+            score (int): putnuacion del jugador
+            lista_botones (list): lista de botones para el uso de esta pantalla
+            lista_comodines (list): comodines que se pueden usar aqui
+            pregunta (object): objeto pregunta 
+            jugador (object): objeto jugador
+            lista_eventos (list): eventos de pygame
+            cronometro (object): objeto cronometro
+        """
 
         
-        if dict_switches['menu_principal'] == False and dict_switches['jugando'] == True:
+        if dict_switches['menu_principal'] == False and dict_switches['jugando'] == True and jugador.nivel < 16:
                 fondo_juego = Fondo(r"graficos\fondo_azul_oscuro.jpg", (1280, 720))
                 fondo_juego.dibujar_fondo(ventana, (0,0))
                 presentador_juego = Presentador(r"graficos\guido_pregunta.png",(340,105))
@@ -54,13 +67,13 @@ def pantalla_juego(ventana, dict_switches: dict, score: int, texto_cuadro_pregun
 
                 banco = Imagen(r"graficos\boton_banco.png", (280,350), (110,70))
                 banco.dibujar_imagen(ventana)
-                banco.escribir_imagen(ventana,pygame.font.Font(r"fuentes\Audiowide.ttf", 30), f"${score}", (255,223,0))
+                banco.escribir_imagen(ventana,pygame.font.Font(r"fuentes\Audiowide.ttf", 30), f"${jugador.score}", (255,223,0))
 
 
 
                 cuadro_pregunta = Imagen(r"graficos\boton_respuesta.png", (840, 300), (500,300))
                 cuadro_pregunta.dibujar_imagen(ventana)
-                cuadro_pregunta.escribir_imagen(ventana, pygame.font.SysFont("Arial",22, bold=True), texto_cuadro_pregunta, (255,255,255))
+                cuadro_pregunta.escribir_imagen(ventana, pygame.font.SysFont("Arial",22, bold=True), pregunta.pregunta, (255,255,255))
                 
                 tiempo_restante = cronometro.actualizar()
                 escribir_texto(ventana, f"{tiempo_restante}" , pygame.font.Font(r"fuentes\Audiowide.ttf", 40), (255,255,255), 540, 50)
@@ -74,7 +87,14 @@ def pantalla_juego(ventana, dict_switches: dict, score: int, texto_cuadro_pregun
 
 
 
-def mostrar_botones_pausa(lista_botones, jugador, lista_eventos):
+def mostrar_botones_pausa(lista_botones: list, jugador: object, lista_eventos: list):
+        """muestra los botones de pausa y retirarse 
+
+        Args:
+            lista_botones (list): lista con los botones
+            jugador (object): obejto
+            lista_eventos (list): eventos de pygame
+        """
 
         for boton in lista_botones:
 
@@ -96,7 +116,19 @@ def mostrar_botones_pausa(lista_botones, jugador, lista_eventos):
 
 
 def mostrar_respuestas(lista_botones: list, path_boton: str, path_boton_verde: str, path_boton_rojo: str, pregunta: object):
+        """muestra los botones con el cuadro de respuesta y la respuesta correspondiente a cada opcion
+
+        Args:
+            lista_botones (list): lista con los botones
+            path_boton (str): url de la imagen del boton default
+            path_boton_verde (str): url con la imagen del boton cuando la respuesta es correcta
+            path_boton_rojo (str): url con la imagen del boton cuando la respuesta es erronea
+            pregunta (object): clase pregunta
+        """
         
+        
+
+
         for boton in lista_botones:
 
                 match boton.nombre:
@@ -170,8 +202,20 @@ def mostrar_respuestas(lista_botones: list, path_boton: str, path_boton_verde: s
 
                         
                 
-def mostrar_comodines(ventana, lista_comodines:list, lista_botones: list, path_comodin_publico, path_comodin_llamada: str, path_comodin_cincuenta: str, pregunta: object):
-        
+def mostrar_comodines(ventana, lista_comodines:list, lista_botones: list, path_comodin_publico: str, path_comodin_llamada: str, path_comodin_cincuenta: str, pregunta: object):
+        """muestra en pantalla los comodines que se pueden utiizar una unica vez por partida
+
+        Args:
+            ventana (surface): superficie donde se muestra
+            lista_comodines (list): lista de comodines a usar
+            lista_botones (list): lista de botones que se utilizar para llamar a los comodines
+            path_comodin_publico (str): imagen del comodin de ayuda de publico
+            path_comodin_llamada (str): imagen del comodin de llamada
+            path_comodin_cincuenta (str): imagen del comodin 50/50
+            pregunta (object): clase pregunta
+        """
+
+
         for boton in lista_botones:
 
                 match boton.nombre:
@@ -205,7 +249,17 @@ def mostrar_comodines(ventana, lista_comodines:list, lista_botones: list, path_c
 
 
 
-def pantalla_perdiste(ventana, lista_botones: list, lista_eventos, switches: dict, cronometro: object):
+def pantalla_perdiste(ventana, lista_botones: list, lista_eventos: list, switches: dict, cronometro: object):
+        """muestra una pantalla cuando la respuesta que diste es equivocada o el tiempo es 0
+
+        Args:
+            ventana (ventana): donde se muestra
+            lista_botones (list): lista de botones
+            lista_eventos (list): eventos de pygame
+            switches (dict): diccionario de banderas
+            cronometro (object): clase cronometro
+        """
+
 
         tiempo_restante = cronometro.actualizar()
 
@@ -225,11 +279,21 @@ def pantalla_perdiste(ventana, lista_botones: list, lista_eventos, switches: dic
                                 Boton.manejar_evento(boton,lista_eventos)
 
 
-def pantalla_score(ventana, lista_score: list, switches: dict, lista_botones: list, lista_eventos):
+def pantalla_score(ventana, lista_score: list, switches: dict, lista_botones: list, lista_eventos, jugador: object):
+        """muestra en pantalla los higscore
+
+        Args:
+            ventana (surface): superficie
+            lista_score (list): lista de puntuaciones
+            switches (dict): dict de banderas
+            lista_botones (list): botones
+            lista_eventos (_type_): eventos de pygame
+        """
+
 
         y = 90
 
-        if switches['menu_principal'] == False and switches['jugando'] == False and switches['pantalla_score'] == True:
+        if switches['menu_principal'] == False and switches['jugando'] == False and switches['pantalla_score']:
                 fondo_score = Fondo(r"graficos\fondo_azul_oscuro.jpg", (1280,720))
                 fondo_score.dibujar_fondo(ventana, (0,0))
                 presentador_score = Presentador(r"graficos\guido_respuesta_bien.png",(200,250))
@@ -249,9 +313,21 @@ def pantalla_score(ventana, lista_score: list, switches: dict, lista_botones: li
                                 Boton.manejar_evento(boton,lista_eventos)
                                 boton.dibujar((255,255,255))
 
-def pantalla_retirarse(ventana, lista_score: list[list], jugador: object, switches: dict, lista_eventos):
 
-        if switches['retirarse'] == True and switches['jugando'] == False and switches['menu_principal'] == False:
+
+
+def pantalla_retirarse(ventana, lista_score: list[list], jugador: object, switches: dict, lista_eventos: list):
+        """muestra esta pantalla cuando el jugador decide retirarse o gana el juego
+
+        Args:
+            ventana (surface): donde se muestra
+            lista_score (list[list]): lista de puntuaciones
+            jugador (object): clase jugador
+            switches (dict): diccionario de banderas
+            lista_eventos (list): eventos d pygame
+        """
+
+        if (switches['retirarse'] == True and switches['jugando'] == False and switches['menu_principal'] == False) or jugador.nivel == 16:
                 fondo_menu_principal = Fondo(r"graficos\fondo_azul_oscuro.jpg", (1280,720))
                 fondo_menu_principal.dibujar_fondo(ventana, (0,0))
                 presentador_bienvenida = Presentador(r"graficos\guido_feliz_sinfondo.png",(400, 390))
