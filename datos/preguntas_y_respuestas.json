@@ -466,11 +466,11 @@
   {
     "id": 47,
     "monto_premio": 32000,
-    "pregunta": "¿Cuál es la moneda oficial de Japón?",
-    "posibles_respuestas": ["Won", "Yuan", "Yen", "Baht"],
-    "respuesta_correcta": "Yen",
+    "pregunta": "¿Cuándo ganó Independiente su 4ta copa Libertadores?",
+    "posibles_respuestas": ["1972", "1973", "1974", "1975"],
+    "respuesta_correcta": "1973",
     "nivel": 10,
-    "pista": "Tiene un símbolo similar a la letra Y."
+    "pista": "Fue su segundo bicampeonato"
   },
   {
     "id": 48,
@@ -520,11 +520,11 @@
   {
     "id": 53,
     "monto_premio": 64000,
-    "pregunta": "¿Cuál es la capital de Canadá?",
-    "posibles_respuestas": ["Toronto", "Montreal", "Vancouver", "Ottawa"],
-    "respuesta_correcta": "Ottawa",
+    "pregunta": "¿Qué película fue más taquillera?",
+    "posibles_respuestas": ["El rey león", "Frozen 2", "Jurassic World", "Rápidos y Furiosos 7"],
+    "respuesta_correcta": "Jurassic World",
     "nivel": 11,
-    "pista": "No es la ciudad más grande del país."
+    "pista": "Se estrenó en 2015"
   },
   {
     "id": 54,

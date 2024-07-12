@@ -22,15 +22,11 @@ lista_botones = cargar_botones(ventana)
 
 lista_comodines = cargar_comodines()
 
-
-
 sonido = cargar_sonidos(r"sonidos\musica_fondo.mp3", r"sonidos\sonido_acierto.mp3", r"sonidos\respuesta_mal.mp3")
 
-
-
 cronometro = Cronometro(30)
-lista_score = cargar_matriz_csv(r"datos\score.csv")
 
+lista_score = cargar_matriz_csv(r"datos\score.csv")
 
 pregunta = Pregunta()
 
@@ -65,7 +61,6 @@ while switches["bucle_principal"]:
     pygame.display.update()
 
     clock.tick(60)
-
 
 pygame.quit()
 

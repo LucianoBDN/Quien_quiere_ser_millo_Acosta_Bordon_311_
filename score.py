@@ -104,6 +104,15 @@ def agregar_puntuaciones(lista_puntuaciones:list[list], nueva_puntuacion: list):
 
 
 def agregar_jugador_highscore(nombre: str, putuacion: int, lista_score:list[list], path: str, ):
+    """Agrega los datos del jugador y la puntuacion a la lista de highscore de top 5 jugadores
+    utilizando funciones creadas
+
+    Args:
+        nombre (str):nombre del jugador
+        putuacion (int): puntuacion del jugador
+        lista_score (list[list]): lista de jugadores
+        path (str): ruta donde se carga la matriz de jugadores
+    """
 
 
     nueva_puntuacion = [nombre, putuacion]

@@ -9,6 +9,14 @@ from imagen import *
 
 
 def pantalla_menu_principal(ventana, dict_switches: dict, lista_botones: list, lista_eventos: list):
+        """Muestra todo lo grafico que se ve en el menu principal
+
+        Args:
+            ventana (suface): superficie donde se vera el menu
+            dict_switches (dict): _description_
+            lista_botones (list): _description_
+            lista_eventos (list): _description_
+        """
         
 
         if dict_switches['menu_principal'] == True:
