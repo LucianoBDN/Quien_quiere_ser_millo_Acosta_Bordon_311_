@@ -3,8 +3,11 @@ import pygame
 from comodin import Comodin
 
 
+#Carga la lista con los botones necesarios del juego
 
 cargar_botones = lambda ventana: [
+
+
     Boton(ventana, "boton_jugar", 560, 300, 150, 50, (28, 99, 162), (18, 79, 134), (18, 79, 134), "Jugar", pygame.font.SysFont("Arial", 30)),
     Boton(ventana, "boton_score", 560, 400, 150, 50, (28, 99, 162), (18, 79, 134), (18, 79, 134), "Highscore", pygame.font.SysFont("Arial", 30)),
     Boton(ventana, "boton_salir", 560, 500, 150, 50, (28, 99, 162), (18, 79, 134), (18, 79, 134), "Salir", pygame.font.SysFont("Arial", 30)),
@@ -21,6 +24,8 @@ cargar_botones = lambda ventana: [
 ]
 
 
+##Carga las banderas que utilizamos en el juego
+
 cargar_switches = lambda: {
     'bucle_principal': True,
     'menu_principal': True,
@@ -35,6 +40,7 @@ cargar_switches = lambda: {
     'escribir': True
 }
 
+## carga los comodines que usamos en el juego
 cargar_comodines = lambda: [
     Comodin("comodin_publico"),
     Comodin("comodin_llamada"),

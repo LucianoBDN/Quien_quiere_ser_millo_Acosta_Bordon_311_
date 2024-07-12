@@ -1,6 +1,6 @@
 import random
 from texto import *
-import pygame
+
 
 def seleccionar_pregunta(nivel_jugador: int, preguntas: list[dict]) -> dict:
     """generera numeros ramdon de preguntas para compararlas con el id 

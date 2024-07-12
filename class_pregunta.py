@@ -54,6 +54,8 @@ class Pregunta:
         self.pista = pregunta_final['pista']
 
     def reiniciar_pregunta(self):
+        """reinicia la pregunta con los valores default
+        """
         
         self.id = None
         self.monto_premio = None

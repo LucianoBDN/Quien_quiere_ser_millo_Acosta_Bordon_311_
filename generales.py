@@ -1,26 +1,5 @@
 import pygame
-import random
 from texto import *
-
-# Definir la función comodin_publico_barras
-
-# def generar_lista_alturas():
-#     """genera numeros aleatorios los cuales se van a utilizar
-#     para graficar rectangulos con distintas alturas
-#     el for itera cuatro veces y agrega a lista aturas la altura que se genero
-#     en cada vuelta
-
-#     Returns:
-#         list: lista de alturas
-#     """
-
-#     lista_alturas = []
-
-#     for i in range(4):
-#         height = random.randint(30,100)
-#         lista_alturas.append(height)
-
-#     return lista_alturas
 
 
 
@@ -73,17 +52,17 @@ def porcentaje_barras(valores:list):
     return porcentajes
 
 
-# def actualizar_texto_respuestas(lista_botones, lista_respuestas):
 
-        #  for boton in lista_botones:
-
-        #      if boton.nombre == 'boton_a' or boton.nombre == 'boton_b' or boton.nombre == 'boton_c' or boton.nombre == 'boton_d':
-
-        #          for respuesta in lista_respuestas:
-
-        #              boton.texto = respuesta
 
 def reiniciar_switches(switches:dict):
+    """devuelve los swuitches a su su estado inicial
+
+    Args:
+        switches (dict): diccionario con banderas
+
+    Returns:
+        dict: diccionario con banderas
+    """
 
     switches['bucle_principal'] = True
     switches['menu_principal'] = True
@@ -100,11 +79,22 @@ def reiniciar_switches(switches:dict):
     return switches
 
 
-def cargar_sonidos(path_musica, path_correcto, path_perdiste):
+def cargar_sonidos(path_musica: str, path_correcto: str, path_perdiste: str):
+    """carga los sonidos que utilizamos en el juego
 
-    musica_fondo = pygame.mixer.music.load(r"sonidos\musica_fondo.mp3")
-    sonido_respuesta_mal = pygame.mixer.Sound(r"sonidos\respuesta_mal.mp3")
-    sonido_respuesta_bien = pygame.mixer.Sound(r"sonidos\sonido_acierto.mp3")
+    Args:
+        path_musica (str): _description_
+        path_correcto (str): _description_
+        path_perdiste (str): _description_
+
+    Returns:
+        _type_: _description_
+    """
+
+
+    musica_fondo = pygame.mixer.music.load(path_musica)
+    sonido_respuesta_mal = pygame.mixer.Sound(path_perdiste)
+    sonido_respuesta_bien = pygame.mixer.Sound(path_correcto)
     sonido_respuesta_bien.set_volume(0.2)
     pygame.mixer.music.play(-1)
     pygame.mixer_music.set_volume(0.2)

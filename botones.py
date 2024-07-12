@@ -137,6 +137,11 @@ class Boton:
         self.switch_rojo = False
         self.switch_verde = False
     
-    def cambiar_texto(self, texto):
+    def cambiar_texto(self, texto: str):
+        """cambia el texto del boton
+
+        Args:
+            texto (str): texto por cual se cambiara
+        """
 
         self.texto = texto
