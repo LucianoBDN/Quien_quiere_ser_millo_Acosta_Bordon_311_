@@ -32,7 +32,7 @@ def seleccionar_pregunta(nivel_jugador: int, preguntas: list[dict]) -> dict:
     return pregunta_final
 
 
-def manejar_niveles(boton, pregunta, diccionario_switches) -> bool:
+def manejar_niveles(boton, pregunta, diccionario_switches, sonido_respuesta_mal) -> bool:
     """comprueba si el texto de la respuesta es igual texto que recibe el boton
     si lo es cambia el switch_verde a True y switch_default a False
     si no cambia el switch_rojo a True y switch_default a False
@@ -54,6 +54,7 @@ def manejar_niveles(boton, pregunta, diccionario_switches) -> bool:
     else:                               
         boton.switch_default = False
         boton.switch_rojo = True
+        sonido_respuesta_mal.play()
         diccionario_switches['resultado_respuesta'] = False
         diccionario_switches['jugando'] = False
        

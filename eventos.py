@@ -66,7 +66,7 @@ def manejar_eventos_menu_principal(diccionario_switches: dict, cronometro: objec
     return diccionario_switches
 
 
-def manejar_eventos_respuesta(diccionario_switches: dict, jugador: object, cronometro: object, lista_eventos: list, lista_botones: list, pregunta: object):
+def manejar_eventos_respuesta(diccionario_switches: dict, jugador: object, cronometro: object, lista_eventos: list, lista_botones: list, pregunta: object, sonido_respuesta_mal):
     
     for evento in lista_eventos:
     
@@ -82,23 +82,23 @@ def manejar_eventos_respuesta(diccionario_switches: dict, jugador: object, crono
                                 
                                 case "boton_a":                                
                                     if boton.texto !="":
-                                        manejar_niveles(boton, pregunta, diccionario_switches)
+                                        manejar_niveles(boton, pregunta, diccionario_switches, sonido_respuesta_mal)
                                         cronometro.reiniciar()
 
                                 case "boton_b":
                                     if boton.texto !="":
-                                        manejar_niveles(boton, pregunta, diccionario_switches)
+                                        manejar_niveles(boton, pregunta, diccionario_switches, sonido_respuesta_mal)
                                         cronometro.reiniciar()
 
                                 case "boton_c":
                                     if boton.texto !="":
-                                        manejar_niveles(boton, pregunta, diccionario_switches)
+                                        manejar_niveles(boton, pregunta, diccionario_switches, sonido_respuesta_mal)
                                         cronometro.reiniciar()
 
 
                                 case "boton_d":
                                     if boton.texto !="":
-                                        manejar_niveles(boton, pregunta, diccionario_switches)
+                                        manejar_niveles(boton, pregunta, diccionario_switches, sonido_respuesta_mal)
                                         cronometro.reiniciar()
 
 

@@ -30,7 +30,7 @@ def pantalla_menu_principal(ventana, dict_switches: dict, lista_botones: list, l
 
 
 
-def pantalla_juego(ventana, dict_switches: dict, score: int, texto_cuadro_pregunta: str, lista_botones: list, lista_comodines, pregunta: object, jugador: object, lista_eventos:list, cronometro) :
+def pantalla_juego(ventana, dict_switches: dict, score: int, texto_cuadro_pregunta: str, lista_botones: list, lista_comodines: list, pregunta: object, jugador: object, lista_eventos:list, cronometro: object) :
 
         
         if dict_switches['menu_principal'] == False and dict_switches['jugando'] == True:
@@ -87,7 +87,7 @@ def mostrar_botones_pausa(lista_botones, jugador, lista_eventos):
 
 
 
-def mostrar_respuestas(lista_botones: list, path_boton: str,path_boton_verde: str, path_boton_rojo: str, pregunta):
+def mostrar_respuestas(lista_botones: list, path_boton: str, path_boton_verde: str, path_boton_rojo: str, pregunta: object):
         
         for boton in lista_botones:
 
@@ -162,7 +162,7 @@ def mostrar_respuestas(lista_botones: list, path_boton: str,path_boton_verde: st
 
                         
                 
-def mostrar_comodines(ventana, lista_comodines:list, lista_botones: list, path_comodin_publico, path_comodin_llamada, path_comodin_cincuenta, pregunta):
+def mostrar_comodines(ventana, lista_comodines:list, lista_botones: list, path_comodin_publico, path_comodin_llamada: str, path_comodin_cincuenta: str, pregunta: object):
         
         for boton in lista_botones:
 
@@ -197,7 +197,7 @@ def mostrar_comodines(ventana, lista_comodines:list, lista_botones: list, path_c
 
 
 
-def pantalla_perdiste(ventana, lista_botones: list, lista_eventos, switches, cronometro: object):
+def pantalla_perdiste(ventana, lista_botones: list, lista_eventos, switches: dict, cronometro: object):
 
         tiempo_restante = cronometro.actualizar()
 
@@ -209,7 +209,7 @@ def pantalla_perdiste(ventana, lista_botones: list, lista_eventos, switches, cro
                 presentador_perdiste.voltear_imagen(presentador_perdiste.posicion)
                 presentador_perdiste.dibujar(ventana)
 
-                escribir_texto(ventana,"PERDISTE SOS HORRIBLE",pygame.font.SysFont("Arial",50, bold=True), (255,255,255), 300, 600)
+                escribir_texto(ventana,"PERDISTE",pygame.font.SysFont("Arial",50, bold=True), (255,255,255), 300, 600)
 
                 for boton in lista_botones:
                         if boton.nombre == "boton_volver":
@@ -217,7 +217,7 @@ def pantalla_perdiste(ventana, lista_botones: list, lista_eventos, switches, cro
                                 Boton.manejar_evento(boton,lista_eventos)
 
 
-def pantalla_score(ventana, lista_score, switches, lista_botones, lista_eventos):
+def pantalla_score(ventana, lista_score: list, switches: dict, lista_botones: list, lista_eventos):
 
         y = 90
 
